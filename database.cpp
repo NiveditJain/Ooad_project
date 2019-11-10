@@ -101,8 +101,6 @@ int authenticate_user(string email,string password)
     copy(email.begin(),email.end(),string_email);
     string_email[email.size()]='\0';
 
-    char moderator[51]="moderator";
-
     if(last_find_email.type==-1)
         return -1;
     

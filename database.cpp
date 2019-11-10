@@ -3,6 +3,8 @@
 #include<string.h>
 using namespace std;
 
+char moderator_pass[51]="moderator1@iitjcc";
+
 struct auth_struct
 {
     char email[51];
@@ -99,10 +101,7 @@ int authenticate_user(string email,string password)
     copy(email.begin(),email.end(),string_email);
     string_email[email.size()]='\0';
 
-    if(!strcmp(string_email,last_find_email.email_pass.email)==0)
-    {
-        get_email_pass(string_email);
-    }
+    char moderator[51]="moderator";
 
     if(last_find_email.type==-1)
         return -1;
@@ -111,8 +110,36 @@ int authenticate_user(string email,string password)
     copy(password.begin(),password.end(),string_pass);
     string_pass[password.size()]='\0';
 
+    if(!strcmp(string_email,last_find_email.email_pass.email)==0)
+    {
+        get_email_pass(string_email);
+    }
+
+    char moderator[51]="moderator";
+    if(strcmp(moderator,string_email)==0)
+    {
+        if(strcmp(moderator_pass,string_pass)==0)
+        {
+            return 1;
+        }
+        else
+            return 0;
+    }
+
     if(strcmp(string_pass,last_find_email.email_pass.password)==0)
         return 1;
     else    
         return 0;
+}
+
+
+// returns the last type of user used in 
+// get_email_function
+// 0-> for customer
+// 1-> shopkeer
+// 2-> moderator
+// -1-> error
+int get_user_type()
+{
+    return last_find_email.type;
 }

@@ -88,3 +88,31 @@ auth_info get_email_pass(char email[])
 }  
 
 // verify email pass
+// verify user ID and password
+// returns 1 if correct
+// matches with last search
+// returns 0 in case of do not match
+// returns -1 if error
+int authenticate_user(string email,string password)
+{
+    char string_email[51];
+    copy(email.begin(),email.end(),string_email);
+    string_email[email.size()]='\0';
+
+    if(!strcmp(string_email,last_find_email.email_pass.email)==0)
+    {
+        get_email_pass(string_email);
+    }
+
+    if(last_find_email.type==-1)
+        return -1;
+    
+    char string_pass[51];
+    copy(password.begin(),password.end(),string_pass);
+    string_pass[password.size()]='\0';
+
+    if(strcmp(string_pass,last_find_email.email_pass.password)==0)
+        return 1;
+    else    
+        return 0;
+}

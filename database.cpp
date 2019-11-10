@@ -4,6 +4,8 @@
 #include<fstream>
 #include<string.h>
 #include "utilities.cpp"
+#include "classes.cpp"
+#include "main.cpp"
 using namespace std;
 
 char moderator_pass[51]="moderator1@iitjcc";
@@ -37,54 +39,56 @@ auth_info get_email_pass(char email[])
     to_return.email_pass.password[0]='\0';
     int present_offset=1;    
 
-    ifstream customer;
-    customer.open("database/oath/customer.oath",ios::binary);
+    ifstream infile;
+    infile.open("database/oath/customer1.oath",ios::in|ios::binary);
 
-    if(!customer.is_open())
+    if(!infile.is_open())
     {
         to_return.type=-2;
         last_find_email=to_return;
         return to_return;
     }
     
-    auth_struct temp;
+    customer c;auth_struct temp;
 
-    while(customer.read((char *)&temp,sizeof(auth_struct)))
+    while(infile.read((char *)&c,sizeof(customer)))
     {
-        if(strcmp(temp.email,email)==0)
-        {
+        if(strcmp(c.email,email)==0)
+        {   strcpy(temp.email,c.email);
+            strcpy(temp.password,c.password);
             to_return.email_pass=temp;
             to_return.type=0;
             to_return.offset=present_offset;
-            customer.close();
+            infile.close();
             last_find_email=to_return;
             return to_return;
         }
         present_offset++;
     }
      
-    customer.close();
+    infile.close();
 
     present_offset=1;
 
-    ifstream shopkeeper;
-    shopkeeper.open("database/oath/customer.oath",ios::binary);
+    ifstream infile;
+    infile.open("database/oath/shopkeeper1.oath",ios::in,ios::binary);
 
-    if(!shopkeeper.is_open())
+    if(!infile.is_open())
     {
         to_return.type=-2;
         last_find_email=to_return;
         return to_return;
     }
-
-    while(shopkeeper.read((char *)&temp,sizeof(auth_struct)))
+    shopkeeper s;
+    while(shopkeeper.read((char *)&s,sizeof(shopkeeper)))
     {
-        if(strcmp(temp.email,email)==0)
-        {
+        if(strcmp(s.email,email)==0)
+        {strcpy(temp.email,c.email);
+            strcpy(temp.password,c.password);
             to_return.email_pass=temp;
             to_return.type=1;
             to_return.offset=present_offset;
-            shopkeeper.close();
+            infile.close();
             last_find_email=to_return;
             return to_return;
         }

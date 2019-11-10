@@ -5,5 +5,6 @@
 using namespace std;
 
 int main(){
-    get_email();
+    string mail=get_email();
+    cout<<mail;
 }

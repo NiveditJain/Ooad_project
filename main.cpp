@@ -1,8 +1,9 @@
 #include<iostream>
 #include "terminal.cpp"
 #include "database.cpp"
+#include "utilities.cpp"
 using namespace std;
 
 int main(){
-    string app=get_password();
+    get_email();
 }

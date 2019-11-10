@@ -1,6 +1,9 @@
+#ifdef database_cpp
+#define database_cpp
 #include<iostream>
 #include<fstream>
 #include<string.h>
+#include "utilities.cpp"
 using namespace std;
 
 char moderator_pass[51]="moderator1@iitjcc";
@@ -108,6 +111,8 @@ int authenticate_user(string email,string password)
     copy(password.begin(),password.end(),string_pass);
     string_pass[password.size()]='\0';
 
+    encrypt(string_pass);
+
     if(!strcmp(string_email,last_find_email.email_pass.email)==0)
     {
         get_email_pass(string_email);
@@ -141,3 +146,5 @@ int get_user_type()
 {
     return last_find_email.type;
 }
+
+#endif

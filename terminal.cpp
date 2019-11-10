@@ -1,3 +1,5 @@
+#ifndef terminal_cpp
+#define terminal_cpp
 #include<iostream>
 using namespace std;
 
@@ -83,3 +85,5 @@ string get_password(int desrired_length=8)
     string empty_string;
     return empty_string;
 }
+
+#endif

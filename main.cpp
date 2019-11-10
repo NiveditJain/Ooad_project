@@ -2,6 +2,7 @@
 #include "terminal.cpp"
 #include "database.cpp"
 #include "utilities.cpp"
+#include "classes.cpp"
 using namespace std;
 
 int main(){

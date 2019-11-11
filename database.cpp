@@ -1,3 +1,5 @@
+#ifndef database_cpp
+#define database_cpp
 #include<bits/stdc++.h>
 using namespace std;
 #include "customer.cpp"
@@ -54,3 +56,4 @@ void register_shopkeeper(Shopkeeper temp,string email)
     file.write((char*)&temp,sizeof(Shopkeeper));
     file.close();
 }
+#endif

@@ -1,4 +1,5 @@
-
+#ifndef user_cpp
+#define user_cpp
 typedef unsigned long long ulli ;
 class User
 {
@@ -8,4 +9,4 @@ public:
     char name[20];
     ulli contact_number;
 };
-
+#endif

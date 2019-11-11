@@ -5,15 +5,6 @@ using namespace std;
 typedef unsigned long long ulli;
 //#include "user.cpp"
 
-class User
-{
-public:
-    char email[51];
-    char password[51];
-    char name[20];
-    ulli contact_number;
-};
-
 class Shopkeeper: public User
 {
   public:

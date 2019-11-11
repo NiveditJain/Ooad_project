@@ -21,7 +21,7 @@ int main()
    if(email.size())
    {
       cout<<"Welcome Customer";
-      if(!get_customer(email))
+      if(get_customer(email).name[0]=='\0')
       {
       cout<<"You need to register first";
       Customer c;cout<<"Enter Password:\n";

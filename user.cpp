@@ -8,7 +8,7 @@ public:
     char email[51];
     char password[51];
     char name[20];
-    number contact_number;
+    ulli contact_number;
 };
 
 #endif

@@ -1,7 +1,5 @@
-#ifndef terminal_cpp
-#define terminal_cpp
-#include "all_includes"
-
+#include<bits/stdc++.h>
+using namespace std;
 // inputs user password in hidden mode 
 // and returns as string
 string input_password()
@@ -85,4 +83,3 @@ string get_password(int desrired_length=8)
     return empty_string;
 }
 
-#endif

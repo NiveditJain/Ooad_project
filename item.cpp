@@ -1,6 +1,4 @@
-#ifndef item_cpp
-#define item_cpp
-#include "all_includes"
+
 
 class Item
 {
@@ -28,4 +26,3 @@ class Item
         int quantity;  
 };
 
-#endif

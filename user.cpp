@@ -1,7 +1,5 @@
-#ifndef user_cpp
-#define user_cpp
-#include "all_includes"
 
+typedef unsigned long long ulli ;
 class User
 {
 public:
@@ -11,4 +9,3 @@ public:
     ulli contact_number;
 };
 
-#endif

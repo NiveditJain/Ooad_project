@@ -1,7 +1,6 @@
-#ifndef utilities_cpp
-#define utilities_cpp
-#include "all_includes"
 
+#include<bits/stdc++.h>
+using namespace std;
 bool check_email_iitj(char input[]){
     char *ptr;
         ptr= strstr(input,"@iitj.ac.in"); //searches input array for "@iitj.ac.in" string
@@ -77,4 +76,3 @@ char encrypt(char str[])
         str[i]=str[i]-27;
 }
 
-#endif

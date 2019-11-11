@@ -83,3 +83,8 @@ string get_password(int desrired_length=8)
     return empty_string;
 }
 
+void initial_display()
+{
+    cout<<"\n > Welcome to Online Delivery System-(fbay)";
+    cout<<"\n > It is a online delivery system especially designed for tech geeks";
+}

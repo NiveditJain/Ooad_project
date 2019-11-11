@@ -12,6 +12,8 @@ class Item
         char keywords[10][31];
 
     public:
+        //name of the item
+        char name[51];
 
         // price of item
         int price;

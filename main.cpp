@@ -9,9 +9,21 @@
 #include "deliveryboy.cpp"
 using namespace std;
 typedef unsigned long long int ulli;
-
 int main()
 {
-   initial_display();
-
+   string email=initial_display();
+   Customer customer;
+   Shopkeeper shopkeeper;
+   // if(email.size())
+   // {
+   //    // cout<<"Welcome Customer";
+   //    if(get_customer(email).name[0]=='\0')
+   //    {
+   //    cout<<"You need to register first";
+   //    Customer c;cout<<"Enter Password:\n";
+   //    cin>>c.password;cout<<"Enter your name:\n";
+   //    cin>>c.name;cout<<"Enter your contact number:";
+   //    cin>>c.contact_number;
+   //    }
+   // }
 }

@@ -1,4 +1,5 @@
-
+#ifndef utilities_cpp
+#define utilities_cpp
 #include<bits/stdc++.h>
 using namespace std;
 bool check_email_iitj(char input[]){
@@ -76,3 +77,4 @@ char encrypt(char str[])
         str[i]=str[i]-27;
 }
 
+#endif

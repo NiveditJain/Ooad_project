@@ -1,5 +1,9 @@
+#ifndef terminal_cpp
+#define terminal_cpp
 #include<bits/stdc++.h>
 using namespace std;
+#include "utilities.cpp"
+
 // inputs user password in hidden mode 
 // and returns as string
 string input_password()
@@ -83,8 +87,12 @@ string get_password(int desrired_length=8)
     return empty_string;
 }
 
-void initial_display()
+string initial_display()
 {
-    cout<<"\n > Welcome to Online Delivery System-(fbay)";
-    cout<<"\n > It is a online delivery system especially designed for tech geeks";
+    cout<<"\n> Welcome to Online Delivery System-(fbay)\n";
+    cout<<"> It is a online delivery system especially designed for tech geeks\n";
+    cout<<"> To continue enter your email ID :: ";
+    return(get_email());
 }
+
+#endif

@@ -1,7 +1,6 @@
 #ifndef terminal_cpp
 #define terminal_cpp
-#include<iostream>
-using namespace std;
+#include "all_includes"
 
 // inputs user password in hidden mode 
 // and returns as string

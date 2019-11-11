@@ -1,8 +1,6 @@
 #ifndef utilities_cpp
 #define utilities_cpp
-#include<iostream>
-#include<cstring>
-using namespace std;
+#include "all_includes"
 
 bool check_email_iitj(char input[]){
     char *ptr;

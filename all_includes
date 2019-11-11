@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+#include "customer.cpp"
+#include "database.cpp"
+#include "item.cpp"
+#include "moderator.cpp"
+#include "shop.cpp"
+#include "shopkeeper.cpp"
+#include "terminal.cpp"
+#include "user.cpp"
+#include "utilities.cpp"
+typedef unsigned long long int number;

@@ -1,31 +1,29 @@
 #ifndef item_cpp
 #define item_cpp
-#include <bits/stdc++.h>
-using namespace std;
+#include "all_includes"
 
-class item
+class Item
 {
-protected:
-    int price;
-    vector<string> keywords;
-    string description;
-    long long item_ID;
-    int quantity_available;
-public:
-    item();
-    bool match_keyword(string);
+        // number of keywords under usage
+        int number_of_keyword;
+
+        // 10 key possible in each file 
+        // 30 characters per key word
+        char keywords[10][31];
+
+    public:
+
+        // price of item
+        int price;
     
+        // description of each time maximum lenght 100 characters
+        char description[1000];
+
+        // unique ID for each item
+        long long int item_ID;
+
+        // quantity of each item
+        int quantity;  
 };
-
-item::item()
-{
-}
-
-bool item :: match_keyword(string s){
-
-}
-
-
-
 
 #endif

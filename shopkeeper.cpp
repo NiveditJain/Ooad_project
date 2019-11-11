@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ulli;
-
+#include "user.cpp"
 class Shopkeeper: public User
 {
   public:

@@ -13,11 +13,12 @@ struct Pair
 
 
 struct cart{
+  int no_of_items;
   pair<item, int> item_quantity[10];
   int cost(){
     int price=0;
-    for(auto it=item_quantity.begin();it!=item_quantity.end();it++)
-      price+=(it->first->price) * (it->second);
+    for(int i=0;i<=no_of_items;i++)
+      price+=(item_quantity[i].first->price) * (item_quantity[i].second);
     return price;
   }
 };

@@ -14,11 +14,28 @@ class transaction{
     shop shp;
     int payment_details;
     bool payment_status;
+    string delivery_place;
+    string delivery_boy;
     public:
+    transaction();
     void checkout();
+    void get_details();
+    void is_possible();
 };
 
+transaction :: transaction(){
+    payment_details=cust.c.cost();
+}
+
 void transaction :: checkout(){
+
+}
+
+void transaction :: get_details(){
+
+}
+
+void transaction :: is_possible(){
 
 }
 

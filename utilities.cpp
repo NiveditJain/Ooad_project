@@ -50,7 +50,7 @@ string get_email()
 
     string empty;
 
-    if(second_part_length>29 || count_dot==0)
+    if(second_part_length>29 || count_dot==0||count_at!=1)
     {
         cout<<" > not a valid email";
         return empty;

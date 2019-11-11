@@ -74,22 +74,22 @@ string get_password(int desrired_length=8)
     if(error_type==1)
         return password;
     if(error_type==2)
-        cout<<"\n > Password length must be >="<<desrired_length;
+        cout<<"> Password length must be >="<<desrired_length<<endl;
     if(error_type==3)
-        cout<<"\n > Password must contain at least an upper case character";
+        cout<<"> Password must contain at least an upper case character\n";
     if(error_type==4)
-        cout<<"\n > Password must contain at least a lower case character";
+        cout<<"> Password must contain at least a lower case character\n";
     if(error_type==5)
-        cout<<"\n > Password must contain at least a special(~!@#$%^&*()_+-={}|?/><.,) character";
+        cout<<"> Password must contain at least a special(~!@#$%^&*()_+-={}|?/><.,) character\n";
     if(error_type==6)
-        cout<<"\n > Password must contain at least a number";
+        cout<<"> Password must contain at least a number\n";
     string empty_string;
     return empty_string;
 }
 
 string initial_display()
 {
-    cout<<"\n> Welcome to Online Delivery System-(fbay)\n";
+    cout<<"> Welcome to Online Delivery System-(fbay)\n";
     cout<<"> It is a online delivery system especially designed for tech geeks\n";
     cout<<"> To continue enter your email ID :: ";
     return(get_email());

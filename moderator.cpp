@@ -3,14 +3,16 @@
 
 class Moderator
 {
-    char password[51];
+    string password;
     public:
-    char email[51];
+    string email;
 
     Moderator()
     {
-        char temp_email[51]="moderator";
-        char temp_password[51]="moderator@iitj#cc01";
+        string temp_email="moderator";
+        string temp_password="moderator@iitj#cc01";
+        password=temp_password;
+        email=temp_email;
     }
 };
 

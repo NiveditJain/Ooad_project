@@ -16,7 +16,7 @@ bool verify_email(char input[]){
     string empty_email;
     if(check_email_iitj(input)==false)
     {
-        cout<<" > this email does not belong to iitj!";
+        cout<<"> this email does not belong to iitj!\n";
         return false;
     }
     return true;
@@ -53,13 +53,13 @@ string get_email()
 
     if(second_part_length>29 || count_dot==0||count_at!=1)
     {
-        cout<<" > not a valid email";
+        cout<<"> not a valid email\n";
         return empty;
     }
 
     if(!count_at==1)
     {
-        cout<<" > not a vaild email";
+        cout<<"> not a vaild email\n";
         return empty;
     }
 

@@ -4,6 +4,7 @@
 using namespace std;
 #include "customer.cpp"
 #include "shopkeeper.cpp"
+#include "moderator.cpp"
 
 Customer get_customer(string email)
 {
@@ -14,7 +15,6 @@ Customer get_customer(string email)
 
     if(!file)
     {
-        file.close();
         return temp;
     }
 
@@ -32,7 +32,6 @@ Shopkeeper get_shopkeeper(string email)
 
     if(!file)
     {
-        file.close();
         return temp;
     }
 
@@ -56,4 +55,30 @@ void register_shopkeeper(Shopkeeper temp,string email)
     file.write((char*)&temp,sizeof(Shopkeeper));
     file.close();
 }
+
+bool database_present(string email)
+{
+    string path = "database/customer_data/"+email+".ooad";
+    
+    fstream file1(path.c_str());
+
+    if(file1)
+    {
+        file1.close();
+        return true;
+    }
+
+    path="database/shopkeeper_data/"+email+".ooad";
+
+    fstream file2(path.c_str());
+
+    if(file2)
+    {
+        file2.close();
+        return true;
+    } 
+
+    return false;   
+}
+
 #endif

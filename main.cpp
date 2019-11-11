@@ -12,8 +12,10 @@ typedef unsigned long long int ulli;
 int main()
 {
    string email=initial_display();
-   Customer customer;
-   Shopkeeper shopkeeper;
+   if(!database_present(email))
+      register_account(email);
+   // Customer customer;
+   // Shopkeeper shopkeeper;
    // if(email.size())
    // {
    //    // cout<<"Welcome Customer";

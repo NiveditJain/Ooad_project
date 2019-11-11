@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef unsigned long long ulli;
+
+class Shopkeeper: public User
+{
+  public:
+  char shop_name[51];
+  ulli account_name;
+  char IFSC_code[21];
+  ulli holiday_list[366];
+  ulli pending_amount;
+};

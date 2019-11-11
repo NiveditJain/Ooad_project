@@ -8,4 +8,6 @@
 #include "terminal.cpp"
 #include "user.cpp"
 #include "utilities.cpp"
+
+// always use this in place of int or long long will be easy to handle
 typedef unsigned long long int number;

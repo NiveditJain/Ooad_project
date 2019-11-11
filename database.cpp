@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 #include "customer.cpp"
+#include "shopkeeper.cpp"
+
 Customer get_customer(string email)
 {
     Customer temp;
@@ -19,27 +21,36 @@ Customer get_customer(string email)
     return temp;
 }
 
-// Shopkeeper get_shopkeeper(string email)
-// {
-//     Shopkeeper temp;
-//     temp.name[0];
-//     email="database/shopkeeper_data/"+email;
-//     filestream file(email.str());
+Shopkeeper get_shopkeeper(string email)
+{
+    Shopkeeper temp;
+    temp.name[0]='\0';
+    email="database/shopkeeper_data/"+email+".ooad";
+    fstream file(email.c_str());
 
-//     if(!file)
-//         return temp;
-    
-//     file.read((char *)&temp,sizeof(Shopkeeper));
-//     return temp;
-// }
+    if(!file)
+    {
+        file.close();
+        return temp;
+    }
 
-void register_Customer(Customer temp,string email)
-{//cout<<temp.name[0];
-    
+    file.read((char *)&temp,sizeof(Shopkeeper));
+    file.close();
+    return temp;    
+}
+
+void register_customer(Customer temp,string email)
+{    
     string path="database/customer_data/"+email+".ooad";
     ofstream file(path.c_str(),ios::binary | ios::out);
-   if(!file)cout<<"file not found";
     file.write((char*)&temp,sizeof(Customer));
     file.close();
 }
 
+void register_shopkeeper(Shopkeeper temp,string email)
+{    
+    string path="database/shopkeeper_data/"+email+".ooad";
+    ofstream file(path.c_str(),ios::binary | ios::out);
+    file.write((char*)&temp,sizeof(Shopkeeper));
+    file.close();
+}

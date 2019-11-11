@@ -1,3 +1,5 @@
+#ifndef shopkeeper_cpp
+#define shopkeeper_cpp
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ulli;
@@ -11,3 +13,4 @@ class Shopkeeper: public User
   ulli holiday_list[366];
   ulli pending_amount;
 };
+#endif

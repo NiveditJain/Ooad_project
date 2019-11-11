@@ -31,7 +31,7 @@ class Transaction{
 
 
 //calculating grand total
-ulli transaction :: total_price(){ 
+ulli Transaction :: total_price(){ 
    ulli totalprice=0;
     for(ulli i=0;i<20;i++)
     {

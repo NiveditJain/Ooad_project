@@ -83,11 +83,29 @@ void convert(string str,char data[])
     data[str.size()]='\0';
 }
 
-int valid_phone(string phone_number)
+string valid_phone_size(string phone_number)
 {
+    string empty;
     if(phone_number.size()!=10)
-        return false;
-    return true;
+    {
+        cout<<"> Phone number be exactly of 10 digits\n";
+        return empty;
+    }    
+    return phone_number;
+}
+
+string all_digits(string phone_number)
+{
+    string empty;
+    for(char ch: phone_number)
+    {
+        if(!(ch>='0' && ch<='9'))
+        {
+            cout<<"> It must only be a digit";
+            return empty;
+        }
+    }
+    return phone_number;
 }
 
 #endif

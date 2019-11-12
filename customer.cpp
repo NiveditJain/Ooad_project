@@ -33,7 +33,7 @@ class Customer : public User
         copy(password.begin(),password.end(),string_password);
         string_password[password.size()]='\0';
 
-        // encrypt(string_password);
+        encrypt(string_password);
 
         if(strcmp(string_password,Customer::password)==0)
             return true;
@@ -45,6 +45,7 @@ class Customer : public User
     {
         copy(password.begin(),password.end(),Customer::password);
         Customer::password[password.size()]='\0';
+        encrypt(Customer::password);
     }
 
     Customer()
@@ -72,21 +73,23 @@ class Customer : public User
         }
         convert(name,Customer::name);
 
-        cout<<"> Enter your phone number(withput country code) :: ";
+        cout<<"> Enter your phone number (without country code) :: ";
         string phone_number;
         getline(cin,phone_number);
 
-        if(valid_phone(phone_number)==0)
+        phone_number=valid_phone_size(phone_number);
+        phone_number=all_digits(phone_number);
+
+        if(phone_number.length()==0)
         {
-            cout<<"> Invalid Phone Number\n";
             return -1;
         }
 
         convert(phone_number,Customer::contact_number);
 
         cout<<"> Enter the password for your account\n";
-        cout<<"    It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
-        cout<<"Password :: ";
+        cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
+        cout<<"> Password :: ";
 
         string password=get_password();
 
@@ -94,11 +97,6 @@ class Customer : public User
             return -1;
         
         set_password(password);
-    }
-
-    void print_pass()
-    {
-        cout<<name;
     }
 };
 

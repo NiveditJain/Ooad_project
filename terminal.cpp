@@ -12,6 +12,7 @@ string input_password()
     system("stty -echo");
     getline(cin,password);
     system("stty echo");
+    cout<<endl;
     return password; 
 }
 

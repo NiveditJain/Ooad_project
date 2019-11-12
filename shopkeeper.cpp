@@ -42,31 +42,7 @@ class Shopkeeper: public User
 
     int get_details(string email)
     {
-        convert(email,Shopkeeper::email);
-
-        cout<<"> Enter your name :: ";
-        string name;
-        getline(cin,name);
-        if(name.length()==0)
-        {
-            return -1;
-        }
-        convert(name,Shopkeeper::name);
-
-        cout<<"> Enter your phone number(withput country code) :: ";
-        string phone_number;
-        getline(cin,phone_number);
-
-        if(valid_phone(phone_number)==0)
-        {
-            cout<<"> Invalid Phone Number\n";
-            return -1;
-        }
-
-        int number= (ulli)stoi(phone_number);
-        // Shopkeeper::contact_number=number;
-
-
+      
     }
 };
 #endif

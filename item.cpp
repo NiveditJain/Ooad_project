@@ -1,4 +1,5 @@
-
+#ifndef item_cpp
+#define item_cpp
 
 class Item
 {
@@ -26,3 +27,4 @@ class Item
         int quantity;  
 };
 
+#endif

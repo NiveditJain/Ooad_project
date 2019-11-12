@@ -14,6 +14,6 @@ class Moderator
         password=temp_password;
         email=temp_email;
     }
-};
+}moderator;
 
 #endif

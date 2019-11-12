@@ -56,7 +56,7 @@ void register_shopkeeper(Shopkeeper temp,string email)
     file.close();
 }
 
-bool database_present(string email)
+bool is_customer(string email)
 {
     string path = "database/customer_data/"+email+".ooad";
     
@@ -68,7 +68,12 @@ bool database_present(string email)
         return true;
     }
 
-    path="database/shopkeeper_data/"+email+".ooad";
+    return false;    
+}
+
+bool is_shopkeeper(string email)
+{
+    string path="database/shopkeeper_data/"+email+".ooad";
 
     fstream file2(path.c_str());
 
@@ -78,7 +83,30 @@ bool database_present(string email)
         return true;
     } 
 
-    return false;   
+    return false; 
+}
+
+bool is_moderator(string email)
+{
+    char string_email[51];
+    copy(email.begin(),email.end(),string_email);
+    string_email[email.size()]='\0';
+
+    if(strcmp(moderator.email.c_str(),string_email)==0)
+        return true;
+    
+    return false;
+}
+
+int register_user(string email)
+{
+    cout<<"> Entered email not found in our database. Do you want to register (y/n)? ";
+    char answer;
+    cin>>answer;
+    if(answer=='n')
+        return -1;
+    if(answer!='y')
+        cout<<"> No a valid choice terminating\n";
 }
 
 #endif

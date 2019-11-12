@@ -7,25 +7,23 @@
 #include "terminal.cpp"
 #include "utilities.cpp"
 #include "deliveryboy.cpp"
+#include "customer_portal.cpp"
+#include "shopkeeper_portal.cpp"
+#include "moderator_portal.cpp"
 using namespace std;
 typedef unsigned long long int ulli;
+
 int main()
 {
+   system("clear");
    string email=initial_display();
-   if(!database_present(email))
-      register_account(email);
-   // Customer customer;
-   // Shopkeeper shopkeeper;
-   // if(email.size())
-   // {
-   //    // cout<<"Welcome Customer";
-   //    if(get_customer(email).name[0]=='\0')
-   //    {
-   //    cout<<"You need to register first";
-   //    Customer c;cout<<"Enter Password:\n";
-   //    cin>>c.password;cout<<"Enter your name:\n";
-   //    cin>>c.name;cout<<"Enter your contact number:";
-   //    cin>>c.contact_number;
-   //    }
-   // }
+   if(email.size()==0)
+      return -1;
+   if(is_customer(email))
+      return customer_portal(email);
+   if(is_shopkeeper(email))
+      return shopkeeper_portal(email);
+   if(is_moderator(email))
+      return moderator_portal(email);
+   return register_user(email);
 }

@@ -13,6 +13,7 @@ class Shopkeeper: public User
   char IFSC_code[21];
   ulli holiday_list[366];
   ulli pending_amount;
+  ulli transactions_done;
 
   bool login(string password)
   {
@@ -34,10 +35,38 @@ class Shopkeeper: public User
     Shopkeeper::password[password.size()]='\0';
   }
 
-  int get_details()
-  {
-    
-  }
+    Shopkeeper()
+    {
+      transactions_done=0;
+    }
 
+    int get_details(string email)
+    {
+        convert(email,Shopkeeper::email);
+
+        cout<<"> Enter your name :: ";
+        string name;
+        getline(cin,name);
+        if(name.length()==0)
+        {
+            return -1;
+        }
+        convert(name,Shopkeeper::name);
+
+        cout<<"> Enter your phone number(withput country code) :: ";
+        string phone_number;
+        getline(cin,phone_number);
+
+        if(valid_phone(phone_number)==0)
+        {
+            cout<<"> Invalid Phone Number\n";
+            return -1;
+        }
+
+        int number= (ulli)stoi(phone_number);
+        // Shopkeeper::contact_number=number;
+
+
+    }
 };
 #endif

@@ -115,7 +115,7 @@ int register_user(string email)
         case 'c':
         {
             Customer customer;
-            if(customer.get_details()==-1)
+            if(customer.get_details(email)==-1)
                 return -1;
             register_customer(customer,email);
             return 1;
@@ -124,7 +124,7 @@ int register_user(string email)
         case 's':
         {
             Shopkeeper shopkeeper;
-            if(shopkeeper.get_details()==-1)
+            if(shopkeeper.get_details(email)==-1)
                 return -1;
             register_shopkeeper(shopkeeper,email);
             return 2;
@@ -132,7 +132,7 @@ int register_user(string email)
         break;
         default:
         {
-            cout<<"> Not a valid input";
+            cout<<"> Not a valid input\n";
             return 3;
         }
         break;

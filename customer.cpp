@@ -25,6 +25,8 @@ class Customer : public User
         // is cutomer a defaulter
         bool defaulter;
 
+        ulli transactions_done;
+
     bool login(string password)
     {    
         char string_password[51];
@@ -45,9 +47,53 @@ class Customer : public User
         Customer::password[password.size()]='\0';
     }
 
-    int get_details()
+    Customer()
     {
+        credit_balance=0;
+        wallet_balance=0;
+        items_in_cart=0;
+        defaulter=false;
+        transactions_done=0;
+    }
+
+    int get_details(string email)
+    {
+        convert(email,Customer::email);
+
+        cout<<"> Enter your name :: ";
+        string name;
+        char waste;
+        scanf("%c",&waste);
+        getline(cin,name);
+        if(name.length()==0)
+        {
+            cout<<"got here";
+            return -1;
+        }
+        convert(name,Customer::name);
+
+        cout<<"> Enter your phone number(withput country code) :: ";
+        string phone_number;
+        getline(cin,phone_number);
+
+        if(valid_phone(phone_number)==0)
+        {
+            cout<<"> Invalid Phone Number\n";
+            return -1;
+        }
+
+        convert(phone_number,Customer::contact_number);
+
+        cout<<"> Enter the password for your account\n";
+        cout<<"    It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
+        cout<<"Password :: ";
+
+        string password=get_password();
+
+        if(password.length()==0)
+            return -1;
         
+        convert(password,Customer::password);
     }
 };
 

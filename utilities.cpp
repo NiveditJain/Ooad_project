@@ -77,4 +77,17 @@ char encrypt(char str[])
         str[i]=str[i]-27;
 }
 
+void convert(string str,char data[])
+{
+    copy(str.begin(),str.end(),data);
+    data[str.size()]='\0';
+}
+
+int valid_phone(string phone_number)
+{
+    if(phone_number.size()!=10)
+        return false;
+    return true;
+}
+
 #endif

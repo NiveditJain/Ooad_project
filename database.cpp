@@ -107,6 +107,36 @@ int register_user(string email)
         return -1;
     if(answer!='y')
         cout<<"> No a valid choice terminating\n";
+    cout<<"> To register as Customer press (c) and to register as shopkeeper press (s)  ";
+    cin>>answer;
+    
+    switch(answer)
+    {
+        case 'c':
+        {
+            Customer customer;
+            if(customer.get_details()==-1)
+                return -1;
+            register_customer(customer,email);
+            return 1;
+        }
+        break;
+        case 's':
+        {
+            Shopkeeper shopkeeper;
+            if(shopkeeper.get_details()==-1)
+                return -1;
+            register_shopkeeper(shopkeeper,email);
+            return 2;
+        }
+        break;
+        default:
+        {
+            cout<<"> Not a valid input";
+            return 3;
+        }
+        break;
+    }
 }
 
 #endif

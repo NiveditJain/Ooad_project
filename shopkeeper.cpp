@@ -34,5 +34,10 @@ class Shopkeeper: public User
     Shopkeeper::password[password.size()]='\0';
   }
 
+  int get_details()
+  {
+    
+  }
+
 };
 #endif

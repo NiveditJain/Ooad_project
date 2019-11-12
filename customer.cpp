@@ -44,6 +44,11 @@ class Customer : public User
         copy(password.begin(),password.end(),Customer::password);
         Customer::password[password.size()]='\0';
     }
+
+    int get_details()
+    {
+        
+    }
 };
 
 #endif

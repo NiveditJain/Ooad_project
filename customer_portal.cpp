@@ -6,6 +6,7 @@ using namespace std;
 int customer_portal(string email)
 {
     Customer customer;
+    cout<<"> Enter your password :: ";
     customer=get_customer(email);
     string password=get_password();
     

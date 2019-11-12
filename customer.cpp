@@ -25,7 +25,7 @@ class Customer : public User
         // is cutomer a defaulter
         bool defaulter;
 
-    bool login(string email,string password)
+    bool login(string password)
     {    
         char string_password[51];
         copy(password.begin(),password.end(),string_password);
@@ -37,6 +37,12 @@ class Customer : public User
             return true;
 
         return false;
+    }
+
+    void set_password(string password)
+    {
+        copy(password.begin(),password.end(),Customer::password);
+        Customer::password[password.size()]='\0';
     }
 };
 

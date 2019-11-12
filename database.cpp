@@ -92,7 +92,7 @@ bool is_moderator(string email)
     copy(email.begin(),email.end(),string_email);
     string_email[email.size()]='\0';
 
-    if(strcmp(moderator.email.c_str(),string_email)==0)
+    if(strcmp(moderator.email,string_email)==0)
         return true;
     
     return false;

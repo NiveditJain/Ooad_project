@@ -12,7 +12,7 @@ int shopkeeper_portal(string email)
     if(password.length()==0)
         return -1;
 
-    if(!shopkeeper.login(email,password))
+    if(!shopkeeper.login(password))
     {
         cout<<"\n > invalid email password combination";
         return -1;

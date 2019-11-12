@@ -14,7 +14,7 @@ class Shopkeeper: public User
   ulli holiday_list[366];
   ulli pending_amount;
 
-  bool login(string email,string password)
+  bool login(string password)
   {
     char string_password[51];
     copy(password.begin(),password.end(),string_password);
@@ -27,5 +27,12 @@ class Shopkeeper: public User
 
     return false;    
   }
+
+  void set_password(string password)
+  {
+    copy(password.begin(),password.end(),Shopkeeper::password);
+    Shopkeeper::password[password.size()]='\0';
+  }
+
 };
 #endif

@@ -16,5 +16,7 @@ int customer_portal(string email)
     {
         cout<<"> invalid email password combination";
         return -1;
-    }    
+    }
+
+    cout<<"> Welcome "<<customer.name<<" !\n";    
 }

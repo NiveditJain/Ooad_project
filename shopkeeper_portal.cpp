@@ -17,5 +17,7 @@ int shopkeeper_portal(string email)
     {
         cout<<"> invalid email password combination";
         return -1;
-    } 
+    }
+
+    cout<<"> Welcome "<<shopkeeper.name<<" !\n"; 
 }

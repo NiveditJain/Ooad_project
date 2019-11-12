@@ -33,7 +33,7 @@ class Customer : public User
         copy(password.begin(),password.end(),string_password);
         string_password[password.size()]='\0';
 
-        encrypt(string_password);
+        // encrypt(string_password);
 
         if(strcmp(string_password,Customer::password)==0)
             return true;
@@ -93,7 +93,12 @@ class Customer : public User
         if(password.length()==0)
             return -1;
         
-        convert(password,Customer::password);
+        set_password(password);
+    }
+
+    void print_pass()
+    {
+        cout<<name;
     }
 };
 

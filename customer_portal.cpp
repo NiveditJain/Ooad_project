@@ -12,7 +12,7 @@ int customer_portal(string email)
     
     if(password.length()==0)
         return -1;
-
+    customer.print_pass();
     if(!customer.login(password))
     {
         cout<<"\n > invalid email password combination";

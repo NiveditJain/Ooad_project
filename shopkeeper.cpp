@@ -38,11 +38,11 @@ class Shopkeeper: public User
     encrypt(Shopkeeper::password);
   }
 
-    Shopkeeper()
+    Shopkeeper(ulli id=0)
     {
       pending_amount=0;
       transactions_done=0;
-      shop_id=0;
+      shop_id=id;
     }
 
     int get_details(string email)
@@ -101,8 +101,6 @@ class Shopkeeper: public User
       getline(cin,IFSC_code);
 
       convert(IFSC_code,Shopkeeper::IFSC_code);
-
-
     }
 };
 #endif

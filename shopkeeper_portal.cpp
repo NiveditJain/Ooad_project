@@ -5,7 +5,7 @@ using namespace std;
 
 int shopkeeper_portal(string email)
 {
-    Shopkeeper shopkeeper;
+    Shopkeeper shopkeeper(get_number_of_shops());
     shopkeeper=get_shopkeeper(email);
     cout<<"> Enter your password :: ";
     string password=get_password(6);

@@ -5,6 +5,7 @@ using namespace std;
 #include "customer.cpp"
 #include "shopkeeper.cpp"
 #include "moderator.cpp"
+ulli number_of_shops;
 
 Customer get_customer(string email)
 {
@@ -99,6 +100,27 @@ bool is_moderator(string email)
     return false;
 }
 
+void increase_shop()
+{
+    fstream file1("database/shopkeeper_data/number_of_shops.num",ios::in);
+    ulli number;
+    file1>>number;
+    number++;
+    file1.close();
+    fstream file2("database/shopkeeper_data/number_of_shops.num",ios::out);
+    file2<<number;
+    file2.close();
+}
+
+ulli get_number_of_shops()
+{
+    fstream file1("database/shopkeeper_data/number_of_shops.num",ios::in);
+    ulli number;
+    file1>>number;
+    file1.close();
+    return number;    
+}
+
 int register_user(string email)
 {
     cout<<"> Entered email not found in our database. Do you want to register (y/n)? ";
@@ -124,10 +146,11 @@ int register_user(string email)
         break;
         case 's':
         {
-            Shopkeeper shopkeeper;
+            Shopkeeper shopkeeper(get_number_of_shops());
             if(shopkeeper.get_details(email)==-1)
                 return -1;
             register_shopkeeper(shopkeeper,email);
+            increase_shop();
             return 2;
         }
         break;

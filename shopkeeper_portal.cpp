@@ -7,7 +7,8 @@ int shopkeeper_portal(string email)
 {
     Shopkeeper shopkeeper;
     shopkeeper=get_shopkeeper(email);
-    string password=get_password();
+    cout<<"> Enter your password :: ";
+    string password=get_password(6);
     
     if(password.length()==0)
         return -1;

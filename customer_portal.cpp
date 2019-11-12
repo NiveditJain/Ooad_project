@@ -8,13 +8,13 @@ int customer_portal(string email)
     Customer customer;
     cout<<"> Enter your password :: ";
     customer=get_customer(email);
-    string password=get_password();
+    string password=get_password(6);
     
     if(password.length()==0)
         return -1;
     if(!customer.login(password))
     {
-        cout<<"\n > invalid email password combination";
+        cout<<"\n> invalid email password combination";
         return -1;
     }    
 }

@@ -10,7 +10,7 @@ class Shop
     char type[51];
     char name[51];
     time_t timing;
-    Shopkeeper email[51];
+    char email[51];
     bool working_days[7];
     ulli no_of_items;
     void search_item();

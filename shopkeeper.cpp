@@ -1,5 +1,6 @@
 #ifndef shopkeeper_cpp
 #define shopkeeper_cpp
+#include "shop.cpp"
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ulli;
@@ -10,10 +11,11 @@ class Shopkeeper: public User
   public:
   char shop_name[51];
   ulli account_name;
-  char IFSC_code[21];
+  char IFSC_code[51];
   ulli holiday_list[366];
   ulli pending_amount;
   ulli transactions_done;
+  ulli shop_id;
 
   bool login(string password)
   {
@@ -33,16 +35,74 @@ class Shopkeeper: public User
   {
     copy(password.begin(),password.end(),Shopkeeper::password);
     Shopkeeper::password[password.size()]='\0';
+    encrypt(Shopkeeper::password);
   }
 
     Shopkeeper()
     {
+      pending_amount=0;
       transactions_done=0;
+      shop_id=0;
     }
 
     int get_details(string email)
     {
-      
+      convert(email,Shopkeeper::email);
+
+      cout<<"> Enter your name :: ";
+      string name;
+      char waste;
+      scanf("%c",&waste);
+      getline(cin,name);
+      if(name.length()==0)
+      {
+        return -1;
+      }
+      convert(name,Shopkeeper::name);
+
+      cout<<"> Enter your phone number (without country code) :: ";
+      string phone_number;
+      getline(cin,phone_number);
+
+      phone_number=valid_phone_size(phone_number);
+      phone_number=all_digits(phone_number);
+
+      if(phone_number.length()==0)
+      {
+        return -1;
+      }
+
+      convert(phone_number,Shopkeeper::contact_number);
+
+      cout<<"> Enter the password for your account\n";
+      cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
+      cout<<"> Password :: ";
+
+      string password=get_password(6);
+
+      if(password.length()==0)
+        return -1;
+        
+      set_password(password);
+
+      cout<<"> Enter Name of Shop :: ";
+      string shop_name;
+      getline(cin,shop_name);
+      convert(shop_name,Shopkeeper::shop_name);
+
+      cout<<"> Enter your Account Number (must be a number) :: ";
+      cin>>account_name;
+
+      string IFSC_code;
+
+
+      cout<<"> Enter the IFSC code of your bank :: ";
+      cin>>waste;
+      getline(cin,IFSC_code);
+
+      convert(IFSC_code,Shopkeeper::IFSC_code);
+
+
     }
 };
 #endif

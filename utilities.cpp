@@ -2,6 +2,8 @@
 #define utilities_cpp
 #include<bits/stdc++.h>
 using namespace std;
+typedef unsigned long long int ulli;
+
 bool check_email_iitj(char input[]){
     char *ptr;
         ptr= strstr(input,"@iitj.ac.in"); //searches input array for "@iitj.ac.in" string
@@ -106,6 +108,27 @@ string all_digits(string phone_number)
         }
     }
     return phone_number;
+}
+
+string ulli_to_string(ulli number)
+{
+    ulli factor=10;
+    while(number/factor>0)
+    {
+        factor=factor*(ulli)10;
+    }
+    factor=factor/(ulli)10;
+
+    string answer;
+
+    while(factor>0)
+    {
+        answer.push_back(number/factor+'0');
+        number=number%factor;
+        factor=factor/10;        
+    }
+
+    return answer;
 }
 
 #endif

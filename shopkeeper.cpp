@@ -14,7 +14,7 @@ class Shopkeeper: public User
   char IFSC_code[51];
   ulli holiday_list[366];
   ulli pending_amount;
-  ulli transactions_done;
+  // ulli transactions_done;
   ulli shop_id;
 
   bool login(string password)
@@ -41,7 +41,7 @@ class Shopkeeper: public User
     Shopkeeper(ulli id=0)
     {
       pending_amount=0;
-      transactions_done=0;
+      // transactions_done=0;
       shop_id=id;
     }
 
@@ -75,7 +75,7 @@ class Shopkeeper: public User
       convert(phone_number,Shopkeeper::contact_number);
 
       cout<<"> Enter the password for your account\n";
-      cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
+      cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 6\n";
       cout<<"> Password :: ";
 
       string password=get_password(6);
@@ -85,22 +85,19 @@ class Shopkeeper: public User
         
       set_password(password);
 
-      cout<<"> Enter Name of Shop :: ";
-      string shop_name;
-      getline(cin,shop_name);
-      convert(shop_name,Shopkeeper::shop_name);
-
       cout<<"> Enter your Account Number (must be a number) :: ";
       cin>>account_name;
 
       string IFSC_code;
-
 
       cout<<"> Enter the IFSC code of your bank :: ";
       cin>>waste;
       getline(cin,IFSC_code);
 
       convert(IFSC_code,Shopkeeper::IFSC_code);
+      return 0;
     }
+
+
 };
 #endif

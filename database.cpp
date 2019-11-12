@@ -121,6 +121,15 @@ ulli get_number_of_shops()
     return number;    
 }
 
+int register_shop(Shop shop)
+{
+    string id=ulli_to_string(shop.ID);
+    string path="database/shop_data/"+id+".shop";
+    ofstream file(path.c_str());
+    file.write((char*)&shop,sizeof(Shop));
+    file.close();    
+}
+
 int register_user(string email)
 {
     cout<<"> Entered email not found in our database. Do you want to register (y/n)? ";
@@ -141,6 +150,7 @@ int register_user(string email)
             if(customer.get_details(email)==-1)
                 return -1;
             register_customer(customer,email);
+            cout<<"> Customer Registration Completed \n";
             return 1;
         }
         break;
@@ -150,7 +160,12 @@ int register_user(string email)
             if(shopkeeper.get_details(email)==-1)
                 return -1;
             register_shopkeeper(shopkeeper,email);
+            Shop shop(get_number_of_shops());
+            if(shop.get_details(shopkeeper.email)==-1)
+                return -1;
+            register_shop(shop);
             increase_shop();
+            cout<<"> Shopkeeper Registration Completed \n";
             return 2;
         }
         break;
@@ -162,5 +177,6 @@ int register_user(string email)
         break;
     }
 }
+
 
 #endif

@@ -30,7 +30,7 @@ int check_password(string password,int desired_length=8)
     int count_lower=0;
     int count_special=0;
     int count_number=0;
-    string allowed_speacial="~!@#$%^&*()_+-={}|?/><.,";
+    string allowed_speacial="~!@#$%^&*()_+-={}|?/><.";
 
     for(char ch:password)
     {

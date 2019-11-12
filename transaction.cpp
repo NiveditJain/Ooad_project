@@ -14,14 +14,13 @@ using namespace std;
 typedef unsigned long long int ulli;
 class Transaction{
     public:
-    ulli no_of_items;
-    Customer customer;
-    Shop shop;
+    char customer_email[51];
+    char shopkeeper_email[51];
     bool payment_details;//0->COD,1->credit
     char delivery_place[51];
     Deliveryboy deliveryboy;
-    char delivery_place[51];
-    Item items[20]; 
+    ulli delivery_place;
+    Item item; 
     ulli slot;
     ulli transaction_ID;
     time_t  date;
@@ -32,10 +31,6 @@ class Transaction{
 
 //calculating grand total
 ulli Transaction :: total_price(){ 
-   ulli totalprice=0;
-    for(ulli i=0;i<20;i++)
-    {
-        totalprice+=items[i].quantity*items[i].price;
-    }
+    return item.price*item.quantity;
 } 
 

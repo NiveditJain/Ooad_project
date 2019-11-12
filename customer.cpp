@@ -25,7 +25,7 @@ class Customer : public User
         // is cutomer a defaulter
         bool defaulter;
 
-        ulli transactions_done;
+        // ulli transactions_done;
 
     bool login(string password)
     {    
@@ -54,7 +54,7 @@ class Customer : public User
         wallet_balance=0;
         items_in_cart=0;
         defaulter=false;
-        transactions_done=0;
+        // transactions_done=0;
     }
 
     int get_details(string email)
@@ -88,7 +88,7 @@ class Customer : public User
         convert(phone_number,Customer::contact_number);
 
         cout<<"> Enter the password for your account\n";
-        cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
+        cout<<"> It must contain at least 1 number, capital letter, small letter and a speacil chracter. Lenghth of password must also be >= 6\n";
         cout<<"> Password :: ";
 
         string password=get_password(6);

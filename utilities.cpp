@@ -127,8 +127,28 @@ string ulli_to_string(ulli number)
         number=number%factor;
         factor=factor/10;        
     }
-
     return answer;
+}
+
+void loading(int x)
+{
+    for(int i=0;i<=100;i=i+2)
+    {
+        cout<<"\r> Loading";
+        int j;
+        for(j=0;j<=100;j=j+4)
+        {
+            if(j<=i)
+                cout<<" .";
+            else
+                cout<<"  ";
+        }
+        cout<<" ";
+        cout<<i<<"%";
+        for(int j=0;j<x*1000000;j++);
+        cout.flush();
+    }
+    cout<<"\n";
 }
 
 #endif

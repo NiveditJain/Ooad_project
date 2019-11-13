@@ -141,12 +141,31 @@ int register_user(string email)
         cout<<"> No a valid choice terminating\n";
     cout<<"> To register as Customer press (c) and to register as shopkeeper press (s)  ";
     cin>>answer;
-    
+    cout<<"> Terms and Conditions \n";
+    loading(40);
     switch(answer)
     {
         case 'c':
         {
             Customer customer;
+            fstream file("database/customer_data/tandc.txt");
+            string temp;
+            cout<<"> Terms and Conditions are as following\n";
+            while(file>>temp)
+            {
+                cout<<temp<<" ";
+            }
+            file.close();
+            cout<<"\n> I, as a Customer of fbay, I hereby declare that I have gone through above terms and conditions and accept them, I also pledge to follow them. I also understand that non-fullfillment of any such issue can lead to legal action.(Yes->y/No->n)  ";
+            char ch;
+            cin>>ch;
+            if(ch=='n')
+                return -1;
+            if(ch!='y')
+            {
+                cout<<"> Invalid input\n";
+                return -1;
+            }
             if(customer.get_details(email)==-1)
                 return -1;
             register_customer(customer,email);
@@ -157,6 +176,20 @@ int register_user(string email)
         case 's':
         {
             Shopkeeper shopkeeper(get_number_of_shops());
+            fstream file("database/shopkeeper_data/tandc.txt");
+            string temp;
+            cout<<"> Terms and Conditions are as following\n";
+            while(file>>temp)
+            {
+                cout<<temp<<" ";
+            }
+            file.close();
+            cout<<"\n> I, as a Shopkeeper of a shop under fbay network, I hereby declare that I have gone through above terms and conditions and accept them, I also pledge to follow them. I also understand that non-fullfillment of any such issue can lead to legal action.(Yes->y/No->n)  ";
+            char ch;
+            cin>>ch;
+            if(ch=='n')
+                return -1;
+
             if(shopkeeper.get_details(email)==-1)
                 return -1;
             register_shopkeeper(shopkeeper,email);

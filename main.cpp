@@ -15,7 +15,7 @@ typedef unsigned long long int ulli;
 
 int main()
 {
-   get_number_of_shops();
+   loading(50);
    system("clear");
    string email=initial_display();
    if(email.size()==0)

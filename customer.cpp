@@ -68,7 +68,7 @@ class Customer : public User
         getline(cin,name);
         if(name.length()==0)
         {
-            cout<<"got here";
+            // cout<<"got here";
             return -1;
         }
         convert(name,Customer::name);

@@ -33,6 +33,7 @@ string get_email()
     char input[x];       //array to hold input
     copy(email.begin(),email.end(),input);
     input[email.length()]='\0';
+    // convert(email,input);
 
     string first_part;
     int second_part_length=0;
@@ -47,7 +48,8 @@ string get_email()
         if(count_at!=0)
         {
             second_part_length++;
-            count_dot++;
+            if(temp=='.')
+                count_dot++;
         }
     }
 
@@ -59,11 +61,11 @@ string get_email()
         return empty;
     }
 
-    if(!count_at==1)
-    {
-        cout<<"> not a vaild email\n";
-        return empty;
-    }
+    // if(!count_at==1)
+    // {
+    //     cout<<"> not a vaild email\n";
+    //     return empty;
+    // }
 
     if(verify_email(input)==false)
     {
@@ -134,7 +136,7 @@ void loading(int x)
 {
     for(int i=0;i<=100;i=i+2)
     {
-        cout<<"\r> Loading";
+        cout<<"\r> Loading"; //sort of overwrite
         int j;
         for(j=0;j<=100;j=j+4)
         {

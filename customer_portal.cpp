@@ -10,8 +10,8 @@ int customer_portal(string email)
     customer=get_customer(email);
     string password=input_password();
         
-    if(password.length()==0)
-        return -1;
+    // if(password.length()==0)
+    //     return -1;
     if(!customer.login(password))
     {
         cout<<"> invalid email password combination";

@@ -156,7 +156,7 @@ int register_user(string email)
                 cout<<temp<<" ";
             }
             file.close();
-            cout<<"\n> I, as a Customer of fbay, I hereby declare that I have gone through above terms and conditions and accept them, I also pledge to follow them. I also understand that non-fullfillment of any such issue can lead to legal action.(Yes->y/No->n)  ";
+            cout<<"\n> I, as a Customer of CC Basket, I hereby declare that I have gone through above terms and conditions and accept them, I also pledge to follow them. I also understand that non-fullfillment of any such issue can lead to legal action.(Yes->y/No->n)  ";
             char ch;
             cin>>ch;
             if(ch=='n')

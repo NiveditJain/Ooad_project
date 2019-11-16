@@ -1,0 +1,69 @@
+stty -echo
+if ping -q -c 1 -W 1 google.com >/dev/null; then
+  stty echo
+  echo "Internet connected"
+else
+  stty echo
+  echo "Internet Not Found Please Connect to internet to run"
+  exit 1
+fi
+if command -v g++ &>/dev/null; then
+    echo "g++ complier found"
+else
+    echo "g++ compiler not found please install it TMD GCC or sudo apt install gcc followed by sudo apt install g++"
+    exit 1 
+fi
+if command -v python3 &>/dev/null; then
+    echo Python 3 is installed
+    
+    if python3 -c "import requests"&>/dev/null; then
+        echo "Python Library request Found"
+    else
+        echo "Please Install requests Python Library"
+        exit 1
+    fi
+
+    if python3 -c "import smtplib"&>/dev/null; then
+        echo "Python Library smtplib Found"
+    else
+        echo "Please Install smtplib Python Library"
+        exit 1
+    fi 
+
+    if python3 -c "import ssl"&>/dev/null; then
+        echo "Python Library ssl Found"
+    else
+        echo "Please Install ssl Python Library"
+        exit 1
+    fi  
+
+    if python3 -c "import sys"&>/dev/null; then
+        echo "Python Library sys Found"
+    else
+        echo "Please Install sys Python Library"
+        exit 1
+    fi 
+
+    if python3 -c "import json"&>/dev/null; then
+        echo "Python Library json Found"
+    else
+        echo "Please Install json Python Library"
+        exit 1
+    fi 
+
+    echo "All dependies satisfied Compiling Code"
+
+    if g++ main.cpp; then 
+    echo "Compilation Success!!";
+    else 
+    echo "Compilation Failure!!!";
+    exit 1 
+    fi
+    
+    echo "Running Code"
+    ./a.out
+    
+else
+    echo Python 3 is not installed
+    echo Python 3 is must to run the code
+fi 

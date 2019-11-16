@@ -16,7 +16,6 @@ typedef unsigned long long int ulli;
 
 int main()
 {
-   // sms_otp("Rohith","9492173897");
    loading(50);
    system("clear");
    string email=initial_display();

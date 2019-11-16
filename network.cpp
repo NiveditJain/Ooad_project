@@ -49,11 +49,4 @@ string mail_otp(string name,string email)
     return otp;
 }
 
-int main()
-{
-    mail_otp("Muskan Bathla","bathla.1");
-    mail_otp("Nivedit Jain","jain.22");
-    mail_otp("Pradumn","kumar.94");
-}
-
 #endif

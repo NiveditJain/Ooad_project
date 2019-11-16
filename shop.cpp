@@ -1,7 +1,7 @@
 #ifndef shop_cpp
 #define shop_cpp
 #include "shopkeeper.cpp"
-#include "Item.cpp"
+#include "item.cpp"
 
 class Shop
 {

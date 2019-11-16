@@ -61,12 +61,6 @@ string get_email()
         return empty;
     }
 
-    // if(!count_at==1)
-    // {
-    //     cout<<"> not a vaild email\n";
-    //     return empty;
-    // }
-
     if(verify_email(input)==false)
     {
         return empty;
@@ -151,6 +145,20 @@ void loading(int x)
         cout.flush();
     }
     cout<<"\n";
+}
+
+string generate_otp()
+{
+    random_device random_device;
+    mt19937 random_engine(random_device());
+    uniform_int_distribution<int> distribution_1_100(0,9);
+    string otp;
+    srand(time(NULL));
+    for(int i=0;i<6;i++)
+    {
+        otp.push_back(distribution_1_100(random_engine)+'0');
+    }
+    return otp;
 }
 
 #endif

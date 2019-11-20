@@ -1,6 +1,8 @@
 #ifndef item_cpp
 #define item_cpp
-
+#include<bits/stdc++.h>
+using namespace std;
+typedef unsigned long long ulli;
 class Item
 {
         // number of keywords under usage
@@ -25,6 +27,54 @@ class Item
 
         // quantity of each item
         int quantity;  
+
+        //constructor
+        Item();
+
+        //function to add a keyword
+        void add_keyword(char keyword[]);
+
+        //to take item details
+        void get_item_details(string name1);
+
 };
 
+Item :: Item(){
+    number_of_keyword=0;
+    quantity=0;
+}
+
+void Item :: add_keyword(char keyword[]){
+    number_of_keyword++;
+    strcpy(keywords[number_of_keyword],keyword);
+}
+
+void Item :: get_item_details(string name1){
+    Item temp;
+    cout<<"\n>Enter name of the item : ";
+    cin>>name;
+    cout<<"\n>Enter ItemID : ";
+    cin>>item_ID;
+    cout<<"\n>Enter the price of the item : ";
+    cin>>price;
+    cout<<"\n>Enter the quantity available : ";
+    cin>>quantity;
+    cout<<"\nEnter no. of keywords (1=<__<=30): ";
+    ulli i;
+    char key[31];
+    cin>>i;
+    cout<<"Enter keywords\n";
+    while(i--){
+        cin>>key;
+        add_keyword(key);
+    }
+    cout<<"\n>Enter a description less than 1000 letters : \n";
+    cin>>description;
+    cout<<"\n>Item added to shop\n";
+    //opening a file with the name of the shop and storing the item details
+    string path;
+    path= "database/shop_items/"+name1+".ooad";
+    fstream file(path.c_str(),std::ios::app);
+    file.write((char *)&temp, sizeof(Item));
+} 
 #endif

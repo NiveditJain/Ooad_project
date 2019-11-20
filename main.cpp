@@ -11,6 +11,7 @@
 #include "customer_portal.cpp"
 #include "shopkeeper_portal.cpp"
 #include "moderator_portal.cpp"
+#include "item.cpp"
 using namespace std;
 typedef unsigned long long int ulli;
 

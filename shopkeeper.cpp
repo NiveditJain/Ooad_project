@@ -73,6 +73,10 @@ class Shopkeeper: public User
       }
 
       convert(phone_number,Shopkeeper::contact_number);
+      cout<<">Enter shop name : ";
+      string shp_nme;
+      getline(cin,shp_nme);
+      convert(shp_nme,Shopkeeper::shop_name);
 
       cout<<"> Enter the password for your account\n";
       cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 6\n";

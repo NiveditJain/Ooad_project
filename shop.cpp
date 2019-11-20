@@ -1,5 +1,8 @@
 #ifndef shop_cpp
 #define shop_cpp
+#include<bits/stdc++.h>
+using namespace std;
+typedef unsigned long long ulli;
 #include "shopkeeper.cpp"
 #include "item.cpp"
 
@@ -27,7 +30,7 @@ class Shop
             email[i]=shopkeeper_email[i];
         
         string name;
-        cout<<"> Enter the name of Shop :: ";
+        cout<<">please re-enter the name of the shop\n> Enter the name of Shop :: ";
         getline(cin,name);
 
         convert(name,Shop::name);
@@ -146,6 +149,12 @@ class Shop
         }
 
         return 0;
+    }
+
+    void add_items(char name[]){
+        string name1(name);
+        Item temp;
+        temp.get_item_details(name1);
     }
 };
 

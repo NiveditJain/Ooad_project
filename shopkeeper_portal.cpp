@@ -15,6 +15,7 @@ int process(ulli option, Shopkeeper shopkeeper)
     case 1:
     {
         cout << ">Name : " << shopkeeper.name << endl;
+        cout<<">shop name : "<<shopkeeper.shop_name<<endl;
         cout << ">Email : " << shopkeeper.email << endl;
         cout << ">contact number : " << shopkeeper.contact_number << endl;
         cout << ">Account Number : " << shopkeeper.account_name << endl;
@@ -47,10 +48,20 @@ int process(ulli option, Shopkeeper shopkeeper)
             return -1;
         }
         }
+        break;
     }
     case 2:
     {
-        
+        break;        
+    }
+    case 3:
+    {
+        Shop shop;
+        cout<<">"<<shopkeeper.shop_name<<endl;
+        shop.add_items(shopkeeper.shop_name);
+        cout<<"item added sucessfully";
+        home_page_shpkpr(shopkeeper);
+        break;
     }
     default:
     {
@@ -71,10 +82,6 @@ int home_page_shpkpr(Shopkeeper shopkeeper){
     cout << "\n>";
     ulli option; //contains the input option given by the user
     cin >> option;
-    while(option!=1 || option!=2 || option!=3 || option!=4 || option!=5){
-        cout<<">Please enter a valid option!\n";
-        cin>>option;
-    }
     system("clear");
     process(option,shopkeeper);
 }

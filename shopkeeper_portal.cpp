@@ -110,7 +110,7 @@ int shopkeeper_portal(string email)
           cout<<"> Enter your password :: ";
           password=input_password();
     
-        if(password.length()==0)
+        if(password.length()!=0)
         continue;
         }
         else 

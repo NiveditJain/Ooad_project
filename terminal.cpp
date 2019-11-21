@@ -68,7 +68,7 @@ int check_password(string password,int desired_length=8)
 }
 
 // input the password using get with conditions
-string get_password(int desrired_length=8)
+string get_password(int desrired_length=8) 
 {
     string password=input_password();
     int error_type=check_password(password,desrired_length);

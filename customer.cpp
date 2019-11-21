@@ -190,16 +190,17 @@ class Customer : public User
       else {cout<<"\n>Sorry! You can't add more than 20 distinct item_type to your cart ";}
       if(marked[shop_ID][item_id]==0&& number_of_items>0)
       {selected++;marked[shop_ID][item_id]=1;}
-      t.items[selected].quantity+=number_of_items;t.total_price+=(item.price*number_of_items);
+      t.items[selected-1].quantity+=number_of_items;t.total_price+=(item.price*number_of_items);
+      strcpy(t.items[selected-1].name,item.name);
       cout<<"\n>Do you want to add more items from this shop ? (y/n)";
       cin>>addmore;
       }while(addmore=='y');
     }
 
-    Transaction select_items()
+    Transaction select_items(Transaction &t)
     {
       char addcart;
-      Transaction t;  t.Initialise(email);
+     
     do{
         display_shops();
         cout<<"\n>Select the shop ID which you would like to explore: ";ulli shop_ID;

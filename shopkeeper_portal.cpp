@@ -6,7 +6,7 @@ using namespace std;
 #include "shopkeeper.cpp"
 #include "shop.cpp"
 
-int home_page_shpkpr(Shopkeeper);
+int home_page_shpkpr(Shopkeeper); 
 
 int process(ulli option, Shopkeeper shopkeeper)
 {
@@ -52,13 +52,16 @@ int process(ulli option, Shopkeeper shopkeeper)
     }
     case 2:
     {
-        break;        
+        display_shop_details(shopkeeper.shop_category);
+        home_page_shpkpr(shopkeeper);
+              
     }
     case 3:
     {
         Shop shop;
-        cout<<">"<<shopkeeper.shop_name<<endl;
-        shop.add_items(shopkeeper.shop_name);
+        cout<<">Shop_Category-> "<<shopkeeper.shop_category<<" shop"<<endl;
+        shop.add_items(shopkeeper.shop_category); 
+
         cout<<"item added sucessfully";
         home_page_shpkpr(shopkeeper);
         break;
@@ -98,9 +101,19 @@ int shopkeeper_portal(string email)
     if(password.length()==0)
         return -1;
 
-    if(!shopkeeper.login(password))
+    while(!shopkeeper.login(password))
     {
         cout<<"> invalid email password combination";
+        cout<<"\n> Do you want to re-enter password? (y/n)";char input;
+        cin>>input;if(input=='y'||input=='Y')
+        {
+          cout<<"> Enter your password :: ";
+          password=input_password();
+    
+        if(password.length()==0)
+        continue;
+        }
+        else 
         return -1;
     }
     

@@ -16,7 +16,7 @@ using namespace std;
 typedef unsigned long long int ulli;
 
 int main()
-{
+{ 
    loading(50);
    system("clear");
    string email=initial_display();

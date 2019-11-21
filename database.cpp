@@ -187,7 +187,7 @@ int register_user(string email)
             cout<<"\n> I, as a Shopkeeper of a shop under fbay network, I hereby declare that I have gone through above terms and conditions and accept them, I also pledge to follow them. I also understand that non-fullfillment of any such issue can lead to legal action.(Yes->y/No->n)  ";
             char ch;
             cin>>ch;
-            if(ch=='n')
+            if(ch=='n') 
                 return -1;
 
             if(shopkeeper.get_details(email)==-1)
@@ -195,10 +195,11 @@ int register_user(string email)
             register_shopkeeper(shopkeeper,email);
             Shop shop(get_number_of_shops());
             if(shop.get_details(shopkeeper.email)==-1)
-                return -1;
+                return -1; 
             register_shop(shop);
             increase_shop();
             cout<<"> Shopkeeper Registration Completed \n";
+            cout<<"> You need to login to proceed!\n";
             return 2;
         }
         break;
@@ -210,6 +211,12 @@ int register_user(string email)
         break;
     }
 }
+
+
+
+
+
+
 
 
 #endif

@@ -1,5 +1,3 @@
-
-
 #include<bits/stdc++.h>
 using namespace std;
 #include "customer.cpp"
@@ -20,8 +18,8 @@ int customer_portal(string email)
        else 
        {
            Transaction t=customer.select_items();retry='n';
-           cout<<t.total_price()<<endl;
-           if(t.total_price()>0){
+           cout<<t.total_price<<endl;
+           if(t.total_price>0){
            string path="database/transaction_data/"+email+".ooad";
            fstream file(path.c_str(),ios::app);
            file.write((char *)&t,sizeof(t));

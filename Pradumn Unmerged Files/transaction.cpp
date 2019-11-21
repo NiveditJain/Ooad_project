@@ -27,22 +27,22 @@ class Transaction{
     ulli slot;
     ulli transaction_ID;
     time_t  date;
-    bool payment_status;//0->done,1->pending
-    ulli total_price();
+    bool payment_status;//1->done,0->pending
+    ulli total_price;
     void update(ulli x,ulli y);
     void Initialise(string email);
 };
 
 
 //calculating grand total
-ulli Transaction :: total_price(){ 
+/*ulli Transaction :: total_price(){ 
    ulli totalprice=0;
     for(ulli i=0;i<20;i++)
     {
         totalprice+=items[i].quantity*items[i].price;
     }
     return totalprice;
-} 
+} */
 
 void Transaction :: update(ulli x,ulli y)
 {
@@ -53,9 +53,10 @@ void Transaction :: Initialise(string email)
 {
     
     no_of_items=0;//Email=email;
+    convert(email,Transaction::Email);
     payment_details=0;payment_status=0;
     for(ulli i=0;i<20;i++)
-    {items[i].quantity=0;items[i].price=i*10;}
+    {items[i].quantity=0;}
 }
 
 #endif

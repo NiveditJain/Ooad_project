@@ -12,6 +12,7 @@ class Shop
     ulli ID;
     // char type[51];
     char name[51];
+    char category[51];
     char description[501];
     // time_t timing;
     char email[51];
@@ -32,8 +33,13 @@ class Shop
         string name;
         cout<<">please re-enter the name of the shop\n> Enter the name of Shop :: ";
         getline(cin,name);
-
-        convert(name,Shop::name);
+           
+        convert(name,Shop::name); 
+        
+        string category;
+        cout<<"\n> Please enter the category of your shop (e.g fruit) :: ";
+        getline(cin,category);
+        convert(category,Shop::category);
 
         string description;
         cout<<"> Enter a short discription of your shop(250 character max without enter)\n";
@@ -151,10 +157,10 @@ class Shop
         return 0;
     }
 
-    void add_items(char name[]){
+    void add_items(char name[]){ 
         string name1(name);
         Item temp;
-        temp.get_item_details(name1);
+        temp.get_item_details(name1); 
     }
 };
 

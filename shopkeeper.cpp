@@ -6,10 +6,11 @@ using namespace std;
 typedef unsigned long long ulli;
 // #include "user.cpp"
 
-class Shopkeeper: public User
+class Shopkeeper: public User 
 {
   public:
   char shop_name[51];
+  char shop_category[51];
   ulli account_name;
   char IFSC_code[51];
   ulli holiday_list[366];
@@ -77,6 +78,11 @@ class Shopkeeper: public User
       string shp_nme;
       getline(cin,shp_nme);
       convert(shp_nme,Shopkeeper::shop_name);
+       
+      cout<<"\n>Enter shop category : ";
+      string shop_category;
+      getline(cin,shop_category);
+      convert(shop_category,Shopkeeper::shop_category);
 
       cout<<"> Enter the password for your account\n";
       cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 6\n";

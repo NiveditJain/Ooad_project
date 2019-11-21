@@ -45,36 +45,43 @@ Item :: Item(){
 }
 
 void Item :: add_keyword(char keyword[]){
-    number_of_keyword++;
-    strcpy(keywords[number_of_keyword],keyword);
+       strcpy(keywords[number_of_keyword],keyword);
 }
-
+ 
 void Item :: get_item_details(string name1){
     Item temp;
     cout<<"\n>Enter name of the item : ";
-    cin>>name;
+    cin>>temp.name;
     cout<<"\n>Enter ItemID : ";
-    cin>>item_ID;
+    cin>>temp.item_ID;
     cout<<"\n>Enter the price of the item : ";
-    cin>>price;
+    cin>>temp.price;
     cout<<"\n>Enter the quantity available : ";
-    cin>>quantity;
+    cin>>temp.quantity;
     cout<<"\nEnter no. of keywords (1=<__<=30): ";
     ulli i;
     char key[31];
-    cin>>i;
+    cin>>temp.number_of_keyword;
+    i=temp.number_of_keyword;
     cout<<"Enter keywords\n";
     while(i--){
         cin>>key;
-        add_keyword(key);
+        add_keyword(key); 
     }
     cout<<"\n>Enter a description less than 1000 letters : \n";
-    cin>>description;
+    cin>>temp.description;
     cout<<"\n>Item added to shop\n";
-    //opening a file with the name of the shop and storing the item details
+    //opening a file with the category of the shop and storing the item details
     string path;
     path= "database/shop_items/"+name1+".ooad";
-    fstream file(path.c_str(),std::ios::app);
+    fstream file(path.c_str());
+    //while(file.read((char *)&temp, sizeof(Item))){}
+    file.seekp(0L,ios::end);
     file.write((char *)&temp, sizeof(Item));
+    file.close();
+    //ifstream file1(path.c_str());
+    /*file1.read((char *)&temp, sizeof(Item));
+    cout<<"\n"<<temp.name<<" "<<temp.description<<"\n";
+    file1.close();*/
 } 
 #endif

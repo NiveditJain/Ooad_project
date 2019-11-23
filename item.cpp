@@ -35,7 +35,7 @@ class Item
         void add_keyword(char keyword[]);
 
         //to take item details
-        void get_item_details(string name1);
+        int get_item_details(string name1);
 
 };
 
@@ -48,7 +48,7 @@ void Item :: add_keyword(char keyword[]){
        strcpy(keywords[number_of_keyword],keyword);
 }
  
-void Item :: get_item_details(string name1){
+int Item :: get_item_details(string name1){
     Item temp;
     cout<<"\n>Enter name of the item : ";
     cin>>temp.name;
@@ -74,16 +74,52 @@ void Item :: get_item_details(string name1){
     //opening a file with the category of the shop and storing the item details
     string path;
     path= "database/shop_items/"+name1+".ooad";
-    ofstream file(path.c_str(),ios::app);
-if(!file)cout<<"Not Found";
-    //while(file.read((char *)&temp, sizeof(Item))){}
+    
+    ofstream file(path.c_str(),std::ios::app);
+    if(!file)cout<<"Not Found";
     file.seekp(0L,ios::end);
 
     file.write((char *)&temp, sizeof(Item));
     file.close();
-    //ifstream file1(path.c_str());
-    /*file1.read((char *)&temp, sizeof(Item));
-    cout<<"\n"<<temp.name<<" "<<temp.description<<"\n";
-    file1.close();*/
-} 
+    return -1;
+}
+void update_item_record(Item item, string name1)
+{
+    cout << ">" << item.name << endl
+         << ">what do you want to update?\n";
+    cout << ">1)quantity\n>2)price\n3)both price and quantity";
+    ulli i;
+    cin >> i;
+    if (i == 1)
+    {
+        cout << ">Enter the new quantity : ";
+        cin >> item.quantity;
+    }
+    else if (i == 2)
+    {
+        cout << ">Enter the new price : \n";
+        cin >> item.price;
+    }
+    else
+    {
+        cout << ">Enter the new quantity : ";
+        cin >> item.quantity;
+        cout << ">Enter the new price : ";
+        cin >> item.price;
+    }
+    string path = "database/shop_items/" + name1 + ".ooad";
+    fstream file(path.c_str());
+    Item temp;
+    while (file.read((char *)&temp, sizeof(Item)))
+    {
+        if (item.item_ID == temp.item_ID)
+        {
+            long pos = file.tellp();
+            file.seekp(pos - sizeof(Item));
+            file.write((char *)&item, sizeof(Item));
+            break;
+        }
+    }
+    file.close();
+}
 #endif

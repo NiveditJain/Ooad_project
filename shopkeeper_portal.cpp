@@ -40,7 +40,7 @@ int process(ulli option, Shopkeeper shopkeeper)
         case 'b':
         {
             system("clear");
-            home_page_shpkpr(shopkeeper);
+            return home_page_shpkpr(shopkeeper);
         }
         case 'c':
         {
@@ -63,14 +63,33 @@ int process(ulli option, Shopkeeper shopkeeper)
         shop.add_items(shopkeeper.shop_category); 
 
         cout<<"item added sucessfully";
-        home_page_shpkpr(shopkeeper);
-        break;
+        return home_page_shpkpr(shopkeeper);
+    }
+    case 4:
+    {
+        display_shop_details(shopkeeper.shop_category);
+        cout << ">Enter the ID of the item whose record is to be updated : ";
+        ulli num;
+        cin >> num;
+        Item item = get_item(shopkeeper.shop_category, num);
+        string name(shopkeeper.shop_category);
+        update_item_record(item, name);
+        return home_page_shpkpr(shopkeeper);
+    }
+    case 5:
+    {
+        return -1;
+    }
+    case 6:
+    {
+        return -1;
     }
     default:
     {
-        
+        return -1;
     }
     }
+    return -1;
 }
 
 int home_page_shpkpr(Shopkeeper shopkeeper){
@@ -80,13 +99,14 @@ int home_page_shpkpr(Shopkeeper shopkeeper){
     cout << ">1)profile\n";
     cout << ">2)view items in the shop\n";
     cout << ">3)add items to shop\n";
-    cout << ">4)transaction history\n";
-    cout<<">5)Logout\n";
+    cout << ">4)update item record\n";
+    cout << ">5)transaction history\n";
+    cout<<">6)Logout\n";
     cout << "\n>";
     ulli option; //contains the input option given by the user
     cin >> option;
     system("clear");
-    process(option,shopkeeper);
+    return process(option,shopkeeper);
 }
 
 

@@ -7,10 +7,10 @@
 #include "network.cpp"
 #include "terminal.cpp" 
 #include "utilities.cpp"
-#include "deliveryboy.cpp"
+#include "deliveryboy.cpp" 
 #include "customer_portal.cpp"
 #include "shopkeeper_portal.cpp"
-#include "moderator_portal.cpp"
+//#include "moderator_portal.cpp"
 #include "item.cpp"
 using namespace std;
 typedef unsigned long long int ulli;
@@ -26,7 +26,7 @@ int main()
       return customer_portal(email);
    if(is_shopkeeper(email))
       return shopkeeper_portal(email);
-   if(is_moderator(email))
-      return moderator_portal(email);
+   //if(is_moderator(email))
+     // return moderator_portal(email);
    return register_user(email);
 }

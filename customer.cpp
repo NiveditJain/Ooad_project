@@ -181,18 +181,24 @@ class Customer : public User
       display_shop_details(shop.category);ulli number_of_items=0;char addmore;
       do{
       cout<<"\n>Select item_id:";ulli item_id;cin>>item_id;Item item=get_item(shop.category,item_id);
-      if(t.marked[shop_ID][item_id]||(t.selected<20))
-      {
+      if(t.marked[shop_ID][item_id]||(t.selected<20)) 
+      {y:
       cout<<"\n>Select the no of items to add to cart: ";
       cin>>number_of_items;
+      //if(t.marked[shop_ID][item_id]){
+      if(number_of_items+(t.marked[shop_ID][item_id]?t.items[t.listed[shop_ID][item_id]].quantity:0)>item.quantity){cout<<"OOPS!! We don't have that much in the stock"<<endl;
+      goto y;}
+      
       }
+      
       else {cout<<"\n>Sorry! You can't add more than 20 distinct item_type to your cart ";}
       if(t.marked[shop_ID][item_id]==0&& number_of_items>0)
       {t.listed[shop_ID][item_id]=t.selected;t.selected++;t.marked[shop_ID][item_id]=1;}
       if(number_of_items>0)
-      t.items[t.listed[shop_ID][item_id]].quantity+=number_of_items,t.total_price+=(item.price*number_of_items);
+      t.items[t.listed[shop_ID][item_id]].quantity+=number_of_items,t.total_price+=(item.price*number_of_items),item.quantity-=number_of_items;
       t.quantity+=number_of_items;
       strcpy(t.items[t.listed[shop_ID][item_id]].name,item.name);
+      //update_shop(item,shop.category);
       cout<<"\n>Do you want to add more items from this shop ? (y/n)";
       cin>>addmore;
       }while(addmore=='y');

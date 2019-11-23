@@ -8,6 +8,47 @@ using namespace std;
 
 int home_page_customer(Customer customer,Transaction &t);
 
+
+void update_shop(Transaction &t)
+{
+    Item temp;
+   /* string path = "database/shop_items/" + name1 + ".ooad";
+    fstream file(path.c_str());
+    while (file.read((char *)&temp, sizeof(Item)))
+    {
+        if (item.item_ID == temp.item_ID)
+        {
+            long pos = file.tellp();
+            file.seekp(pos - sizeof(Item));
+            file.write((char *)&item, sizeof(Item));
+            break;
+        }
+    } 
+    file.close();*/
+    for(ulli i=0;i<20;i++)
+    {
+        if(t.items[i].quantity>0)
+        {string shop_category="";
+         ulli j=0;
+         while(t.items[i].shop_category[j]!='\0')
+         shop_category+=t.items[i].shop_category[j],j++;
+         string path = "database/shop_items/" + shop_category + ".ooad";
+         
+         fstream file(path.c_str());
+         if(!file)cout<<"Not Found";
+        while (file.read((char *)&temp, sizeof(Item)))
+       {
+        if (t.items[i].item_ID==temp.item_ID)
+        {   temp.quantity-=t.items[i].quantity;
+            long pos = file.tellp();
+            file.seekp(pos - sizeof(Item));
+            file.write((char *)&temp, sizeof(Item));
+        }
+    } 
+        }
+    }
+}
+
 Transaction process(ulli option, Customer customer,Transaction &t)
 {
     switch (option)
@@ -97,16 +138,24 @@ Transaction process(ulli option, Customer customer,Transaction &t)
 
     case 5:
     {
-        //Do the checkout
-        
-        //Afer completion of Transaction(do not if the transaction is terminated)
-         cout<<t.total_price<<endl;string email="";
+           cout<<"Total Price-->"<<t.total_price<<"\n";
+           //Do the checkout
+           cout<<"Only Cash on Delivery Available!!\n";
+           //cout<<"Would you like to go back? (y/n)";bool goback;cin>>goback;
+           //if(goback=='y')return t;
+           cout<<"\nWould you like to pay now or later  (n/l)?\n";bool payment;
+           cin>>payment;
+           if(payment=='n')t.payment_status=1;
+           else {t.payment_status=0;customer.credit_balance+=t.total_price;}
+           update_shop(t);
+           //Afer completion of Transaction(do not if the transaction is terminated)
+           /*cout<<t.total_price<<endl;*/string email="";
            if(t.total_price>0){
            ulli i=0;
            while(customer.email[i]!='\0')
            email+=customer.email[i],i++;
            string path="database/transaction_data/"+email+".ooad";
-           fstream file(path.c_str());
+           ofstream file(path.c_str(),ios::app);
            file.seekp(0L,ios::end);
            file.write((char *)&t,sizeof(t));
            file.close();}

@@ -3,6 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ulli;
+//#include "transaction.cpp"
 class Item
 {
         // number of keywords under usage
@@ -15,6 +16,9 @@ class Item
     public:
         //name of the item
         char name[51];
+           
+        //shop category
+        char shop_category[51];
 
         // price of item
         int price;
@@ -35,7 +39,7 @@ class Item
         void add_keyword(char keyword[]);
 
         //to take item details
-        int get_item_details(string name1);
+        void get_item_details(string name1);
 
 };
 
@@ -48,7 +52,7 @@ void Item :: add_keyword(char keyword[]){
        strcpy(keywords[number_of_keyword],keyword);
 }
  
-int Item :: get_item_details(string name1){
+void Item :: get_item_details(string name1){
     Item temp;
     cout<<"\n>Enter name of the item : ";
     cin>>temp.name;
@@ -59,6 +63,9 @@ int Item :: get_item_details(string name1){
     cout<<"\n>Enter the quantity available : ";
     cin>>temp.quantity;
     cout<<"\nEnter no. of keywords (1=<__<=30): ";
+    char name2[51];
+    convert(name1,name2);
+    strcpy(temp.shop_category,name2);
     ulli i;
     char key[31];
     cin>>temp.number_of_keyword;
@@ -74,15 +81,18 @@ int Item :: get_item_details(string name1){
     //opening a file with the category of the shop and storing the item details
     string path;
     path= "database/shop_items/"+name1+".ooad";
-    
-    ofstream file(path.c_str(),std::ios::app);
-    if(!file)cout<<"Not Found";
+    ofstream file(path.c_str(),ios::app);
+if(!file)cout<<"Not Found";
+    //while(file.read((char *)&temp, sizeof(Item))){}
     file.seekp(0L,ios::end);
 
     file.write((char *)&temp, sizeof(Item));
     file.close();
-    return -1;
-}
+    //ifstream file1(path.c_str());
+    /*file1.read((char *)&temp, sizeof(Item));
+    cout<<"\n"<<temp.name<<" "<<temp.description<<"\n";
+    file1.close();*/
+} 
 void update_item_record(Item item, string name1)
 {
     cout << ">" << item.name << endl
@@ -122,4 +132,6 @@ void update_item_record(Item item, string name1)
     }
     file.close();
 }
+
+
 #endif

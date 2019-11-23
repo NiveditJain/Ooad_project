@@ -7,7 +7,7 @@
 #include "item.cpp"
 #include "moderator.cpp" 
 #include "shop.cpp"
-#include "shopkeeper.cpp"
+#include "shopkeeper.cpp" 
 //#include "terminal.cpp"
 //#include "utilities.cpp"
 //#include "deliveryboy.cpp"
@@ -16,6 +16,10 @@ using namespace std;
 typedef unsigned long long int ulli;
 class Transaction{
     public:
+    ulli quantity;
+    bool marked[100][1000];
+    ulli selected;
+    ulli listed[100][1000];
     ulli no_of_items;
     char Email[51];
     Shop shop;
@@ -57,6 +61,9 @@ void Transaction :: Initialise(string email)
     payment_details=0;payment_status=0;total_price=0;
     for(ulli i=0;i<20;i++)
     {items[i].quantity=0;}
+     marked[100][1000]={0};
+     selected=0;
+     listed[100][1000]={0};quantity=0;
 }
 
 #endif

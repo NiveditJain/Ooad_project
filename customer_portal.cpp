@@ -8,7 +8,7 @@ using namespace std;
 
 int home_page_customer(Customer customer,Transaction &t);
 
-int process(ulli option, Customer customer,Transaction &t)
+Transaction process(ulli option, Customer customer,Transaction &t)
 {
     switch (option)
     {
@@ -40,26 +40,29 @@ int process(ulli option, Customer customer,Transaction &t)
             customer.get_details(customer.email);
             register_customer(customer, customer.email);
             cout << ">profile updated successfully\n";
-            return home_page_customer(customer,t);
+            return t;
         }
         case 'b':
         {
             system("clear");
-            home_page_customer(customer,t);
+            //home_page_customer(customer,t);
+            return t;
         }
         case 'c':
         {
             // system("g++ main.cpp -o main && ./main");
             cout<<"\n>Thanks for using our application";
-            return -1;
+            exit(0);
+            return t;
         }
         }
         break;
-    }
+    } 
     case 1:
     {
-           Transaction t=customer.select_items(t);//retry='n';
-          return home_page_customer(customer,t);
+          Transaction t=customer.select_items(t);//retry='n'; 
+          cout<<t.total_price<<" "<<t.quantity<<endl;
+          return t;
     }
     case 2:
     {
@@ -78,15 +81,18 @@ int process(ulli option, Customer customer,Transaction &t)
          }
        }
        file.close();
-       return home_page_customer(customer,t);
+       return t;
     }
     case 4:
-    {
+    {    cout<<"Items\tQuantity\tPrice\n";
+         //cout<<t.total_price<<" "<<t.quantity<<endl;
          for(int i=0;i<20;i++)
          {if(t.items[i].quantity>0)
-             cout<<endl<<t.items[i].name<<"\t"<<t.items[i].quantity;
+             //cout<<"not greater than zero";
+             cout<<t.items[i].name<<"\t"<<t.items[i].quantity<<"\t\t"<<t.items[i].price<<endl;
          }
-         return home_page_customer(customer,t);
+         cout<<"Total Price-->"<<t.total_price<<endl;
+         return t;
     }
 
     case 5:
@@ -105,20 +111,22 @@ int process(ulli option, Customer customer,Transaction &t)
            file.write((char *)&t,sizeof(t));
            file.close();}
            t.Initialise(email);
-           return home_page_customer(customer,t);
+           return t;
     }
     case 6:
     {
          cout<<"\n>Thanks for using our application";
-         return -1;
+         exit(0);
+         return t;
     }
     }
 }
 
 int home_page_customer(Customer customer,Transaction &t)
 {
-    cout<<"\n>Welcome "<<customer.name<<" !\n";
+    cout<<"\n>Welcome "<<customer.name<<" !\n";int x=1;
     cout << ">Select any of the following options (Type the corresponding index to select a option):\n\n";
+    do{
     cout << ">1)Shop now or add more items to cart\n";
     cout << ">2)View Transaction History\n";
     cout << ">3)Profile\n";
@@ -129,7 +137,9 @@ int home_page_customer(Customer customer,Transaction &t)
     ulli option; //contains the input option given by the user
     cin >> option;
     //system("clear");
-    process(option,customer,t);
+    t=process(option,customer,t);
+    }while(x==1);
+    return -1;
 }
 
 int customer_portal(string email)
@@ -146,7 +156,7 @@ int customer_portal(string email)
         if((tryagain)=="y"||(tryagain)=="yes"||tryagain=="Y")
         {cout<<"\n>Re-enter your password::";
         password=get_password();continue;}
-        else break;
+        else break; 
        }
        if(tryagain=="n"||tryagain=="no"||tryagain=="N")
        {cout<<"\n>Thanks for using our services";return 0;} 

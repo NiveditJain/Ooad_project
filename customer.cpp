@@ -9,10 +9,9 @@ typedef unsigned long long ulli;
 #include "item.cpp"
 #include "transaction.cpp"
 typedef unsigned long long ulli;
-bool marked[100][1000]={0};
-ulli selected=0;
 
-ulli number_of_shop()
+
+ulli number_of_shop() 
 {
     fstream file1("database/shopkeeper_data/number_of_shops.num",ios::in);
     ulli number;
@@ -182,16 +181,18 @@ class Customer : public User
       display_shop_details(shop.category);ulli number_of_items=0;char addmore;
       do{
       cout<<"\n>Select item_id:";ulli item_id;cin>>item_id;Item item=get_item(shop.category,item_id);
-      if(marked[shop_ID][item_id]||(selected<20))
+      if(t.marked[shop_ID][item_id]||(t.selected<20))
       {
       cout<<"\n>Select the no of items to add to cart: ";
       cin>>number_of_items;
       }
       else {cout<<"\n>Sorry! You can't add more than 20 distinct item_type to your cart ";}
-      if(marked[shop_ID][item_id]==0&& number_of_items>0)
-      {selected++;marked[shop_ID][item_id]=1;}
-      t.items[selected-1].quantity+=number_of_items;t.total_price+=(item.price*number_of_items);
-      strcpy(t.items[selected-1].name,item.name);
+      if(t.marked[shop_ID][item_id]==0&& number_of_items>0)
+      {t.listed[shop_ID][item_id]=t.selected;t.selected++;t.marked[shop_ID][item_id]=1;}
+      if(number_of_items>0)
+      t.items[t.listed[shop_ID][item_id]].quantity+=number_of_items,t.total_price+=(item.price*number_of_items);
+      t.quantity+=number_of_items;
+      strcpy(t.items[t.listed[shop_ID][item_id]].name,item.name);
       cout<<"\n>Do you want to add more items from this shop ? (y/n)";
       cin>>addmore;
       }while(addmore=='y');

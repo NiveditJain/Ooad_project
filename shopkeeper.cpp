@@ -1,6 +1,6 @@
 #ifndef shopkeeper_cpp
 #define shopkeeper_cpp
-#include "shop.cpp"
+#include "shop.cpp" 
 #include<bits/stdc++.h>
 using namespace std;
 typedef unsigned long long ulli;
@@ -9,6 +9,7 @@ typedef unsigned long long ulli;
 class Shopkeeper: public User 
 {
   public:
+   
   char shop_name[51];
   char shop_category[51];
   ulli account_name;

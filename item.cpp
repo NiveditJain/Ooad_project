@@ -1,4 +1,4 @@
-#ifndef item_cpp
+#ifndef item_cpp 
 #define item_cpp
 #include<bits/stdc++.h>
 using namespace std;
@@ -74,9 +74,11 @@ void Item :: get_item_details(string name1){
     //opening a file with the category of the shop and storing the item details
     string path;
     path= "database/shop_items/"+name1+".ooad";
-    fstream file(path.c_str());
+    ofstream file(path.c_str(),ios::app);
+if(!file)cout<<"Not Found";
     //while(file.read((char *)&temp, sizeof(Item))){}
     file.seekp(0L,ios::end);
+
     file.write((char *)&temp, sizeof(Item));
     file.close();
     //ifstream file1(path.c_str());

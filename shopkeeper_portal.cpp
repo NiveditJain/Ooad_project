@@ -44,7 +44,6 @@ int process(ulli option, Shopkeeper shopkeeper)
         }
         case 'c':
         {
-            // system("g++ main.cpp -o main && ./main");
             return -1;
         }
         }

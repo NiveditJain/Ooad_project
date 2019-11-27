@@ -13,3 +13,4 @@ support credit option. There should also be a provision to choose preferred deli
 ![C++](https://img.shields.io/badge/Language-C%2B%2B-orange)
 ![build passing](https://api.travis-ci.org/klugjo/hexo-autolinker.svg?branch=master)
 ![IITJ](https://img.shields.io/badge/Institute-IITJ-yellow)
+![2022](https://img.shields.io/badge/Batch-2022-blue)

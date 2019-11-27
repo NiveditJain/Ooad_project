@@ -4,7 +4,6 @@
 #include "moderator.cpp"
 #include "shop.cpp"
 #include "shopkeeper.cpp" 
-#include "network.cpp"
 #include "terminal.cpp" 
 #include "utilities.cpp"
 #include "deliveryboy.cpp" 

@@ -93,7 +93,7 @@ void update_item_record(Item item, string name1)
 {
     cout << ">" << item.name << endl
          << ">what do you want to update?\n";
-    cout << ">1)quantity\n>2)price\n3)both price and quantity\n>";
+    cout << ">1)quantity\n>2)price\n>3)both price and quantity\n>";
     ulli i;
     cin >> i;
     if (i == 1)

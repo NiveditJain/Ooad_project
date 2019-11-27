@@ -52,7 +52,8 @@ int process(ulli option, Shopkeeper shopkeeper)
     case 2:
     {
         display_shop_details(shopkeeper.shop_category);
-        home_page_shpkpr(shopkeeper);
+        return home_page_shpkpr(shopkeeper);
+        break;
               
     }
     case 3:
@@ -63,6 +64,7 @@ int process(ulli option, Shopkeeper shopkeeper)
 
         cout<<"item added sucessfully";
         return home_page_shpkpr(shopkeeper);
+        break;
     }
     case 4:
     {
@@ -74,6 +76,7 @@ int process(ulli option, Shopkeeper shopkeeper)
         string name(shopkeeper.shop_category);
         update_item_record(item, name);
         return home_page_shpkpr(shopkeeper);
+        break;
     }
     case 5:
     {

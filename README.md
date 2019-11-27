@@ -14,6 +14,7 @@ support credit option. There should also be a provision to choose preferred deli
 ![build passing](https://api.travis-ci.org/klugjo/hexo-autolinker.svg?branch=master)
 ![IITJ](https://img.shields.io/badge/Institute-IITJ-yellow)
 ![2022](https://img.shields.io/badge/Batch-2022-blue)
+
 This project was developed as a course project for Dr. Anand Mishra, instructor, Object Oriented Analysis and Design Course. This project encouraged us to expand our horizon on understanding and applying object oriented analysis and design in real life applications. 
 ## Problem Statement
 The Community Centre of IIT Jodhpur is far for a walk from the student hostels and faculty residence. This makes it very difficult to go and shop for daily needs especially in the scorching heat of Rajasthan. 

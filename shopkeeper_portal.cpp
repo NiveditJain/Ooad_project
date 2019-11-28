@@ -6,21 +6,6 @@ using namespace std;
 #include "shopkeeper.cpp" 
 #include "shop.cpp" 
 
-void overwrite(string id)
-{   unsigned long long int new_id;
-    fstream f;
-    string path="database/shop_data/"+id+".num";
-    f.open(path.c_str(),ios::in | ios:: out);
-    while(f.read((char*)&new_id,sizeof(unsigned long long int)))
-    {
-        f>>new_id;
-    }
-    new_id+=1;
-    f.seekg(-1*sizeof(unsigned long long int),ios_base::cur);
-    f.write((char*)&new_id,sizeof(unsigned long long int));
-    f.close();
-}
-
 ulli number_of_items=0;
 
 int home_page_shpkpr(Shopkeeper); 
@@ -41,31 +26,24 @@ int process(ulli option, Shopkeeper shopkeeper)
     {
     case 1:
     {
-        cout<<"> You can only edit Phone number and IFSC Code for Now\n";
-        cout<<"> Account Number : " << shopkeeper.account_name << endl;
-        cout<<"> IFSC code : " << shopkeeper.IFSC_code << endl;
-        cout << endl;
-        cout << "> select any of the following options :\n";
-        cout << "> a) Edit profile\n";
-        cout << "> b) go to home page\n";
-        cout << "> c) logout\n";
-        cout << "> ";
+        cout << "> Name : " << shopkeeper.name << endl;
+        cout<<"> shop name : "<<shopkeeper.shop_name<<endl;
+        cout << "> Email : " << shopkeeper.email << endl;
+        cout << "> contact number : " << shopkeeper.contact_number << endl;
+        cout << "> Account Number : " << shopkeeper.account_name << endl;
+        cout << "> IFSC code : " << shopkeeper.IFSC_code << endl;
+        cout << "> Pending amount : " << shopkeeper.pending_amount << endl;
+        cout <<"> Account Number : " << shopkeeper.account_name << endl;
+        
         char option1;
         cin >> option1;
         switch (option1){
         case 'a':
         {
-            shopkeeper.get_details(shopkeeper.email);
-            register_shopkeeper(shopkeeper, shopkeeper.email);
-            cout << "> profile updated successfully\n";
-            return home_page_shpkpr(shopkeeper);
-        }
-        case 'b':
-        {
             system("clear");
             return home_page_shpkpr(shopkeeper);
         }
-        case 'c':
+        case 'b':
         {
             return -1;
         }

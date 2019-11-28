@@ -184,50 +184,50 @@ int register_user(string email)
             string temp_email(customer.email);
             string temp_phone(customer.contact_number);
 
-            // cout<<"> Starting email verification process\n";
-            // // verifing email
-            // string OTP=Network::mail_otp(temp_name,temp_email);
+            cout<<"> Starting email verification process\n";
+            // verifing email
+            string OTP=Network::mail_otp(temp_name,temp_email);
 
-            // if(OTP.length()==0)
-            //     return -1;
-            // cout<<"> Enter OTP recieved on your email :: ";                
-            // char temp_otp[11];
+            if(OTP.length()==0)
+                return -1;
+            cout<<"> Enter OTP recieved on your email :: ";                
+            char temp_otp[11];
             
-            // cin>>temp_otp;
+            cin>>temp_otp;
 
-            // if(strcmp(temp_otp,OTP.c_str())!=0)
-            // {
-            //     cout<<"> Worng OTP entered aborting process\n";
-            //     return -1;
-            // }
-            // else
-            // {
-            //     cout<<"> OTP accepeted\n";
-            // }
+            if(strcmp(temp_otp,OTP.c_str())!=0)
+            {
+                cout<<"> Worng OTP entered aborting process\n";
+                return -1;
+            }
+            else
+            {
+                cout<<"> OTP accepeted\n";
+            }
 
 
-            // cout<<"> Starting mobile verification\n";
+            cout<<"> Starting mobile verification\n";
             
-            // // sending OTP
-            // OTP=Network::sms_otp(temp_name,temp_phone);
+            // sending OTP
+            OTP=Network::sms_otp(temp_name,temp_phone);
 
-            // if(OTP.length()==0)
-            //     return -1;
+            if(OTP.length()==0)
+                return -1;
             
-            // cout<<"> Enter OTP recieved on your phone number :: ";                
-            // temp_otp[11];
+            cout<<"> Enter OTP recieved on your phone number :: ";                
+            temp_otp[11];
             
-            // cin>>temp_otp;
+            cin>>temp_otp;
 
-            // if(strcmp(temp_otp,OTP.c_str())!=0)
-            // {
-            //     cout<<"> Worng OTP entered aborting process\n";
-            //     return -1;
-            // }
-            // else
-            // {
-            //     cout<<"> OTP accepeted\n";
-            // }            
+            if(strcmp(temp_otp,OTP.c_str())!=0)
+            {
+                cout<<"> Worng OTP entered aborting process\n";
+                return -1;
+            }
+            else
+            {
+                cout<<"> OTP accepeted\n";
+            }            
 
             register_customer(customer,email);
             cout<<"> Customer Registration Completed \n";
@@ -253,55 +253,55 @@ int register_user(string email)
             if(shopkeeper.get_details(email)==-1)
                 return -1;
 
-            // // verification process before entering into database
-            // string temp_name(shopkeeper.name);
-            // string temp_email(shopkeeper.email);
-            // string temp_phone(shopkeeper.contact_number);
+            // verification process before entering into database
+            string temp_name(shopkeeper.name);
+            string temp_email(shopkeeper.email);
+            string temp_phone(shopkeeper.contact_number);
 
 
-            // cout<<"> Starting email verification process\n";
-            // // verifing email
-            // string OTP=Network::mail_otp(temp_name,temp_email);
+            cout<<"> Starting email verification process\n";
+            // verifing email
+            string OTP=Network::mail_otp(temp_name,temp_email);
 
-            // if(OTP.length()==0)
-            //     return -1;
-            // cout<<"> Enter OTP recieved on your email :: ";                
-            // char temp_otp[11];
+            if(OTP.length()==0)
+                return -1;
+            cout<<"> Enter OTP recieved on your email :: ";                
+            char temp_otp[11];
             
-            // cin>>temp_otp;
+            cin>>temp_otp;
 
-            // if(strcmp(temp_otp,OTP.c_str())!=0)
-            // {
-            //     cout<<"> Worng OTP entered aborting process\n";
-            //     return -1;
-            // }
-            // else
-            // {
-            //     cout<<"> OTP accepeted\n";
-            // }
+            if(strcmp(temp_otp,OTP.c_str())!=0)
+            {
+                cout<<"> Worng OTP entered aborting process\n";
+                return -1;
+            }
+            else
+            {
+                cout<<"> OTP accepeted\n";
+            }
 
-            // cout<<"> Starting mobile verification\n";
+            cout<<"> Starting mobile verification\n";
             
-            // // sending OTP
-            // OTP=Network::sms_otp(temp_name,temp_phone);
+            // sending OTP
+            OTP=Network::sms_otp(temp_name,temp_phone);
 
-            // if(OTP.length()==0)
-            //     return -1;
+            if(OTP.length()==0)
+                return -1;
             
-            // cout<<"> Enter OTP recieved on your phone number :: ";                
-            // temp_otp[11];
+            cout<<"> Enter OTP recieved on your phone number :: ";                
+            temp_otp[11];
             
-            // cin>>temp_otp;
+            cin>>temp_otp;
 
-            // if(strcmp(temp_otp,OTP.c_str())!=0)
-            // {
-            //     cout<<"> Worng OTP entered aborting process\n";
-            //     return -1;
-            // }
-            // else
-            // {
-            //     cout<<"> OTP accepeted\n";
-            // }
+            if(strcmp(temp_otp,OTP.c_str())!=0)
+            {
+                cout<<"> Worng OTP entered aborting process\n";
+                return -1;
+            }
+            else
+            {
+                cout<<"> OTP accepeted\n";
+            }
           
             Shop shop(get_number_of_shops());
             if(shop.get_details(shopkeeper.email,shopkeeper.name,shopkeeper.shop_category)==-1)

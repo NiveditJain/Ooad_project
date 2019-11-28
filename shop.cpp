@@ -149,10 +149,10 @@ class Shop
         return 0;
     }
 
-    void add_items(char name[]){ 
+    void add_items(char name[],unsigned long long int ID){ 
         string name1(name);
         Item temp;
-        temp.get_item_details(name1);
+        temp.get_item_details(name1,ID);
         cout << "\n> Item added to shop\n";
         //opening a file with the category of the shop and storing the item details
         string path;

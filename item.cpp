@@ -28,7 +28,7 @@ class Item
         char description[1000]; 
 
         // unique ID for each item
-        long long int item_ID;
+        unsigned long long int item_ID;
 
         // quantity of each item
         int quantity;  
@@ -40,7 +40,7 @@ class Item
         void add_keyword(char keyword[]);
 
         //to take item details
-        int get_item_details(string name1);
+        int get_item_details(string name1,unsigned long long int ID);
 
 };
 
@@ -49,9 +49,10 @@ Item :: Item(){
     quantity=0;
 }
  
-int Item :: get_item_details(string category){
+int Item :: get_item_details(string category,unsigned long long int ID){
     
     // holding temperary data
+    item_ID=ID;
     string temp;
     char waste;
     strcpy(shop_category,category.c_str());
@@ -67,13 +68,13 @@ int Item :: get_item_details(string category){
 
     strcpy(name,temp.c_str());
 
-    cout<<"> Enter ItemID : ";
-    cin>>item_ID;
-    if(item_ID<0)
-    {
-        cout<<"> ItemID should be greater than 0";
-        exit(0);
-    }
+    // cout<<"> Enter ItemID : "
+    // cin>>item_ID;
+    // if(item_ID<0)
+    // {
+    //     cout<<"> ItemID should be greater than 0";
+    //     exit(0);
+    // }
 
     cout<<"> Enter the price of the item : ";
     cin>>price;

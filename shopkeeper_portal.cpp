@@ -6,6 +6,9 @@ using namespace std;
 #include "shopkeeper.cpp" 
 #include "shop.cpp" 
 
+
+ulli number_of_items=0;
+
 int home_page_shpkpr(Shopkeeper); 
 void display_transaction_details(char* name){
     string name1(name);
@@ -61,17 +64,28 @@ int process(ulli option, Shopkeeper shopkeeper)
     }
     case 2:
     {
-        display_shop_details(shopkeeper.shop_category);
-        return home_page_shpkpr(shopkeeper);
-              
+        if(number_of_items==0)
+            cout<<"> No items to display\n";
+        else
+            display_shop_details(shopkeeper.shop_category);
+        return home_page_shpkpr(shopkeeper);      
     }
     case 3:
     {
         Shop shop;
         cout<<"> Shop_Category -> "<<shopkeeper.shop_category<<" shop"<<endl;
-        shop.add_items(shopkeeper.shop_category); 
+        shop.add_items(shopkeeper.shop_category,number_of_items+1); 
 
         cout<<"> item added sucessfully\n";
+
+        number_of_items++;
+        string temp_id(Utilities::ulli_to_string(shopkeeper.shop_id));
+        
+        string path="database/shop_data/"+temp_id+".num";
+        ofstream file(path.c_str());
+        file<<number_of_items;
+        file.close();
+
         return home_page_shpkpr(shopkeeper);
         break;
     }
@@ -103,14 +117,23 @@ int process(ulli option, Shopkeeper shopkeeper)
     return -1;
 }
 
-int home_page_shpkpr(Shopkeeper shopkeeper){
-    cout << "\n> Select any of the following options (Type the corresponding index to select a option):\n";
+
+int home_page_shpkpr(Shopkeeper shopkeeper)
+{
+    string id=Utilities::ulli_to_string(shopkeeper.shop_id);
+    
+    string path="database/shop_data/"+id+".num";
+    fstream file(path.c_str());
+    file>>number_of_items;
+    file.close();
+
+    cout << "> Select any of the following options (Type the corresponding index to select a option):\n";
     cout << "> 1) profile\n";
     cout << "> 2) view items in the shop\n";
     cout << "> 3) add items to shop\n";
     cout << "> 4) update item record\n";
     cout << "> 5) transaction history\n";
-    cout<<"> 6) Logout\n";
+    cout << "> 6) Logout\n";
     cout << "\n> ";
     ulli option; //contains the input option given by the user
     cin >> option;
@@ -133,8 +156,11 @@ int shopkeeper_portal(string email)
     while(!shopkeeper.login(password))
     {
         cout<<"> invalid email password combination";
-        cout<<"\n> Do you want to re-enter password? (y/n)";char input;
-        cin>>input;if(input=='y'||input=='Y')
+        cout<<"\n> Do you want to re-enter password? (y/n)";
+        char input;
+        cin>>input;
+        
+        if(input=='y'||input=='Y')
         {
           cout<<"> Enter your password :: ";
           password=Terminal::input_password();

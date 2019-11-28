@@ -1,16 +1,14 @@
 #ifndef moderator_cpp
 #define moderator_cpp
-
-// all includes
-#include<bits/stdc++.h>
-using namespace std;
-// this class contains inplimentation of shopkeeper
+//SOS forget password function,update password,retriever of mails
 // all includes
 #include<bits/stdc++.h>
 using namespace std;
 #include "utilities.cpp"
+#include "deliveryboy.cpp"
+#include "main.cpp"
 
-// a abstract classn with all its data members and functions static 
+// an abstract class with all its data members and functions static 
 class Moderator
 {
     public:
@@ -26,7 +24,7 @@ class Moderator
         return false;
     }
 
-    static vector<string> get_customer_mails()
+    static vector<string> get_customer_mails() //retrieving customer emails to send holiday mail
     {
         vector<string> emails;
         fstream file1("database/customer_data/emails.txt",ios::in);
@@ -37,7 +35,7 @@ class Moderator
         return emails;
     }
     
-    static vector<string> get_shopkeeper_mails()
+    static vector<string> get_shopkeeper_mails()//retrieving shopkeeper emails to send holiday mail
     {
         vector<string> emails;
         fstream file2("database/customer_data/emails.txt", ios::in);
@@ -49,19 +47,47 @@ class Moderator
     }
 
     static void mail_holiday(string date,string occassion)
-    {
-        vector<string> emails=get_customer_mails();
-        for(auto str:emails)
-        {
+    {   
+        vector<string> cemails=get_customer_mails();
+        vector<string> smails=get_shopkeeper_mails();
+        for(auto str:cemails)
+        {   
             string payload = "python3 holiday_mail.py " + str + " Customer "+date+" \""+occassion+"\"";
             system(payload.c_str());
         }
+        for(auto str2:smails)
+        {
+            string payload = "python3 holiday_mail.py " + str2 + " Shopkeeper "+date+" \""+occassion+"\"";
+            system(payload.c_str());
+        }
+    }
+
+    static void mail_vacation(string date1,string date2,string occassion)
+    {
+        vector<string> cemails=get_customer_mails();
+        vector<string> smails=get_shopkeeper_mails();
+        for(auto str:cemails)
+        {   
+            string payload = "python3 vacation_mail.py " + str + " Customer "+date1+" "+date2+" \""+occassion+"\"";
+            system(payload.c_str());
+        }
+        for(auto str2:smails)
+        {   
+            string payload = "python3 vacation_mail.py " + str2 + " Shopkeeper "+date1+" "+date2+" \""+occassion+"\"";
+            system(payload.c_str());
+        }
+    }
+    int assign_delivery_boy()
+    {   
+        srand(time(0));
+       int r= rand() % ( 5 - 0 + 1 );
+       return r;
     }
 
     virtual void create_abstract()=0;
 };
 
-char const Moderator::password[51]="moderator@iitj#cc01";
-char const Moderator::email[51]="moderator@iitj.ac.in";
+char const Moderator::password[51]="moderator#cc2019@iitj";
+char const Moderator::email[51]="moderator#cc@iitj.ac.in";
 
 #endif

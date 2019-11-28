@@ -20,7 +20,7 @@ int moderator_portal()
     ifstream file("database/.modu");
     file>>password_file;
 
-    strcmp(Moderator::password,password_file);
+    strcpy(Moderator::password,password_file);
     file.close();
 
     if(Moderator::login(password)==false)

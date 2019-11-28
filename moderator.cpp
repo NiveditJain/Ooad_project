@@ -87,7 +87,9 @@ class Moderator
     }
     static void update_password() //change password
     {   string old_pass,new_pass1,new_pass_final,empty_string;
-        cout<<"> Enter old password:"<<endl;
+        cout<<"> Enter old password: "<<endl;
+        char waste;
+        scanf("%c",&waste);
         old_pass=Terminal::input_password();
         if(strcmp(old_pass.c_str(),Moderator::password)==0)
         {

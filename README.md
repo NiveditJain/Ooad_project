@@ -23,10 +23,10 @@ There are three types of users of the system:**customer**(students/faculty membe
 Users(customer/shopkeeper) can register in the portal.Registration would
 require the following details of the users:
 #### Customer 
--Email
--Contact number
--Name
--Password
+- Email
+- Contact number
+- Name
+- Password
 For Shopkeeper: email, contact number, name, name of shop, password, account number,
 IFSC code, Bank Name, shop description,allowing for rent(tentative).
 OTP authentication(tentative).

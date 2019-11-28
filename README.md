@@ -46,3 +46,25 @@ Moderator is given a separate email id (of IITJ domain only).
 We have implemented C++ functions for authentication of emaild id and password.
 #### After Login
 
+To be edited:
+Classes and their description:
+1) Shopkeeper:
+functions:
+- constructor: sets a pending amount to zero and gives a shop id.
+- login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
+- set_password: stores password entered by the shopkeeper. It is called during registration and edit profile.
+- get_details : inputs data required for registration/edit profile.
+
+2) Shop:
+functions:
+- constructor: provides a shop ID.
+- get_details: inputs data required for registration of shop.
+- add_items: creates new item and stores in the database.
+
+3)Customer:
+functions:
+- constructor: initializes credit_balance, wallet balance, number of items in cart and transactions done to zero.
+- login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
+- get_details : inputs data required for registration/edit profile.
+- add_cart: adds the items selected by the customer to the cart.
+

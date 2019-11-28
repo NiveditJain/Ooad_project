@@ -14,33 +14,30 @@ We have tried to implement the online delivery system through concepts of Object
 
 We have implemented **_database_** by using exccessive **file handling** in C++. We have also used **exception handling**.
 
-We have implemented a feature using _______________ which sends an **email** to registered users regarding **_holiday declaration_** with a custom message. 
+We have implemented a feature using **SMTP python3 library** which sends an **email** to registered users regarding **_holiday declaration_** with a custom message. 
 
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 
 
 ### Classes and their functions description:
-1. Shopkeeper
-Functions:
-- constructor: sets a pending amount to zero and gives a shop id.
-- login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
-- set_password: stores password entered by the shopkeeper. It is called during registration and edit profile.
-- get_details : inputs data required for registration/edit profile.
+**1.** **Shopkeeper functions:**
+- **constructor:** sets a pending amount to zero and gives a shop id.
+- **login:** compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
+- **set_password:** stores password entered by the shopkeeper. It is called during registration and edit profile.
+- **get_details :** inputs data required for registration/edit profile.
 
-2. Shop
-Functions:
-- constructor: provides a shop ID.
-- get_details: inputs data required for registration of shop.
-- add_items: creates new item and stores in the database.
+**2. Shop functions:**
+- **constructor:** provides a shop ID.
+- **get_details:** inputs data required for registration of shop.
+- **add_items:** creates new item and stores in the database.
 
-3. Customer:
-Functions:
-- constructor: initializes credit_balance, wallet balance, number of items in cart and transactions done to zero.
-- login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
-- get_details : inputs data required for registration/edit profile.
-- add_cart: adds the items selected by the customer to the cart.
-- select_items: co-ordinates displaying items and adding to cart and returns the final transaction details.
+**3. Customer functions:**
+- **constructor:** initializes credit_balance, wallet balance, number of items in cart and transactions done to zero.
+- **login:** compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
+- **get_details:** inputs data required for registration/edit profile.
+- **add_cart: **adds the items selected by the customer to the cart.
+- **select_items:** co-ordinates displaying items and adding to cart and returns the final transaction details.
 
 ### User Registeration
 Users(customer/shopkeeper) can register in the portal. Registration requires the following details of the users:
@@ -60,7 +57,7 @@ Users(customer/shopkeeper) can register in the portal. Registration requires the
 - Bank Name
 - Shop description
 
-Email for both shopkeepers and customers can be of IITJ domain only. No emails with other domains are allowed to register. This is to make sure that people only in IIT Jodhpur can use the portal serivce. We have implemented __________________________ for **verification** of email id and contact number through **_OTP_**. 
+Email for both shopkeepers and customers can be of IITJ domain only. No emails with other domains are allowed to register. This is to make sure that people only in IIT Jodhpur can use the portal serivce. We have implemented **SMTP python3 library** for **verification** of email id through **_OTP_** and **Fast2 SMS API** for contact number verification through **_OTP_**. 
 
 There are some rules defined for setting password. User also has to agree to some **_terms and conditions_** (defined separately for shopkeepers and customers) to get registered.
 ### Login
@@ -75,9 +72,9 @@ which works on basis of keyword matching is also present. The customer would hav
 #### Shopkeeper Login
 A screen is displayed with different actions to choose from such as viewing and editing profile, updating and adding shop items, view transaction history,etc. 
 
-The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.
+The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.</br>
 ## Running the Code
-Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**.
+Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**. Codes were further executed using **g++** compiler and **python3.6**.
 
 Clone into repository
 ```batch
@@ -92,6 +89,9 @@ To run the code execute
 ``` batch
 ./start
 ```
-This will check all the requirements and tell you in case the requirements are not met. In case all the requirements are met it will start running your code.
+This will check all the requirements and tell you in case the requirements are not met. In case all the requirements are met it will start running your code. 
 
 However you can also follow the following instructions to install all the requirements.
+
+#### G++ Compiler
+

@@ -77,3 +77,6 @@ Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various
 
 To run the code execute 
 
+``` batch
+./start
+```

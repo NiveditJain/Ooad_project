@@ -141,13 +141,64 @@ To check to successfull installation run
 ```bash
 python3 -v
 ```
+Pip also must be installed for package management
+```bash
+sudo apt install python3-pip
+```
+Checking installations
+```bash
+pip3 --version
+```
+It must print something like
+```bash
+pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
+```
 This must show the python version installed
 ### requests Library
+To install execute
+```bash
+pip install requests
+```
+To check installation use, on successfull installation it prints nothing
+```bash
+python3 -c "import requests"
+```
 ### smtplib Library
+To install execute
+```bash
+pip install smtplib
+```
+To check installation use, on successfull installation it prints nothing
+```bash
+python3 -c "import smtplib"
+```
 ### ssl Library
+To install execute
+```bash
+pip install ssl
+```
+To check installation use, on successfull installation it prints nothing
+```bash
+python3 -c "import ssl"
+```
 ### sys Library
+To install execute
+```bash
+pip install sys
+```
+To check installation use, on successfull installation it prints nothing
+```bash
+python3 -c "import sys"
+```
 ### json Library
-
+To install json
+```bash
+pip install json
+```
+To check installation use, on successfull installation it prints nothing
+```bash
+python3 -c "import json"
+```
 ## Contributors of the Project
 + Nivedit Jain (B18CSE039)
 + Nagamalla Rohith(B18CSE065)

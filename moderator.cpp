@@ -37,7 +37,7 @@ class Moderator
     static vector<string> get_shopkeeper_mails()//retrieving shopkeeper emails to send holiday mail
     {
         vector<string> emails;
-        fstream file2("database/customer_data/emails.txt", ios::in);
+        fstream file2("database/shopkeeper_data/emails.txt", ios::in);
         string mail;
         while (file2>>mail)
             emails.push_back(mail);

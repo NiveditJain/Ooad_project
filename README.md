@@ -204,4 +204,5 @@ python3 -c "import json"
 + Nagamalla Rohith(B18CSE065)
 + Muskan Bathla (B18CSE036)
 + Kumar Pradumn (B18CSE024)
-![GitHub](http://github.com)
+
+[GitHub](http://github.com)

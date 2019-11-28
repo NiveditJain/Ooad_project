@@ -79,7 +79,7 @@ class Moderator
     static int assign_delivery_boy()
     {   
         srand(time(0));
-       int r= rand() % ( 5 - 0 + 1 );
+       int r= rand() % (5);
        return r;
     }
 

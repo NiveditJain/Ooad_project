@@ -97,27 +97,19 @@ Transaction process(ulli option, Customer customer,Transaction &t)
         cout << endl;
         
         cout << "> select any of the following options :\n";
-        cout << "> a) Edit profile\n";
-        cout << "> b) go to home page\n";
-        cout << "> c) logout\n";
+        cout << "> a) go to home page\n";
+        cout << "> b) logout\n";
         cout << ">";
         char option1;
         cin >> option1;
         switch (option1){
         case 'a':
         {
-            customer.get_details(customer.email);
-            register_customer(customer, customer.email);
-            cout << "> profile updated successfully\n";
-            return t;
-        }
-        case 'b':
-        {
             system("clear");
             //home_page_customer(customer,t);
             return t;
         }
-        case 'c':
+        case 'b':
         {
             cout<<"\n> Thanks for using our application\n";
             exit(0);

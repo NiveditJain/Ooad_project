@@ -41,13 +41,9 @@ int process(ulli option, Shopkeeper shopkeeper)
     {
     case 1:
     {
-        cout << "> Name : " << shopkeeper.name << endl;
-        cout<<"> shop name : "<<shopkeeper.shop_name<<endl;
-        cout << "> Email : " << shopkeeper.email << endl;
-        cout << "> contact number : " << shopkeeper.contact_number << endl;
-        cout << "> Account Number : " << shopkeeper.account_name << endl;
-        cout << "> IFSC code : " << shopkeeper.IFSC_code << endl;
-        cout << "> Pending amount : " << shopkeeper.pending_amount << endl;
+        cout<<"> You can only edit Phone number and IFSC Code for Now\n";
+        cout<<"> Account Number : " << shopkeeper.account_name << endl;
+        cout<<"> IFSC code : " << shopkeeper.IFSC_code << endl;
         cout << endl;
         cout << "> select any of the following options :\n";
         cout << "> a) Edit profile\n";

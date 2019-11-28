@@ -41,6 +41,7 @@ functions:
 - login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
 - get_details : inputs data required for registration/edit profile.
 - add_cart: adds the items selected by the customer to the cart.
+- select_items: co-ordinates displaying items and adding to cart and returns the final transaction details.
 
 ### User Registeration
 Users(customer/shopkeeper) can register in the portal. Registration requires the following details of the users:

@@ -1,9 +1,13 @@
 #include<bits/stdc++.h>
+#include "customer.cpp"
 #include "terminal.cpp"
 using namespace std;
 
 #include "moderator.cpp"
 #include "customer.cpp"
+#include "utilities.cpp"
+void holiday_vacation();
+void MB();
 int moderator_portal()
 {
     string password;
@@ -17,7 +21,30 @@ int moderator_portal()
         cout<<"\n > invalid email password combination";
         return -1;
     }
-
+    int choice;
+    Utilities::loading(10);
+    cout<<"\n> Login successful!"<<endl;
+    cout<<"> Welcome Moderator!"<<endl;
+    cout<<"> Choose your action:"<<endl;
+    cout<<"> 1. Holiday/Vacation declaration"<<endl;
+    cout<<"> 2.Update customer credit"<<endl;
+    cout<<"> 3.Logout"<<endl;
+    cout<<"> Enter your choice:"<<endl;
+    cin>>choice;
+    switch(choice)
+    {
+        case 1:holiday_vacation();
+                break;
+        case 2: MB();
+                break;
+        case 3: Utilities::logging_out(10);
+                exit(0);
+        default: cout<<"> Enter valid choice!!";
+                Utilities::logging_out(10);
+                exit(0);
+                
+    }
+    
 }
 
 

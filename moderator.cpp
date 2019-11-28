@@ -6,6 +6,7 @@
 using namespace std;
 #include "utilities.cpp"
 #include "deliveryboy.cpp"
+#include "customer.cpp"
 
 // an abstract class with all its data members and functions static 
 class Moderator

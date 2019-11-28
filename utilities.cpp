@@ -148,6 +148,27 @@ void loading(int x)
     cout<<"\n";
 }
 
+void logging_out(int x)
+{
+    for(int i=0;i<=100;i=i+2)
+    {
+        cout<<"\r> Logging out"; //sort of overwrite
+        int j;
+        for(j=0;j<=100;j=j+4)
+        {
+            if(j<=i)
+                cout<<" .";
+            else
+                cout<<"  ";
+        }
+        cout<<" ";
+        cout<<i<<"%";
+        for(int j=0;j<x*1000000;j++);
+        cout.flush();
+    }
+    cout<<"\n";
+}
+
 string generate_otp()
 {
     random_device random_device;

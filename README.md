@@ -20,8 +20,7 @@ We have tried to implement the online delivery system through concepts of Object
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 ### User Registeration
-Users(customer/shopkeeper) can register in the portal.Registration would
-require the following details of the users:
+Users(customer/shopkeeper) can register in the portal. Registration requires the following details of the users:
 #### Customer 
 - Email
 - Name
@@ -37,3 +36,9 @@ require the following details of the users:
 - IFSC code
 - Bank Name
 - Shop description
+
+Email for both shopkeepers and customers can be of IITJ domain only. No emails with other domains are allowed to register. This is to make sure that people only in IIT Jodhpur can use the portal serivce.
+There are some rules defined for setting password.
+#### Login
+Logging into the system requires email and password to be entered. 
+Moderator is given a separate email id.

@@ -35,7 +35,7 @@ int moderator_portal()
     {
         case 1:holiday_vacation();
                 break;
-        case 2: MB();
+        // case 2: MB();
                 break;
         case 3: Utilities::logging_out(10);
                 exit(0);

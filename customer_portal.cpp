@@ -32,9 +32,6 @@ void update_shop(Transaction &t)
         if(t.items[i].quantity>0)
         {
         string Shop_category(t.items[i].shop_category);
-       
-         
-       
          string path = "database/shop_items/" + Shop_category + ".ooad";
          fstream file(path.c_str());
          if(!file)cout<<"Not Found";

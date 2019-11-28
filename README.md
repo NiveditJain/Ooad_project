@@ -106,4 +106,4 @@ This will check all the requirements and tell you in case the requirements are n
 + Nivedit Jain (B18CSE039)
 + Nagamalla Rohith(B18CSE065)
 + Muskan Bathla (B18CSE036)
-+ Kumar Praduman (B18CSE024)
++ Kumar Pradumn (B18CSE024)

@@ -75,12 +75,12 @@ class Shopkeeper: public User
       }
 
       convert(phone_number,Shopkeeper::contact_number);
-      cout<<">Enter shop name : ";
+      cout<<"> Enter shop name :: ";
       string shp_nme;
       getline(cin,shp_nme);
       convert(shp_nme,Shopkeeper::shop_name);
        
-      cout<<"\n>Enter shop category : ";
+      cout<<"> Enter shop category :: ";
       string shop_category;
       getline(cin,shop_category);
       convert(shop_category,Shopkeeper::shop_category);
@@ -111,6 +111,5 @@ class Shopkeeper: public User
 
 
 };
-///////////////////////////////////////////////////
 
 #endif

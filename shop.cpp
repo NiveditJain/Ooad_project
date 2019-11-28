@@ -25,24 +25,16 @@ class Shop
         ID=id;
     }
 
-    int get_details(char shopkeeper_email[])
+    int get_details(char shopkeeper_email[],char name[],char category[])
     {
-        for(int i=0;shopkeeper_email[i]!='\0';i++)
-            email[i]=shopkeeper_email[i];
-        
-        string name;
-        cout<<">please re-enter the name of the shop\n> Enter the name of Shop :: ";
-        getline(cin,name);
-           
-        convert(name,Shop::name); 
-        
-        string category;
-        cout<<"\n> Please enter the category of your shop (e.g fruit) :: ";
-        getline(cin,category);
-        convert(category,Shop::category);
-
+        strcpy(email,shopkeeper_email);
+        strcpy(Shop::name,name);
+        strcpy(Shop::category,category);
+     
+        char waste;
         string description;
-        cout<<"> Enter a short discription of your shop(250 character max without enter)\n";
+        cout<<"> Enter a short discription of your shop(250 character max without enter)\n> ";
+        cin>>waste;
         getline(cin,description);
 
         if(description.length()>250)
@@ -160,7 +152,21 @@ class Shop
     void add_items(char name[]){ 
         string name1(name);
         Item temp;
-        temp.get_item_details(name1); 
+        temp.get_item_details(name1);
+        cout << "\n> Item added to shop\n";
+        //opening a file with the category of the shop and storing the item details
+        string path;
+        path = "database/shop_items/" + name1 + ".ooad";
+        ofstream file(path.c_str(), std::ios::app);
+        if (!file)
+        {
+            cout<<"problem in file IO :(";
+            exit(0);
+        }
+        file.seekp(0L, ios::end);
+        file.write((char *)&temp, sizeof(Item));
+        file.close();
+        cout<<"\n";
     }
 };
 

@@ -7,6 +7,16 @@ using namespace std;
 #include "shop.cpp" 
 
 int home_page_shpkpr(Shopkeeper); 
+void display_transaction_details(char* name){
+    string name1(name);
+    Shop_trans trans;
+    string path="database/transaction_data/"+name1+".ooad";
+    ifstream file(path.c_str());
+    cout<<"email\t\tname\t\tquantity"<<endl;
+    while(file.read((char*)&trans,sizeof(Shop_trans))){
+        cout<<trans.email<<"\t\t"<<trans.name<<"\t\t"<<trans.quantity<<endl;
+    }
+}
 
 int process(ulli option, Shopkeeper shopkeeper)
 {
@@ -14,19 +24,19 @@ int process(ulli option, Shopkeeper shopkeeper)
     {
     case 1:
     {
-        cout << ">Name : " << shopkeeper.name << endl;
-        cout<<">shop name : "<<shopkeeper.shop_name<<endl;
-        cout << ">Email : " << shopkeeper.email << endl;
-        cout << ">contact number : " << shopkeeper.contact_number << endl;
-        cout << ">Account Number : " << shopkeeper.account_name << endl;
-        cout << ">IFSC code : " << shopkeeper.IFSC_code << endl;
-        cout << ">Pending amount : " << shopkeeper.pending_amount << endl;
+        cout << "> Name : " << shopkeeper.name << endl;
+        cout<<"> shop name : "<<shopkeeper.shop_name<<endl;
+        cout << "> Email : " << shopkeeper.email << endl;
+        cout << "> contact number : " << shopkeeper.contact_number << endl;
+        cout << "> Account Number : " << shopkeeper.account_name << endl;
+        cout << "> IFSC code : " << shopkeeper.IFSC_code << endl;
+        cout << "> Pending amount : " << shopkeeper.pending_amount << endl;
         cout << endl;
-        cout << ">select any of the following options :\n";
-        cout << ">a)Edit profile\n";
-        cout << ">b)go to home page\n";
-        cout << ">c)logout\n";
-        cout << ">";
+        cout << "> select any of the following options :\n";
+        cout << "> a) Edit profile\n";
+        cout << "> b) go to home page\n";
+        cout << "> c) logout\n";
+        cout << "> ";
         char option1;
         cin >> option1;
         switch (option1){
@@ -34,7 +44,7 @@ int process(ulli option, Shopkeeper shopkeeper)
         {
             shopkeeper.get_details(shopkeeper.email);
             register_shopkeeper(shopkeeper, shopkeeper.email);
-            cout << ">profile updated successfully\n";
+            cout << "> profile updated successfully\n";
             return home_page_shpkpr(shopkeeper);
         }
         case 'b':
@@ -53,34 +63,33 @@ int process(ulli option, Shopkeeper shopkeeper)
     {
         display_shop_details(shopkeeper.shop_category);
         return home_page_shpkpr(shopkeeper);
-        break;
               
     }
     case 3:
     {
         Shop shop;
-        cout<<">Shop_Category-> "<<shopkeeper.shop_category<<" shop"<<endl;
+        cout<<"> Shop_Category -> "<<shopkeeper.shop_category<<" shop"<<endl;
         shop.add_items(shopkeeper.shop_category); 
 
-        cout<<"item added sucessfully";
+        cout<<"> item added sucessfully\n";
         return home_page_shpkpr(shopkeeper);
         break;
     }
     case 4:
     {
         display_shop_details(shopkeeper.shop_category);
-        cout << ">Enter the ID of the item whose record is to be updated : ";
+        cout << "> Enter the ID of the item whose record is to be updated : ";
         ulli num;
         cin >> num;
         Item item = get_item(shopkeeper.shop_category, num);
         string name(shopkeeper.shop_category);
         update_item_record(item, name);
         return home_page_shpkpr(shopkeeper);
-        break;
     }
     case 5:
     {
-        return -1;
+        display_transaction_details(shopkeeper.shop_category);
+        return home_page_shpkpr(shopkeeper);
     }
     case 6:
     {
@@ -95,16 +104,14 @@ int process(ulli option, Shopkeeper shopkeeper)
 }
 
 int home_page_shpkpr(Shopkeeper shopkeeper){
-    cout << "> Welcome " << shopkeeper.name << " !\n";
-    cout << "\n";
-    cout << ">Select any of the following options (Type the corresponding index to select a option):\n\n";
-    cout << ">1)profile\n";
-    cout << ">2)view items in the shop\n";
-    cout << ">3)add items to shop\n";
-    cout << ">4)update item record\n";
-    cout << ">5)transaction history\n";
-    cout<<">6)Logout\n";
-    cout << "\n>";
+    cout << "\n> Select any of the following options (Type the corresponding index to select a option):\n";
+    cout << "> 1) profile\n";
+    cout << "> 2) view items in the shop\n";
+    cout << "> 3) add items to shop\n";
+    cout << "> 4) update item record\n";
+    cout << "> 5) transaction history\n";
+    cout<<"> 6) Logout\n";
+    cout << "\n> ";
     ulli option; //contains the input option given by the user
     cin >> option;
     system("clear");
@@ -138,7 +145,8 @@ int shopkeeper_portal(string email)
         else 
         return -1;
     }
-    
+    cout << "\n> Welcome " << shopkeeper.name << " !\n";
+
     return home_page_shpkpr(shopkeeper);
 }
 #endif

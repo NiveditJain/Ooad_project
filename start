@@ -1,3 +1,5 @@
+# this file check all the required softwares and makes the code
+# if any dependies is not satisfied it prints it
 if command -v g++ &>/dev/null; then
     echo "g++ complier found"
 else
@@ -6,7 +8,7 @@ else
 fi
 if command -v python3 &>/dev/null; then
     echo Python 3 is installed
-    
+
     if python3 -c "import requests"&>/dev/null; then
         echo "Python3 Library request Found"
     else

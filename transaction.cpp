@@ -14,6 +14,9 @@
 using namespace std;
 // always use this in place of int or long long will be easy to handle
 typedef unsigned long long int ulli;
+
+
+
 class Transaction{
     public:
     ulli quantity;
@@ -48,6 +51,8 @@ class Transaction{
     return totalprice;
 } */
 
+
+
 void Transaction :: update(ulli x,ulli y)
 {
    items[x-1].quantity+=y; 
@@ -65,5 +70,31 @@ void Transaction :: Initialise(string email)
      selected=0;
      listed[100][1000]={0};quantity=0;
 }
+struct Shop_trans
+{
+char email[51];
+ulli quantity;
+char name[51];
+} ;
+
+   void update_shop_transaction_details(char *email,Transaction &t)
+   {
+       for(ulli i=0;i<20;i++)
+       {
+           Shop_trans obj;
+           strcpy(obj.email,email);
+           strcpy(obj.name,t.items[i].name);
+           obj.quantity=t.items[i].quantity;           
+           string Shop_category(t.items[i].shop_category);
+           string path="database/transaction_data/"+Shop_category+".ooad";
+           ofstream file(path.c_str(),std::ios::app);
+           file.seekp(0L,ios::end);
+           file.write((char *)&obj,sizeof(Shop_trans));
+           file.close();
+       }
+
+   }      
+         
+
 
 #endif

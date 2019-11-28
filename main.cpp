@@ -4,6 +4,7 @@
 #include "moderator.cpp"
 #include "shop.cpp"
 #include "shopkeeper.cpp" 
+#include "network.cpp"
 #include "terminal.cpp" 
 #include "utilities.cpp"
 #include "deliveryboy.cpp" 
@@ -14,7 +15,7 @@
 using namespace std;
 typedef unsigned long long int ulli;
 
-int main()
+int main() 
 { 
    loading(50);
    system("clear");

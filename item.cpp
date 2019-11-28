@@ -7,6 +7,7 @@ typedef unsigned long long ulli;
 //#include "transaction.cpp"
 class Item
 {
+    public:
         // number of keywords under usage
         int number_of_keyword;
 
@@ -14,7 +15,6 @@ class Item
         // 30 characters per key word
         char keywords[10][31];
 
-    public:
         //name of the item
         char name[51];
            
@@ -25,7 +25,7 @@ class Item
         int price;
     
         // description of each time maximum lenght 100 characters
-        char description[1000];
+        char description[1000]; 
 
         // unique ID for each item
         long long int item_ID;
@@ -48,69 +48,100 @@ Item :: Item(){
     number_of_keyword=0;
     quantity=0;
 }
-
-void Item :: add_keyword(char keyword[]){
-       strcpy(keywords[number_of_keyword],keyword);
-}
  
-int Item :: get_item_details(string name1){
-    Item temp;
-    cout<<"\n>Enter name of the item : ";
-    cin>>temp.name;
-    cout<<"\n>Enter ItemID : ";
-    cin>>temp.item_ID;
-    cout<<"\n>Enter the price of the item : ";
-    cin>>temp.price;
-    cout<<"\n>Enter the quantity available : ";
-    cin>>temp.quantity;
-    cout<<"\nEnter no. of keywords (1=<__<=30): ";
-    char name2[51];
-    convert(name1,name2);
-    strcpy(temp.shop_category,name2);
-    ulli i;
-    char key[31];
-    cin>>temp.number_of_keyword;
-    i=temp.number_of_keyword;
-    cout<<"Enter keywords\n";
-    while(i--){
-        cin>>key;
-        add_keyword(key); 
+int Item :: get_item_details(string category){
+    
+    // holding temperary data
+    string temp;
+    char waste;
+    strcpy(shop_category,category.c_str());
+    cout<<"> Enter name of the item : ";
+    scanf("%c",&waste);
+    getline(cin,temp);
+
+    if(temp.length()==0)
+    {
+        cout<<"> Name lenght must be greater than 0";
+        exit(0);
     }
-    cout<<"\n>Enter a description less than 1000 letters : \n";
-    cin>>temp.description;
-    cout<<"\n>Item added to shop\n";
-    //opening a file with the category of the shop and storing the item details
-    string path;
-    path= "database/shop_items/"+name1+".ooad";
-    ofstream file(path.c_str(),std::ios::app);
-    if(!file)cout<<"Not Found";
-    file.seekp(0L, ios::end);
-    file.write((char *)&temp, sizeof(Item));
-    file.close();
+
+    strcpy(name,temp.c_str());
+
+    cout<<"> Enter ItemID : ";
+    cin>>item_ID;
+    if(item_ID<0)
+    {
+        cout<<"> ItemID should be greater than 0";
+        exit(0);
+    }
+
+    cout<<"> Enter the price of the item : ";
+    cin>>price;
+    if(price<0)
+    {
+        cout<<"> price of the item should be greater than 0";
+        exit(0);
+    }
+
+    cout<<"> Enter the quantity available : ";
+    cin>>quantity;
+    if(quantity<0)
+    {
+        cout<<"> quantity should be greater than zero";
+        exit(0);
+    }
+
+    cout<<"> Enter no. of keywords (1=<__<=30): ";
+    cin>>number_of_keyword;
+    if(number_of_keyword<0)
+    {
+        cout<<"> number of keywords should be greater than zero";
+        exit(0);
+    }
+
+    cout<<"> Enter keywords\n";
+    for(int j=0;j<number_of_keyword;j++)
+    {
+        cout<<"> ";
+        cin>>temp;
+        if(temp.length()==0)
+        {
+            cout<<"> length of the keyword shoul be greater than zero";
+            exit(0);
+        }
+        strcpy(keywords[j],temp.c_str()); 
+    }
+
+    cout<<"> Enter a description less than 1000 characters : ";
+    string des; 
+    scanf("%c",&waste);
+    getline(cin,des);
+    strcpy(description,des.c_str());
+
     return -1;
 } 
 void update_item_record(Item item, string name1)
 {
     cout << ">" << item.name << endl
-         << ">what do you want to update?\n";
-    cout << ">1)quantity\n>2)price\n>3)both price and quantity\n>";
+         << "> what do you want to update?\n";
+    cout << "> 1) quantity\n> 2) price\n> 3) both price and quantity\n> ";
     ulli i;
     cin >> i;
     if (i == 1)
     {
-        cout << ">Enter the new quantity : ";
+        cout << "> Enter the new quantity : ";
         cin >> item.quantity;
     }
     else if (i == 2)
     {
-        cout << ">Enter the new price : ";
+        cout << "> Enter the new price : ";
         cin >> item.price;
     }
     else
     {
-        cout << ">Enter the new quantity : ";
+        cout << "> Enter the new quantity : ";
         cin >> item.quantity;
-        cout << ">Enter the new price : ";
+        cout << "> Enter the new price : ";
         cin >> item.price;
     }
     string path = "database/shop_items/" + name1 + ".ooad";
@@ -120,7 +151,7 @@ void update_item_record(Item item, string name1)
     {
         if (item.item_ID == temp.item_ID)
         {
-            long pos = file.tellp();
+            long pos = file.tellp(); 
             file.seekp(pos - sizeof(Item));
             file.write((char *)&item, sizeof(Item));
             break;

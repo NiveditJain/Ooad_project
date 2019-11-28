@@ -22,7 +22,6 @@ ulli number_of_shop()
 Shop get_shop(ulli Shop_id)
 {
     Shop temp;string id=ulli_to_string(Shop_id);
-    //temp.name[0]='\0';
     string shop_id="database/shop_data/"+id+".shop";
     fstream file(shop_id.c_str());
 
@@ -42,7 +41,7 @@ void display_shops()
     for(ulli i=0;i<number_of_shops;i++)
     { 
         Shop shop=get_shop(i);
-        cout<<i<<"\t"<<shop.category<<"\n";
+        cout<<"> "<<i<<"\t"<<shop.category<<"\n";
     }
 }
 void display_shop_details(char *shop_category)
@@ -57,7 +56,7 @@ void display_shop_details(char *shop_category)
    cout<<"Item_ID"<<"\t\t"<<"Price"<<"\t\t"<<"Quantity Left"<<"\t\t"<<"Name"<<"\n";
    while(file.read((char *)&item,sizeof(Item)))
    {
-       cout<<item.item_ID<<"\t\t"<<item.price<<"\t\t"<<item.quantity<<"\t\t"<<item.name<<"\n";
+       cout<<item.item_ID<<"\t\t"<<item.price<<"\t\t"<<item.quantity<<"\t\t\t"<<item.name<<"\n";
    }
    file.close();
 }
@@ -144,8 +143,8 @@ class Customer : public User
         getline(cin,name);
         if(name.length()==0)
         {
-            cout<<"got here";
-            return -1;
+            cout<<"length of name shoul be greater than zero";
+            exit(0);
         }
         convert(name,Customer::name);
 
@@ -170,7 +169,10 @@ class Customer : public User
         string password=get_password();
 
         if(password.length()==0)
-            return -1;
+        {
+            cout<<"> length of password should be greater than zero";
+            exit(0);
+        }
         
         set_password(password);
     }
@@ -178,29 +180,63 @@ class Customer : public User
     void add_cart(Transaction &t,ulli shop_ID)
     {
       Shop shop=get_shop(shop_ID);
+
       display_shop_details(shop.category);ulli number_of_items=0;char addmore;
-      do{
-      cout<<"\n>Select item_id:";ulli item_id;cin>>item_id;Item item=get_item(shop.category,item_id);
+      
+      do
+      {
+      cout<<"\n> Select item_id:";
+      unsigned long long item_id;
+      cin>>item_id;
+      Item item=get_item(shop.category,item_id);
+
       if(t.marked[shop_ID][item_id]||(t.selected<20)) 
-      {y:
-      cout<<"\n>Select the no of items to add to cart: ";
-      cin>>number_of_items;
-      //if(t.marked[shop_ID][item_id]){
-      if(number_of_items+(t.marked[shop_ID][item_id]?t.items[t.listed[shop_ID][item_id]].quantity:0)>item.quantity){cout<<"OOPS!! We don't have that much in the stock"<<endl;
-      goto y;}
+      {
+          y:
+            cout<<"\n> Select the no of items to add to cart: ";
+            cin>>number_of_items;
+      
+            if(number_of_items+(t.marked[shop_ID][item_id]?t.items[t.listed[shop_ID][item_id]].quantity:0)>item.quantity)
+            {
+                cout<<"> OOPS!! We don't have that much in the stock"<<endl;
+                goto y;
+            }
       
       }
       
-      else {cout<<"\n>Sorry! You can't add more than 20 distinct item_type to your cart ";}
+      else 
+      {
+          cout<<"\n> Sorry! You can't add more than 20 distinct item_type to your cart ";
+      }
+
       if(t.marked[shop_ID][item_id]==0&& number_of_items>0)
-      {t.listed[shop_ID][item_id]=t.selected;t.selected++;t.marked[shop_ID][item_id]=1;}
+      {
+          t.listed[shop_ID][item_id]=t.selected;
+
+          t.selected++;
+          
+          t.marked[shop_ID][item_id]=1;
+      }
       if(number_of_items>0)
-      t.items[t.listed[shop_ID][item_id]].quantity+=number_of_items,t.total_price+=(item.price*number_of_items),item.quantity-=number_of_items;
+      {
+          t.items[t.listed[shop_ID][item_id]].quantity+=number_of_items;
+          
+          t.total_price+=(item.price*number_of_items),item.quantity-=number_of_items;
+          
+          t.items[t.listed[shop_ID][item_id]].item_ID=item_id;
+          
+          strcpy(t.items[t.listed[shop_ID][item_id]].name,item.name);
+          
+          t.items[t.listed[shop_ID][item_id]].price=item.price;
+          
+          strcpy(t.items[t.listed[shop_ID][item_id]].shop_category,item.shop_category);
+      }
+
       t.quantity+=number_of_items;
-      strcpy(t.items[t.listed[shop_ID][item_id]].name,item.name);
-      //update_shop(item,shop.category);
-      cout<<"\n>Do you want to add more items from this shop ? (y/n)";
+      
+      cout<<"\n> Do you want to add more items from this shop ? (y/n)";
       cin>>addmore;
+
       }while(addmore=='y');
     }
 
@@ -210,10 +246,19 @@ class Customer : public User
      
     do{
         display_shops();
-        cout<<"\n>Select the shop ID which you would like to explore: ";ulli shop_ID;
+
+        cout<<"\n> Select the shop ID which you would like to explore: ";
+        
+        ulli shop_ID;
+        
         cin>>shop_ID;
+        
         add_cart(t,shop_ID);
-        cout<<"\n>Do you want to continue shopping ? (y/n)";cin>>addcart;
+        
+        cout<<"\n> Do you want to continue shopping ? (y/n)";
+        
+        cin>>addcart;
+       
        }while(addcart=='y');
        return t;
     }

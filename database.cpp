@@ -132,7 +132,7 @@ ulli get_number_of_shops()
 
 int register_shop(Shop shop)
 {
-    string id=ulli_to_string(shop.ID);
+    string id=Utilities::ulli_to_string(shop.ID);
     string path="database/shop_data/"+id+".shop";
     ofstream file(path.c_str());
     file.write((char*)&shop,sizeof(Shop));
@@ -151,7 +151,7 @@ int register_user(string email)
     cout<<"> To register as Customer press (c) and to register as shopkeeper press (s)  ";
     cin>>answer;
     cout<<"> Terms and Conditions \n";
-    loading(40);
+    Utilities::loading(40);
     switch(answer)
     {
         case 'c':

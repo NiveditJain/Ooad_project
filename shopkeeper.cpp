@@ -25,7 +25,7 @@ class Shopkeeper: public User
     copy(password.begin(),password.end(),string_password);
     string_password[password.size()]='\0';
 
-    encrypt(string_password);
+    Utilities::encrypt(string_password);
 
     if(strcmp(string_password,Shopkeeper::password)==0)
       return true;
@@ -37,7 +37,7 @@ class Shopkeeper: public User
   {
     copy(password.begin(),password.end(),Shopkeeper::password);
     Shopkeeper::password[password.size()]='\0';
-    encrypt(Shopkeeper::password);
+    Utilities::encrypt(Shopkeeper::password);
   }
 
     Shopkeeper(ulli id=0)
@@ -49,7 +49,7 @@ class Shopkeeper: public User
 
     int get_details(string email)
     {
-      convert(email,Shopkeeper::email);
+      Utilities::convert(email,Shopkeeper::email);
 
       cout<<"> Enter your name :: ";
       string name;
@@ -60,30 +60,30 @@ class Shopkeeper: public User
       {
         return -1;
       }
-      convert(name,Shopkeeper::name);
+      Utilities::convert(name,Shopkeeper::name);
 
       cout<<"> Enter your phone number (without country code) :: ";
       string phone_number;
       getline(cin,phone_number);
 
-      phone_number=valid_phone_size(phone_number);
-      phone_number=all_digits(phone_number);
+      phone_number=Utilities::valid_phone_size(phone_number);
+      phone_number=Utilities::all_digits(phone_number);
 
       if(phone_number.length()==0)
       {
         return -1;
       }
 
-      convert(phone_number,Shopkeeper::contact_number);
+      Utilities::convert(phone_number,Shopkeeper::contact_number);
       cout<<"> Enter shop name :: ";
       string shp_nme;
       getline(cin,shp_nme);
-      convert(shp_nme,Shopkeeper::shop_name);
+      Utilities::convert(shp_nme,Shopkeeper::shop_name);
        
       cout<<"> Enter shop category :: ";
       string shop_category;
       getline(cin,shop_category);
-      convert(shop_category,Shopkeeper::shop_category);
+      Utilities::convert(shop_category,Shopkeeper::shop_category);
 
       cout<<"> Enter the password for your account\n";
       cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 6\n";
@@ -105,7 +105,7 @@ class Shopkeeper: public User
       cin>>waste;
       getline(cin,IFSC_code);
 
-      convert(IFSC_code,Shopkeeper::IFSC_code);
+      Utilities::convert(IFSC_code,Shopkeeper::IFSC_code);
       return 0;
     }
 

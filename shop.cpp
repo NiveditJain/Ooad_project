@@ -43,7 +43,7 @@ class Shop
             return -1;
         }
 
-        convert(description,Shop::description);
+        Utilities::convert(description,Shop::description);
 
         char answer;
         

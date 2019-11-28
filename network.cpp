@@ -10,7 +10,7 @@ string sms_otp(string name,string number)
     string processed_name;
     for(int i=0;i<name.size() && name[i]!=' ';i++)
         processed_name.push_back(name[i]);
-    string otp=generate_otp();
+    string otp=Utilities::generate_otp();
     string command="python3 sms_otp.py "+number+" "+otp+" "+processed_name;
     cout<<"> Sending OTP.............\n";
     system(command.c_str());
@@ -32,7 +32,7 @@ string mail_otp(string name,string email)
     string processed_name;
     for(int i=0;i<name.size() && name[i]!=' ';i++)
         processed_name.push_back(name[i]);
-    string otp=generate_otp();
+    string otp=Utilities::generate_otp();
     string command="python3 mail_otp.py "+email+" "+otp+" "+processed_name;
     cout<<"> Sending OTP.............\n";
     system(command.c_str());

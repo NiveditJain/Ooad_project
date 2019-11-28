@@ -4,6 +4,7 @@
 using namespace std;
 typedef unsigned long long int ulli;
 
+namespace Utilities{
 bool check_email_iitj(char input[]){
     char *ptr;
         ptr= strstr(input,"@iitj.ac.in"); //searches input array for "@iitj.ac.in" string
@@ -160,5 +161,5 @@ string generate_otp()
     }
     return otp;
 }
-
+};
 #endif

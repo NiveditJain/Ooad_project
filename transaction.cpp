@@ -62,7 +62,7 @@ void Transaction :: Initialise(string email)
 {
     
     no_of_items=0;//Email=email;
-    convert(email,Transaction::Email);
+    Utilities::convert(email,Transaction::Email);
     payment_details=0;payment_status=0;total_price=0;
     for(ulli i=0;i<20;i++)
     {items[i].quantity=0;}

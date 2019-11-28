@@ -93,7 +93,7 @@ string initial_display()
     cout<<"> Welcome to Online Delivery System-(CC Basket)\n";
     cout<<"> It is an online delivery system especially designed for tech geeks\n";
     cout<<"> To continue enter your email ID :: ";
-    return(get_email());
+    return(Utilities::get_email());
 }
 
 #endif

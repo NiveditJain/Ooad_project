@@ -21,7 +21,7 @@ ulli number_of_shop()
 }
 Shop get_shop(ulli Shop_id)
 {
-    Shop temp;string id=ulli_to_string(Shop_id);
+    Shop temp;string id=Utilities::ulli_to_string(Shop_id);
     string shop_id="database/shop_data/"+id+".shop";
     fstream file(shop_id.c_str());
 
@@ -108,7 +108,7 @@ class Customer : public User
         copy(password.begin(),password.end(),string_password);
         string_password[password.size()]='\0';
 
-        encrypt(string_password);
+        Utilities::encrypt(string_password);
 
         if(strcmp(string_password,Customer::password)==0)
             return true;
@@ -120,7 +120,7 @@ class Customer : public User
     {
         copy(password.begin(),password.end(),Customer::password);
         Customer::password[password.size()]='\0';
-        encrypt(Customer::password);
+        Utilities::encrypt(Customer::password);
     }
     
     Customer()
@@ -134,7 +134,7 @@ class Customer : public User
 
     int get_details(string email)
     {
-        convert(email,Customer::email);
+        Utilities::convert(email,Customer::email);
 
         cout<<"> Enter your name :: ";
         string name; 
@@ -146,21 +146,21 @@ class Customer : public User
             cout<<"length of name shoul be greater than zero";
             exit(0);
         }
-        convert(name,Customer::name);
+        Utilities::convert(name,Customer::name);
 
         cout<<"> Enter your phone number (without country code) :: ";
         string phone_number;
         getline(cin,phone_number);
 
-        phone_number=valid_phone_size(phone_number);
-        phone_number=all_digits(phone_number);
+        phone_number=Utilities::valid_phone_size(phone_number);
+        phone_number=Utilities::all_digits(phone_number);
 
         if(phone_number.length()==0)
         {
             return -1;
         }
 
-        convert(phone_number,Customer::contact_number);
+        Utilities::convert(phone_number,Customer::contact_number);
 
         cout<<"> Enter the password for your account\n";
         cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";

@@ -13,9 +13,9 @@ using namespace std;
 class Moderator
 {
     public:
-    // not allowing them to be changed by anyone
+    
         static char  password[51];
-        static char const email[51];
+        static char const email[51]; // not allowing it to be changed by anyone
 
     static bool login(string password)
     {   
@@ -25,7 +25,8 @@ class Moderator
         return false;
     }
 
-    static vector<string> get_customer_mails() //retrieving customer emails to send holiday mail
+    static vector<string> get_customer_mails() 
+    //retrieving customer emails to send holiday mail
     {
         vector<string> emails;
         fstream file1("database/customer_data/emails.txt",ios::in);
@@ -36,7 +37,8 @@ class Moderator
         return emails;
     }
     
-    static vector<string> get_shopkeeper_mails()//retrieving shopkeeper emails to send holiday mail
+    static vector<string> get_shopkeeper_mails()
+    //retrieving shopkeeper emails to send holiday mail
     {
         vector<string> emails;
         fstream file2("database/shopkeeper_data/emails.txt", ios::in);
@@ -47,7 +49,7 @@ class Moderator
         return emails;
     }
 
-    static void mail_holiday(string date,string occassion)
+    static void mail_holiday(string date,string occassion) //mail for holiday
     {   
         vector<string> cemails=get_customer_mails();
         vector<string> smails=get_shopkeeper_mails();
@@ -63,7 +65,7 @@ class Moderator
         }
     }
 
-    static void mail_vacation(string date1,string date2,string occassion)
+    static void mail_vacation(string date1,string date2,string occassion) //mail for vacation
     {
         vector<string> cemails=get_customer_mails();
         vector<string> smails=get_shopkeeper_mails();
@@ -78,20 +80,20 @@ class Moderator
             system(payload.c_str());
         }
     }
-    static int assign_delivery_boy()
+    static int assign_delivery_boy() //assigning delivery boy to deliver package
     {   
         srand(time(0));
-       int r= rand() % (5);
+       int r= rand() % (5); //generating random number from 0 to 4
        return r;
     }
-    static void update_password()
+    static void update_password() //change password
     {   string old_pass,new_pass1,new_pass_final,empty_string;
         cout<<"> Enter old password:"<<endl;
         old_pass=Terminal::input_password();
         if(strcmp(old_pass.c_str(),Moderator::password)==0)
         {
             cout<<"> Enter new password:"<<endl;
-            new_pass1=Terminal::get_password();
+            new_pass1=Terminal::get_password(); //checking validity of password
             if(new_pass1.empty())
             {
                 cout<<"> Invalid password!"<<endl;
@@ -99,7 +101,7 @@ class Moderator
                 exit(0);
             }
             cout<<"> Re-enter new password:"<<endl;
-            new_pass_final=Terminal::get_password();
+            new_pass_final=Terminal::get_password(); //checking validity of password
             if(strcmp(new_pass_final.c_str(),new_pass1.c_str())==0)
             strcpy(Moderator::password,new_pass_final.c_str());
             else
@@ -119,10 +121,10 @@ class Moderator
         
     }
 
-    virtual void create_abstract()=0;
+    virtual void create_abstract()=0; //to make it an abstract class
 };
 
-char Moderator::password[51]="moderator#cc2019@iitj";
+char Moderator::password[51]="Moderator#cc2019@iitj";
 char const Moderator::email[51]="moderator#cc";
 
 #endif

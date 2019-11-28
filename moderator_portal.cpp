@@ -25,7 +25,7 @@ int moderator_portal()
 
     if(Moderator::login(password)==false)
     {
-        cout<<"\n > invalid email password combination";
+        cout<<"\n > Invalid email password combination";
         return -1;
     }
     int choice;
@@ -35,7 +35,7 @@ int moderator_portal()
     cout<<"> Choose your action:"<<endl;
     cout<<"> 1. Holiday/Vacation declaration"<<endl;
     cout<<"> 2. Update customer credit"<<endl;
-    cout<<"> 3. Change Password"<<endl;
+    cout<<"> 3. Change password"<<endl;
     cout<<"> 4. Logout"<<endl;
     cout<<"> Enter your choice:"<<endl;
     cin>>choice;
@@ -46,9 +46,10 @@ int moderator_portal()
         // case 2: MB();
                 break;
         case 3: Moderator::update_password();
+            break;
         case 4: Utilities::logging_out(10);
                 exit(0);
-        default: cout<<"> Enter valid choice!!";
+        default: cout<<"> Invalid choice entered!";
                 Utilities::logging_out(10);
                 exit(0);  
     }

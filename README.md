@@ -200,9 +200,7 @@ To check installation use, on successfull installation it prints nothing
 python3 -c "import json"
 ```
 ## Contributors of the Project
-+ Nivedit Jain (B18CSE039)
-+ Nagamalla Rohith(B18CSE065)
-+ Muskan Bathla (B18CSE036)
-+ Kumar Pradumn (B18CSE024)
-
-[GitHub](http://github.com)
++ [Nivedit Jain](https://github.com/NiveditJain) (B18CSE039)
++ [Nagamalla Rohith](https://github.com/rohith-nagamalla) (B18CSE065)
++ [Muskan Bathla](https://github.com/MuskanBathla) (B18CSE036)
++ [Kumar Pradumn](https://github.com/kumar0912) (B18CSE024)

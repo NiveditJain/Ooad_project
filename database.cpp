@@ -186,7 +186,7 @@ int register_user(string email)
 
             cout<<"> Starting email verification process\n";
             // verifing email
-            string OTP=mail_otp(temp_name,temp_email);
+            string OTP=Network::mail_otp(temp_name,temp_email);
 
             if(OTP.length()==0)
                 return -1;
@@ -209,7 +209,7 @@ int register_user(string email)
             cout<<"> Starting mobile verification\n";
             
             // sending OTP
-            OTP=sms_otp(temp_name,temp_phone);
+            OTP=Network::sms_otp(temp_name,temp_phone);
 
             if(OTP.length()==0)
                 return -1;
@@ -261,7 +261,7 @@ int register_user(string email)
 
             cout<<"> Starting email verification process\n";
             // verifing email
-            string OTP=mail_otp(temp_name,temp_email);
+            string OTP=Network::mail_otp(temp_name,temp_email);
 
             if(OTP.length()==0)
                 return -1;
@@ -283,7 +283,7 @@ int register_user(string email)
             cout<<"> Starting mobile verification\n";
             
             // sending OTP
-            OTP=sms_otp(temp_name,temp_phone);
+            OTP=Network::sms_otp(temp_name,temp_phone);
 
             if(OTP.length()==0)
                 return -1;

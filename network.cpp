@@ -5,6 +5,8 @@
 #include "utilities.cpp"
 using namespace std;
 
+namespace Network
+{
 string sms_otp(string name,string number)
 {
     string processed_name;
@@ -48,5 +50,5 @@ string mail_otp(string name,string email)
     cout<<"> OTP Sent Success\n";
     return otp;
 }
-
+};
 #endif

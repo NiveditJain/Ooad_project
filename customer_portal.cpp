@@ -167,7 +167,7 @@ Transaction process(ulli option, Customer customer,Transaction &t)
             string temp_number(Utilities::ulli_to_string(deliveryboys[deiver_boy_number].contact_number));
             string temp_amount(Utilities::ulli_to_string(t.total_price));
             // working here
-            string pay_load="python3 mail_trans.py "+temp_email+" "+temp_name+" "+temp_amount+" "+temp_deliveryboy_name+" "+temp_number;
+            string pay_load="python3 mail_trans.py "+temp_email+" \""+temp_name+"\" "+temp_amount+" "+temp_deliveryboy_name+" "+temp_number;
             if(payment=='c')
                 pay_load=pay_load+" Cash on Delivery";
             else

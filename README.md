@@ -72,11 +72,21 @@ We have implemented C++ functions for authentication of emaild id and password.
 #### After Login
 ##### Customer Login
 
-### Running the Code
+## Running the Code
 Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands used, e.g., for password input we have used stty linux command, hence the code might not run on other platforms.
 
-To run the code execute 
+clone into repository
+```batch
+git clone https://github.com/NiveditJain/Ooad_project    
+```
+Navigate into repository
+```batch
+cd Ooad_project
+```
 
+To run the code execute 
 ``` batch
 ./start
 ```
+This will check all the requirements and tell you in case requirements are not met. In case all requirements are met it will start running your code.
+However you can also follow the following instructions to install all the requirements.

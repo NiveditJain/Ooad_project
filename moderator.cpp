@@ -1,19 +1,20 @@
 #ifndef moderator_cpp
 #define moderator_cpp
-//SOS forget password function,update password,retriever of mails
+//SOS forget password function
 // all includes
 #include<bits/stdc++.h>
 using namespace std;
 #include "utilities.cpp"
 #include "deliveryboy.cpp"
 #include "customer.cpp"
+#include "terminal.cpp"
 
 // an abstract class with all its data members and functions static 
 class Moderator
 {
     public:
     // not allowing them to be changed by anyone
-        static char const password[51];
+        static char  password[51];
         static char const email[51];
 
     static bool login(string password)
@@ -83,11 +84,45 @@ class Moderator
        int r= rand() % (5);
        return r;
     }
+    static void update_password()
+    {   string old_pass,new_pass1,new_pass_final,empty_string;
+        cout<<"> Enter old password:"<<endl;
+        old_pass=Terminal::input_password();
+        if(strcmp(old_pass.c_str(),Moderator::password)==0)
+        {
+            cout<<"> Enter new password:"<<endl;
+            new_pass1=Terminal::get_password();
+            if(new_pass1.empty())
+            {
+                cout<<"> Invalid password!"<<endl;
+                Utilities::logging_out(10);
+                exit(0);
+            }
+            cout<<"> Re-enter new password:"<<endl;
+            new_pass_final=Terminal::get_password();
+            if(strcmp(new_pass_final.c_str(),new_pass1.c_str())==0)
+            strcpy(Moderator::password,new_pass_final.c_str());
+            else
+            {
+                cout<<"> Passwords do not match!";
+                Utilities::logging_out(10);
+                exit(0);
+            }
+
+        }
+        else
+        {
+            Utilities::logging_out(10);
+            exit(0);
+        }
+        
+        
+    }
 
     virtual void create_abstract()=0;
 };
 
-char const Moderator::password[51]="moderator#cc2019@iitj";
+char Moderator::password[51]="moderator#cc2019@iitj";
 char const Moderator::email[51]="moderator#cc";
 
 #endif

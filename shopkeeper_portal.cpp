@@ -6,6 +6,20 @@ using namespace std;
 #include "shopkeeper.cpp" 
 #include "shop.cpp" 
 
+void overwrite(string id)
+{   unsigned long long int new_id;
+    fstream f;
+    string path="database/shop_data/"+id+".num";
+    f.open(path.c_str(),ios::in | ios:: out);
+    while(f.read((char*)&new_id,sizeof(unsigned long long int)))
+    {
+        f>>new_id;
+    }
+    new_id+=1;
+    f.seekg(-1*sizeof(unsigned long long int),ios_base::cur);
+    f.write((char*)&new_id,sizeof(unsigned long long int));
+    f.close();
+}
 
 ulli number_of_items=0;
 

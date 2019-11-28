@@ -41,4 +41,5 @@ Email for both shopkeepers and customers can be of IITJ domain only. No emails w
 There are some rules defined for setting password.
 #### Login
 Logging into the system requires email and password to be entered. 
-Moderator is given a separate email id.
+
+Moderator is given a separate email id (of IITJ domain only)

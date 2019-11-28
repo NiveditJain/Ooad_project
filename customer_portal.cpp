@@ -128,13 +128,27 @@ Transaction process(ulli option, Customer customer,Transaction &t)
     {
            cout<<">Total Price-->"<<t.total_price<<"\n";
            //Do the checkout
-           cout<<"Only Cash on Delivery Available!!\n";
+           //cout<<"Only Cash on Delivery Available!!\n";
            //cout<<"Would you like to go back? (y/n)";bool goback;cin>>goback;
            //if(goback=='y')return t;
-           cout<<"\nWould you like to pay now or later  (n/l)?\n";bool payment;
+           cout<<"> Would you like to pay on COD or Pay Later (c/p)? ";
+           char payment;
            cin>>payment;
-           if(payment=='n')t.payment_status=1;
-           else {t.payment_status=0;customer.credit_balance+=t.total_price;}
+           
+            if(payment=='c')
+                t.payment_status=1;
+            else if(payment=='p')
+            {
+                t.payment_status=0;
+                customer.credit_balance+=t.total_price;
+            }
+            else
+                exit(0);
+            
+
+            // call mailer after MUSKAN
+
+
             update_shop(t);
             update_shop_transaction_details(customer.email,t);
            //Afer completion of Transaction(do not if the transaction is terminated)

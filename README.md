@@ -124,6 +124,24 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)
 ```
 ### Python3
+Python3 is usually pre-installed on linux however it may be utdated, upgrade your system to modern verions.<\br>
+For updating
+```bash
+sudo apt-get update
+```
+For upgrading
+```bash
+sudo apt-get upgrade python3
+```
+In case still not install following command can also be runned
+```bash
+sudo apt-get install python3
+```
+To check to successfull installation run
+```bash
+python3 -v
+```
+This must show the python version installed
 ### requests Library
 ### smtplib Library
 ### ssl Library

@@ -1,6 +1,5 @@
 #ifndef moderator_cpp
 #define moderator_cpp
-//SOS forget password function
 // all includes
 #include<bits/stdc++.h>
 using namespace std;

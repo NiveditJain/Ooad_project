@@ -18,5 +18,15 @@ An **online delivery system** needs to be developed. The potential customers of 
 We have tried to implement the online delivery system through concepts of Object Oriented Programming like **modularity**, **abstraction**, **encapsulation** and **generalisation**.
 
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
-*Moderator* is like a intermediate person co-ordinating between shopkeepers,customers and delivery boys.
+*Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 ### User Registeration
+Users(customer/shopkeeper) can register in the portal.Registration would
+require the following details of the users:
+#### Customer 
+..* Email(only IITJ),
+..* Contact number
+..* Name
+..* Password
+For Shopkeeper: email, contact number, name, name of shop, password, account number,
+IFSC code, Bank Name, shop description,allowing for rent(tentative).
+OTP authentication(tentative).

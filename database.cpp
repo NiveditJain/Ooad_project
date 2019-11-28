@@ -132,7 +132,11 @@ int register_shop(Shop shop)
     string path="database/shop_data/"+id+".shop";
     ofstream file(path.c_str());
     file.write((char*)&shop,sizeof(Shop));
-    file.close();    
+    file.close();
+    string path2="database/shop_data/"+id+".num";
+    ofstream file2(path.c_str());
+    file2<<0;
+    file2.close();
 }
 
 int register_user(string email)

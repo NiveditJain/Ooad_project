@@ -86,10 +86,10 @@ class Shopkeeper: public User
       Utilities::convert(shop_category,Shopkeeper::shop_category);
 
       cout<<"> Enter the password for your account\n";
-      cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 6\n";
+      cout<<"> It must contain at least 1 number, capital letter, small letter and a speacial character. Lenghth of password must also be >= 8\n";
       cout<<"> Password :: ";
 
-      string password=Terminal::get_password(6);
+      string password=Terminal::get_password(8);
 
       if(password.length()==0)
         return -1;

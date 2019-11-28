@@ -97,27 +97,19 @@ Transaction process(ulli option, Customer customer,Transaction &t)
         cout << endl;
         
         cout << "> select any of the following options :\n";
-        cout << "> a) Edit profile\n";
-        cout << "> b) go to home page\n";
-        cout << "> c) logout\n";
+        cout << "> a) go to home page\n";
+        cout << "> b) logout\n";
         cout << ">";
         char option1;
         cin >> option1;
         switch (option1){
         case 'a':
         {
-            customer.get_details(customer.email);
-            register_customer(customer, customer.email);
-            cout << "> profile updated successfully\n";
-            return t;
-        }
-        case 'b':
-        {
             system("clear");
             //home_page_customer(customer,t);
             return t;
         }
-        case 'c':
+        case 'b':
         {
             cout<<"\n> Thanks for using our application\n";
             exit(0);
@@ -167,7 +159,7 @@ Transaction process(ulli option, Customer customer,Transaction &t)
             string temp_number(Utilities::ulli_to_string(deliveryboys[deiver_boy_number].contact_number));
             string temp_amount(Utilities::ulli_to_string(t.total_price));
             // working here
-            string pay_load="python3 mail_trans.py "+temp_email+" "+temp_name+" "+temp_amount+" "+temp_deliveryboy_name+" "+temp_number;
+            string pay_load="python3 mail_trans.py "+temp_email+" \""+temp_name+"\" "+temp_amount+" "+temp_deliveryboy_name+" "+temp_number;
             if(payment=='c')
                 pay_load=pay_load+" Cash on Delivery";
             else

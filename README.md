@@ -10,12 +10,14 @@ To run the program just execute the start bash file.
 ![IITJ](https://img.shields.io/badge/Institute-IITJ-yellow)
 ![2022](https://img.shields.io/badge/Batch-2022-blue)
 
-This project was developed as a course project for **_Dr. Anand Mishra_**, instructor, **_Object Oriented Analysis and Design_** Course. This project encouraged us to expand our horizon on understanding and applying object oriented analysis and design in real life applications. Also helped us in understanding various complexities and challanges involved in software development.
+This project was developed as a course project for **_Dr. Anand Mishra_**, instructor, **_Object Oriented Analysis and Design_** Course. This project encouraged us to expand our horizon on understanding and applying object oriented analysis and design in real life applications. It also helped us in understanding various complexities and challanges involved in software development.
 ## Problem Statement
 The _Community Centre_ of IIT Jodhpur is far for a walk from the student hostels and faculty residence. This makes it very difficult to go and shop for daily needs especially in the scorching heat of Rajasthan. 
-An **online delivery system** needs to be developed. The potential customers of this delivery system are the students and faculty members. There has to be online search of products and the customer should be able to perform **online shopping**. There will be various options available to the customers for completing the **payment**- cash on delivery(**_CoD_**), money wallet(**_CCwallet_**) or **credit** system. The customers can choose their **delivery location** and **delivery slot** as per their convenience.
+An **online delivery system** needs to be developed. The potential customers of this delivery system are the students and faculty members. There has to be online search of products and the customer should be able to perform **online shopping**. There will be various options available to the customers for completing the **payment**- cash on delivery(**_CoD_**), money wallet(**_CCwallet_**) or **credit** system. <!--The customers can choose their **delivery location** and **delivery slot** as per their convenience.--->
 ## Proposed Solution
 We have tried to implement the online delivery system through concepts of Object Oriented Programming like **modularity**, **abstraction**, **encapsulation** and **generalisation**.
+
+We have implemented **_database_** by using exccessive **file handling** in C++.
 
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
@@ -71,7 +73,8 @@ Moderator is given a separate email id (of IITJ domain only).
 We have implemented C++ functions for authentication of emaild id and password.
 #### After Login
 ##### Customer Login
-
+A screen is displayed with different actions to choose from like shopping,viewing transcation history,view and edit profile ,logout etc. For shopping, names of various shops is displayed and on selecting a shop, products of that shops are displayed; a search option
+which works on basis of keyword matching is also present. The customer would have to enter quantity of items after searching the items. These items with their quantity are added to the cart.After shopping, the customer has to proceed to checkout and proceed for payment thereafter. On selecting the cart,order summary and total amount is visible with an option to checkout.
 ## Running the Code
 Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands used, e.g., for password input we have used stty linux command, hence the code might not run on other platforms.
 

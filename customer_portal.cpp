@@ -188,14 +188,14 @@ int customer_portal(string email)
     cout<<"> Enter your password :: ";
     customer=get_customer(email);
     string password;char retry='n';string tryagain="NO";
-    password=get_password();
+    password=Terminal::get_password();
     while(!customer.login(password))
        {cout<<"\n> Invalid email password combination";
         cout<<"\n> Do you want to retry? ";
         cin>>tryagain;
         if((tryagain)=="y"||(tryagain)=="yes"||tryagain=="Y")
         {cout<<"\n> Re-enter your password::";
-        password=get_password();continue;}
+        password=Terminal::get_password();continue;}
         else break; 
        }
        if(tryagain=="n"||tryagain=="no"||tryagain=="N")

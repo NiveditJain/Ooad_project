@@ -166,7 +166,7 @@ class Customer : public User
         cout<<"> It must contain at least 1 number, capital letter, small letter and alphaber. Lenghth of password must also be >= 6\n";
         cout<<"> Password :: ";
 
-        string password=get_password();
+        string password=Terminal::get_password();
 
         if(password.length()==0)
         {

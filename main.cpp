@@ -19,7 +19,7 @@ int main()
 { 
    Utilities::loading(50);
    system("clear");
-   string email=initial_display();
+   string email=Terminal::initial_display();
    if(email.size()==0)
       return -1;
    if(is_customer(email))

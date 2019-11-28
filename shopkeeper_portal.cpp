@@ -125,7 +125,7 @@ int shopkeeper_portal(string email)
     Shopkeeper shopkeeper(get_number_of_shops());
     shopkeeper=get_shopkeeper(email);
     cout<<"> Enter your password :: ";
-    string password=input_password();
+    string password=Terminal::input_password();
     
     if(password.length()==0)
         return -1;
@@ -137,7 +137,7 @@ int shopkeeper_portal(string email)
         cin>>input;if(input=='y'||input=='Y')
         {
           cout<<"> Enter your password :: ";
-          password=input_password();
+          password=Terminal::input_password();
     
         if(password.length()!=0)
         continue;

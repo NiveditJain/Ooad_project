@@ -4,6 +4,8 @@
 using namespace std;
 #include "utilities.cpp"
 
+namespace Terminal
+{
 // inputs user password in hidden mode 
 // and returns as string
 string input_password()
@@ -95,5 +97,5 @@ string initial_display()
     cout<<"> To continue enter your email ID :: ";
     return(Utilities::get_email());
 }
-
+};
 #endif

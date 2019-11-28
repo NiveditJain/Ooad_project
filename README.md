@@ -77,7 +77,7 @@ A screen is displayed with different actions to choose from such as viewing and 
 
 The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.</br>
 ## Running the Code
-Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**. Codes were further executed using **g++** compiler and **python3.6**.
+Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, windows users can run it on WSL Terminal or Windows Terminals or equivalent Linux virtual enviornments, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**. Codes were further executed using **g++** compiler and **python3.6**.
 
 Clone into repository
 ```batch
@@ -94,14 +94,26 @@ To run the code execute
 ```
 This will check all the requirements and tell you in case the requirements are not met. In case all the requirements are met it will start running your code. 
 
-<!--- However you can also follow the following instructions to install all the requirements.
- ### g++ Compiler
+However you can also follow the following instructions to install all the requirements.
+### g++ Compiler
+g++ is worlddwide popular C++ complier can be installed on your linux/macOS by running the following commands.
+
+This installs the core of g++ TMD-GCC compiler
+```bash
+sudo apt install gcc
+```
+Then installing additonal functionalities of C++
+```bash
+sudo apt install g++
+```
+
+### Python3
 ### requests Library
-### smtplib Python3 Library
-### ssl Python Library
-### sys Python3 Library
-### json Python3 Library
---->
+### smtplib Library
+### ssl Library
+### sys Library
+### json Library
+
 ## Contributors of the Project
 + Nivedit Jain (B18CSE039)
 + Nagamalla Rohith(B18CSE065)

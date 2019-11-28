@@ -96,5 +96,9 @@ This will check all the requirements and tell you in case the requirements are n
 
 However you can also follow the following instructions to install all the requirements.
 
-### G++ Compiler
-
+### g++ Compiler
+### requests Library
+### smtplib Python3 Library
+### ssl Python Library
+### sys Python3 Library
+### json Python3 Library

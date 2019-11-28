@@ -144,10 +144,9 @@ Transaction process(ulli option, Customer customer,Transaction &t)
             }
             else
                 exit(0);
-            
 
             // call mailer after MUSKAN
-
+            int deiver_boy_number=Moderator::assign_delivery_boy();
 
             update_shop(t);
             update_shop_transaction_details(customer.email,t);

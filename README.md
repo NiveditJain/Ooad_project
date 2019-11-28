@@ -1,8 +1,3 @@
-<!-- # Ooad_project
-Designed for Linux/Mac Only. Not yet developed for windows users.</br>
-To run the program just execute the start bash file.
-```./start```
- -->
  # CC Basket - Online Delivery System
 ![OOAD Project](https://img.shields.io/badge/Project-OOAD-yellowgreen)
 ![C++](https://img.shields.io/badge/Language-C%2B%2B-orange)
@@ -24,23 +19,23 @@ We have implemented a feature using _______________ which sends an **email** to 
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 
-**_To be edited:_**
-Classes and their description:
-1) Shopkeeper:
-functions:
+
+### Classes and their functions description:
+1. Shopkeeper
+Functions:
 - constructor: sets a pending amount to zero and gives a shop id.
 - login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
 - set_password: stores password entered by the shopkeeper. It is called during registration and edit profile.
 - get_details : inputs data required for registration/edit profile.
 
-2) Shop:
-functions:
+2. Shop
+Functions:
 - constructor: provides a shop ID.
 - get_details: inputs data required for registration of shop.
 - add_items: creates new item and stores in the database.
 
-3)Customer:
-functions:
+3. Customer:
+Functions:
 - constructor: initializes credit_balance, wallet balance, number of items in cart and transactions done to zero.
 - login: compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
 - get_details : inputs data required for registration/edit profile.
@@ -82,9 +77,9 @@ A screen is displayed with different actions to choose from such as viewing and 
 
 The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.
 ## Running the Code
-Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, e.g., for password input we have used ""stty" linux command, hence the code might not run on other platforms.
+Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**.
 
-clone into repository
+Clone into repository
 ```batch
 git clone https://github.com/NiveditJain/Ooad_project    
 ```
@@ -98,4 +93,5 @@ To run the code execute
 ./start
 ```
 This will check all the requirements and tell you in case the requirements are not met. In case all the requirements are met it will start running your code.
+
 However you can also follow the following instructions to install all the requirements.

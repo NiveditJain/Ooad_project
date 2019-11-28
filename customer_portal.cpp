@@ -8,6 +8,20 @@ using namespace std;
 
 int home_page_customer(Customer customer,Transaction &t);
 
+Deliveryboy deliveryboys[5];
+void premain()
+{
+   deliveryboys[0].name="Ram";
+   deliveryboys[0].contact_number=9867856435;
+   deliveryboys[1].name="Mohan";
+   deliveryboys[1].contact_number=9672136435;
+   deliveryboys[2].name="Prabhu";
+   deliveryboys[2].contact_number=6867858985;
+   deliveryboys[3].name="Kashiram";
+   deliveryboys[3].contact_number=8867856421;
+   deliveryboys[4].name="Tagore";
+   deliveryboys[4].contact_number=6866656435;
+}
 
 void update_shop(Transaction &t)
 {
@@ -126,7 +140,7 @@ Transaction process(ulli option, Customer customer,Transaction &t)
 
     case 5:
     {
-           cout<<">Total Price-->"<<t.total_price<<"\n";
+           cout<<"> Total Price--> "<<t.total_price<<"\n";
            //Do the checkout
            //cout<<"Only Cash on Delivery Available!!\n";
            //cout<<"Would you like to go back? (y/n)";bool goback;cin>>goback;
@@ -147,9 +161,22 @@ Transaction process(ulli option, Customer customer,Transaction &t)
 
             // call mailer after MUSKAN
             int deiver_boy_number=Moderator::assign_delivery_boy();
+            string temp_name(customer.name);
+            string temp_email(customer.email);
+            string temp_deliveryboy_name(deliveryboys[deiver_boy_number].name);
+            string temp_number(Utilities::ulli_to_string(deliveryboys[deiver_boy_number].contact_number));
+            string temp_amount(Utilities::ulli_to_string(t.total_price));
+            // working here
+            string pay_load="python3 mail_trans.py "+temp_email+" "+temp_name+" "+temp_amount+" "+temp_deliveryboy_name+" "+temp_number;
+            if(payment=='c')
+                pay_load=pay_load+" Cash on Delivery";
+            else
+                pay_load=pay_load+" Credit";
 
-            update_shop(t);
-            update_shop_transaction_details(customer.email,t);
+            system(pay_load.c_str());
+
+           update_shop(t);
+           update_shop_transaction_details(customer.email,t);
            //Afer completion of Transaction(do not if the transaction is terminated)
            //cout<<t.total_price<<endl;
            string email="";

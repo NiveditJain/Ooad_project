@@ -164,6 +164,8 @@ Transaction process(ulli option, Customer customer,Transaction &t)
            file.write((char *)&t,sizeof(t));
            file.close();}
            t.Initialise(email);
+
+           cout<<"> Transaction Done Success"; 
            exit(1);
            return t;
     }

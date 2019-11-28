@@ -77,7 +77,7 @@ class Moderator
             system(payload.c_str());
         }
     }
-    int assign_delivery_boy()
+    static int assign_delivery_boy()
     {   
         srand(time(0));
        int r= rand() % ( 5 - 0 + 1 );

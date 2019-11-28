@@ -102,4 +102,8 @@ This will check all the requirements and tell you in case the requirements are n
 ### sys Python3 Library
 ### json Python3 Library
 --->
-@NiveditJain
+## Contributors of the Project
++ Nivedit Jain (B18CSE039)
++ Rohith Nagamalla (B18CSE065)
++ Muskan Bathla (B18CSE036)
++ Kumar Praduman (B18CSE024)

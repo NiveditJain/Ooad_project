@@ -16,6 +16,13 @@ int moderator_portal()
     if(password.length()==0)
         return -1;
     
+    char password_file[51];
+    ifstream file("database/.modu");
+    file>>password_file;
+
+    strcmp(Moderator::password,password_file);
+    file.close();
+
     if(Moderator::login(password)==false)
     {
         cout<<"\n > invalid email password combination";
@@ -27,8 +34,9 @@ int moderator_portal()
     cout<<"> Welcome Moderator!"<<endl;
     cout<<"> Choose your action:"<<endl;
     cout<<"> 1. Holiday/Vacation declaration"<<endl;
-    cout<<"> 2.Update customer credit"<<endl;
-    cout<<"> 3.Logout"<<endl;
+    cout<<"> 2. Update customer credit"<<endl;
+    cout<<"> 3. Change Password"<<endl;
+    cout<<"> 4. Logout"<<endl;
     cout<<"> Enter your choice:"<<endl;
     cin>>choice;
     switch(choice)
@@ -37,12 +45,12 @@ int moderator_portal()
                 break;
         // case 2: MB();
                 break;
-        case 3: Utilities::logging_out(10);
+        case 3: Moderator::update_password();
+        case 4: Utilities::logging_out(10);
                 exit(0);
         default: cout<<"> Enter valid choice!!";
                 Utilities::logging_out(10);
-                exit(0);
-                
+                exit(0);  
     }
     
 }

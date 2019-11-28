@@ -103,7 +103,12 @@ class Moderator
             cout<<"> Re-enter new password:"<<endl;
             new_pass_final=Terminal::get_password(); //checking validity of password
             if(strcmp(new_pass_final.c_str(),new_pass1.c_str())==0)
-            strcpy(Moderator::password,new_pass_final.c_str());
+            {
+                strcpy(Moderator::password,new_pass_final.c_str());
+                ofstream file("database/.modu");
+                file<<Moderator::password;
+                file.close();
+            }
             else
             {
                 cout<<"> Passwords do not match!";

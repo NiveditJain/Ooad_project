@@ -20,7 +20,7 @@ We have tried to implement the online delivery system through concepts of Object
 There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 
-To be edited:
+**_To be edited:_**
 Classes and their description:
 1) Shopkeeper:
 functions:

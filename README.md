@@ -1,4 +1,7 @@
  # CC Basket - Online Delivery System
+![system requirements](https://img.shields.io/badge/G%2B%2B%20Vesion-7.4.0-red)
+![system requirements](https://img.shields.io/badge/Python-3.6.8-orange)
+![system requirements](https://img.shields.io/badge/OS-Ubuntu%2018.04.1-yellow)
 ![OOAD Project](https://img.shields.io/badge/Project-OOAD-yellowgreen)
 ![C++](https://img.shields.io/badge/Language-C%2B%2B-orange)
 ![build passing](https://api.travis-ci.org/klugjo/hexo-autolinker.svg?branch=master)
@@ -36,7 +39,7 @@ There are three types of users of the system:**customer**(students/faculty membe
 - **constructor:** initializes credit_balance, wallet balance, number of items in cart and transactions done to zero.
 - **login:** compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
 - **get_details:** inputs data required for registration/edit profile.
-- **add_cart: **adds the items selected by the customer to the cart.
+- **add_cart:** adds the items selected by the customer to the cart.
 - **select_items:** co-ordinates displaying items and adding to cart and returns the final transaction details.
 
 ### User Registeration
@@ -93,5 +96,5 @@ This will check all the requirements and tell you in case the requirements are n
 
 However you can also follow the following instructions to install all the requirements.
 
-#### G++ Compiler
+### G++ Compiler
 

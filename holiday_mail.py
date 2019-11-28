@@ -12,7 +12,7 @@ try:
 FROM: CC BASKET
 TO: """+receiver_email+"""
 Subject: Holiday announcement from CC Basket\n
-Dear """+sys.argv[2]+"\n"+"CC Basket will remain closed on "+sys.argv[3]+" on account of "+sys.argv[4]
+Dear """+sys.argv[2]+"\n"+"CC Basket will remain closed on "+sys.argv[3]+" due to "+sys.argv[4]
 
     context = ssl.create_default_context()
     with smtplib.SMTP(smtp_server, port) as server:

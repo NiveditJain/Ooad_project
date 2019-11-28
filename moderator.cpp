@@ -1,6 +1,6 @@
 #ifndef moderator_cpp
 #define moderator_cpp
-//SOS forget password function,update password
+//SOS forget password function,update password,retriever of mails
 // all includes
 #include<bits/stdc++.h>
 using namespace std;
@@ -11,19 +11,19 @@ using namespace std;
 class Moderator
 {
     public:
-    // not allowing them to be changed by anyone so declared as const
+    // not allowing them to be changed by anyone
         static char const password[51];
         static char const email[51];
 
     static bool login(string password)
     {   
-        // password matching for authentication
+        // password matching
         if(strcmp(password.c_str(),Moderator::password)==0)
             return true;
         return false;
     }
 
-    static vector<string> get_customer_mails()//retrieving customer emails to send holiday mail
+    static vector<string> get_customer_mails() //retrieving customer emails to send holiday mail
     {
         vector<string> emails;
         fstream file1("database/customer_data/emails.txt",ios::in);

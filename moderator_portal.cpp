@@ -41,7 +41,9 @@ void holiday_vacation()
     {
         Moderator::mail_vacation(sdate,edate,occ);
     }
-    
+}
 
-
+int main()
+{
+    holiday_vacation();
 }

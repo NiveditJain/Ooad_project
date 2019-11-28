@@ -14,3 +14,7 @@ This project was developed as a course project for **_Dr. Anand Mishra_**, instr
 ## Problem Statement
 The _Community Centre_ of IIT Jodhpur is far for a walk from the student hostels and faculty residence. This makes it very difficult to go and shop for daily needs especially in the scorching heat of Rajasthan. 
 An **online delivery system** needs to be developed. The potential customers of this delivery system are the students and faculty members. There has to be online search of products and the customer should be able to perform **online shopping**. There will be various options available to the customers for completing the **payment**- cash on delivery(**_CoD_**), money wallet(**_CCwallet_**) or **credit** system. The customers can choose their **delivery location** and **delivery slot** as per their convenience.
+## Proposed Solution
+We have tried to implement the online delivery system through concepts of Object Oriented Programming like **modularity**, **abstraction**, **encapsulation** and **generalisation**.
+There are three types of users of the system:**customer**(students/faculty members),**shopkeeper** and **moderator.**
+### User Registeration

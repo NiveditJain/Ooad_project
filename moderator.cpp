@@ -87,6 +87,6 @@ class Moderator
 };
 
 char const Moderator::password[51]="moderator#cc2019@iitj";
-char const Moderator::email[51]="moderator#cc@iitj.ac.in";
+char const Moderator::email[51]="moderator#cc";
 
 #endif

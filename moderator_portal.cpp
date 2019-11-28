@@ -4,9 +4,10 @@ using namespace std;
 
 #include "moderator.cpp"
 #include "customer.cpp"
-int moderator_auth()
+int moderator_portal()
 {
     string password;
+    cout<<"> Enter Password for Moderator :: ";
     password=Terminal::input_password();
     if(password.length()==0)
         return -1;
@@ -16,6 +17,7 @@ int moderator_auth()
         cout<<"\n > invalid email password combination";
         return -1;
     }
+
 }
 
 

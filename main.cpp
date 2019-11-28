@@ -26,7 +26,7 @@ int main()
       return customer_portal(email);
    if(is_shopkeeper(email))
       return shopkeeper_portal(email);
-   // if(is_moderator(email))
-   //   return moderator_portal(email);
+   if(is_moderator(email))
+     return moderator_portal();
    return register_user(email);
 }

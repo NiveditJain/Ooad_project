@@ -24,9 +24,16 @@ Users(customer/shopkeeper) can register in the portal.Registration would
 require the following details of the users:
 #### Customer 
 - Email
-- Contact number
 - Name
+- Contact number
 - Password
-For Shopkeeper: email, contact number, name, name of shop, password, account number,
-IFSC code, Bank Name, shop description,allowing for rent(tentative).
-OTP authentication(tentative).
+#### Shopkeeper 
+- Email
+- Name
+- Contact number
+- Name of shop
+- Password
+- Account number
+- IFSC code
+- Bank Name
+- Shop description

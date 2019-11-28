@@ -60,13 +60,15 @@ Users(customer/shopkeeper) can register in the portal. Registration requires the
 - Bank Name
 - Shop description
 
-Email for both shopkeepers and customers can be of IITJ domain only. No emails with other domains are allowed to register. This is to make sure that people only in IIT Jodhpur can use the portal serivce.
-There are some rules defined for setting password.
+Email for both shopkeepers and customers can be of IITJ domain only. No emails with other domains are allowed to register. This is to make sure that people only in IIT Jodhpur can use the portal serivce. We have implemented __________________________ for **verification** of email id and contact number through **_OTP_**. 
+
+There are some rules defined for setting password. User also has to agree to some **_terms and conditions_** (defined separately for shopkeepers and customers) to get registered.
 #### Login
 Logging into the system requires email and password to be entered. 
 Moderator is given a separate email id (of IITJ domain only).
 
 We have implemented C++ functions for authentication of emaild id and password.
 #### After Login
+##### Customer Login
 
 

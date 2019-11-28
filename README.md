@@ -106,6 +106,11 @@ Then installing additonal functionalities of C++
 ```bash
 sudo apt install g++
 ```
+For testing installation run,
+``` bash
+g++ -v
+```
+If this command prints sysem details and version of g++ compiler than it has been installed successfully. 
 
 ### Python3
 ### requests Library

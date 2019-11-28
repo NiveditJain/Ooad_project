@@ -43,5 +43,6 @@ There are some rules defined for setting password.
 Logging into the system requires email and password to be entered. 
 Moderator is given a separate email id (of IITJ domain only).
 
-We have implemented functions for authentication of emaild id and password.
+We have implemented C++ functions for authentication of emaild id and password.
+#### After Login
 

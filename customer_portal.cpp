@@ -221,10 +221,13 @@ int customer_portal(string email)
     string password;char retry='n';string tryagain="NO";
     password=Terminal::get_password();
     if(!customer.login(password))
-       {cout<<"\n> Invalid email password combination aborting process";
-       return -1; 
-       }
-       Transaction t;t.Initialise(email);
-       return home_page_customer(customer,t);  
+    {
+        cout<<"\n> Invalid email password combination aborting process";
+        return -1; 
+    }
+    
+    Transaction t;
+    t.Initialise(email);
+    return home_page_customer(customer,t);  
 }
 #endif     

@@ -88,12 +88,14 @@ int moderator_portal()
 void holiday_vacation()
 {
     string start_date,end_date,occassion;
-    cout<<">Enter all dates in dd/mm/yyyy format"<<endl;
-    cout<<"Start date:"<<endl;
+    char waste;
+    cout<<"> Enter all dates in dd/mm/yyyy format"<<endl;
+    cout<<"> Start date:"<<endl;
+    scanf("%c",&waste);
     getline(cin,start_date);
-    cout<<"End date:"<<endl;
+    cout<<"> End date:"<<endl;
     getline(cin,end_date);
-    cout<<"Enter the occassion:"<<endl;
+    cout<<"> Enter the occassion:"<<endl;
     getline(cin,occassion);
     char sdate[start_date.length()],edate[end_date.length()],occ[occassion.length()];
     strcpy(sdate,start_date.c_str());

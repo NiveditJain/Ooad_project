@@ -132,8 +132,6 @@ int home_page_shpkpr(Shopkeeper shopkeeper)
     return process(option,shopkeeper);
 }
 
-
-
 int shopkeeper_portal(string email)
 {
     Shopkeeper shopkeeper(get_number_of_shops());

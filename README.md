@@ -11,7 +11,7 @@
 This project was developed as a course project for **_Dr. Anand Mishra_**, instructor, **_Object Oriented Analysis and Design_** Course. This project encouraged us to expand our horizon on understanding and applying object oriented analysis and design in real life applications. It also helped us in understanding various complexities and challanges involved in software development.
 ## Problem Statement
 The _Community Centre_ of IIT Jodhpur is far for a walk from the student hostels and faculty residence. This makes it very difficult to go and shop for daily needs especially in the scorching heat of Rajasthan. 
-An **online delivery system** needs to be developed. The potential customers of this delivery system are the students and faculty members. There has to be online search of products and the customer should be able to perform **online shopping**. There will be various options available to the customers for completing the **payment**- cash on delivery(**_CoD_**), money wallet(**_CCwallet_**) or **credit** system. 
+An **online delivery system** needs to be developed. The potential customers of this delivery system are the students and faculty members. There has to be online search of products and the customer should be able to perform **online shopping**. There will be various options available to the customers for completing the **payment**- cash on delivery(**_CoD_**) or **credit** system. 
 ## Proposed Solution
 We have tried to implement the online delivery system through concepts of Object Oriented Programming like **modularity**, **abstraction**, **encapsulation** and **generalisation**.
 
@@ -23,7 +23,7 @@ There are three types of users of the system:**customer**(students/faculty membe
 *Moderator* is like an intermediate person co-ordinating between shopkeepers,customers and delivery boys.
 
 
-### Classes and their functions description:
+### Significant classes and their functions description:
 **1.** **Shopkeeper functions:**
 - **constructor:** sets a pending amount to zero and gives a shop id.
 - **login:** compares the password entered by the shopkeeper with the password that is in the database and returns true/false.
@@ -41,6 +41,15 @@ There are three types of users of the system:**customer**(students/faculty membe
 - **get_details:** inputs data required for registration/edit profile.
 - **add_cart:** adds the items selected by the customer to the cart.
 - **select_items:** co-ordinates displaying items and adding to cart and returns the final transaction details.
+
+**4. Moderator functions:**
+- **login:** authenticates password.
+- **get_customer_mails:**retrieving customer emails to send holiday mail.
+- **get_shopkeeper_mails:**retrieving shopkeeper emails to send holiday mail.
+- **mail_holiday:** triggers sending email for holiday.
+- **mail_vacation:** triggers sending email for vacation.
+- **assign_delivery_boy:** assigning delivery boy for delivery.
+- **update_password:** enables moderator to change/update password.
 
 ### User Registeration
 Users(customer/shopkeeper) can register in the portal. Registration requires the following details of the users:
@@ -65,7 +74,7 @@ Email for both shopkeepers and customers can be of IITJ domain only. No emails w
 There are some rules defined for setting password. User also has to agree to some **_terms and conditions_** (defined separately for shopkeepers and customers) to get registered.
 ### Login
 Logging into the system requires email and password to be entered. 
-Moderator is given a separate email id (of IITJ domain only).
+Moderator is given a separate email id (of IITJ domain only) and a predefined password. He can change/update the password anytime he wants.
 
 We have implemented C++ functions for authentication of emaild id and password.
 ### After Login
@@ -75,7 +84,10 @@ which works on basis of keyword matching is also present. The customer would hav
 #### Shopkeeper Login
 A screen is displayed with different actions to choose from such as viewing and editing profile, updating and adding shop items, view transaction history,etc. 
 
-The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.</br>
+The shopkeeper has the option to view his profile and edit his deltails. In option of adding items to the shop, he can add altogether new items apart from the existing ones. Updating items allows shopkeeper to update the name or quantity of the existing items. He can also view his monetory transaction history upto the present date.
+#### Moderator Login
+A screen with different actions to choose from is displayed. Moderator can send emails declaring holiday or vacation for CC, he can change/update password and edit credit balance of customer.
+
 ## Running the Code
 Code is written on a Linux Machine, (**ubuntu 18.04**), and we have used various Linux Machine Commands, windows users can run it on WSL Terminal or Windows Terminals or equivalent Linux virtual enviornments, e.g., for password input we have used **_stty_** linux command, hence the **code might not run on other platforms**. Codes were further executed using **g++** compiler and **python3.6**.
 

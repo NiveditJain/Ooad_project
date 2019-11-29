@@ -75,7 +75,7 @@ Transaction process(ulli option, Customer customer,Transaction &t)
            //Print the Transaction slip
            for(int i=0;i<20;i++)
          {if(temp.items[i].quantity>0)
-             cout<<endl<<temp.items[i].name<<"\t"<<temp.items[i].quantity;
+             cout<<temp.items[i].name<<"\t"<<temp.items[i].quantity<<endl;
          }
        }
        file.close();

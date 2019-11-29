@@ -37,13 +37,35 @@ Shop get_shop(ulli Shop_id)
 void display_shops()
 {
     ulli number_of_shops=number_of_shop();
-    cout<<"\nShop_ID"<<"\t"<<"Category\n";
+    ulli flag=0;
     for(ulli i=0;i<number_of_shops;i++)
     { 
-        Shop shop=get_shop(i);
-        cout<<"> "<<i<<"\t"<<shop.category<<"\n";
+        string id=Utilities::ulli_to_string(i);
+        string path="database/shop_data/"+id+".num";
+        fstream file("path",ios::in);
+        ulli num=0;
+        file>>num;
+        if(num)
+        {
+        flag++;
+        }
     }
-}
+    if(flag==0)
+    {
+            cout<<"sorry! all shops are out of stock :(\n";
+            exit(0);
+    }
+    else
+    {
+        cout<<"\nShop_ID"<<"\t"<<"Category\n";
+        for(ulli i=0;i<number_of_shops;i++)
+        { 
+            string id=Utilities::ulli_to_string(i);
+            Shop shop=get_shop(i);
+            cout<<"> "<<i<<"\t"<<shop.category<<"\n";
+        }
+    }        
+    }
 void display_shop_details(char *shop_category)
 {
    string Shop_category="";

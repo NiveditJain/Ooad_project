@@ -220,20 +220,11 @@ int customer_portal(string email)
     customer=get_customer(email);
     string password;char retry='n';string tryagain="NO";
     password=Terminal::get_password();
-    while(!customer.login(password))
-       {cout<<"\n> Invalid email password combination";
-        cout<<"\n> Do you want to retry? ";
-        cin>>tryagain;
-        if((tryagain)=="y"||(tryagain)=="yes"||tryagain=="Y")
-        {cout<<"\n> Re-enter your password::";
-        password=Terminal::get_password();continue;}
-        else break; 
+    if(!customer.login(password))
+       {cout<<"\n> Invalid email password combination aborting process";
+       return -1; 
        }
-       if(tryagain=="n"||tryagain=="no"||tryagain=="N")
-       {cout<<"\n> Thanks for using our services";return 0;} 
        Transaction t;t.Initialise(email);
-       return home_page_customer(customer,t);
-       
-     
+       return home_page_customer(customer,t);  
 }
 #endif     

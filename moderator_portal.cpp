@@ -34,16 +34,44 @@ int moderator_portal()
     cout<<"> Welcome Moderator!"<<endl;
     cout<<"> Choose your action:"<<endl;
     cout<<"> 1. Holiday/Vacation declaration"<<endl;
-    cout<<"> 2. Update customer credit"<<endl;
+    cout<<"> 2. Decrease Credit Balance of a customer"<<endl;
     cout<<"> 3. Change password"<<endl;
     cout<<"> 4. Logout"<<endl;
-    cout<<"> Enter your choice:"<<endl;
+    cout<<"> Enter your choice :: ";
     cin>>choice;
     switch(choice)
     {
         case 1:holiday_vacation();
                 break;
-        // case 2: MB();
+        case 2: 
+        {
+            cout<<"> Enter the email of customer :: ";
+
+            char waste;
+            scanf("%c",&waste);
+
+            string email=Utilities::get_email();
+
+            unsigned long long int amount_to_decrease;
+            cout<<"> Enter amount to decrease :: ";
+            cin>>amount_to_decrease;
+
+            if(email.length()==0)
+            {
+                cout<<"> Invalid email\n";
+                exit(0);
+            }
+
+            try
+            {
+                Moderator::set_credit_0(email,amount_to_decrease);
+            }
+            catch(Utilities::my_exception error)
+            {
+                cout<<error.what();
+            }
+            
+        }
                 break;
         case 3: Moderator::update_password();
             break;

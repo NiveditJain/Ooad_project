@@ -5,7 +5,7 @@
 #include "customer.cpp"
 //#include "database.cpp"
 #include "item.cpp"
-#include "moderator.cpp" 
+// #include "moderator.cpp" 
 #include "shop.cpp"
 #include "shopkeeper.cpp" 
 //#include "terminal.cpp"

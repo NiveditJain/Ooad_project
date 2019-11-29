@@ -34,7 +34,7 @@ int process(ulli option, Shopkeeper shopkeeper)
         cout << "> IFSC code : " << shopkeeper.IFSC_code << endl;
         cout << "> Pending amount : " << shopkeeper.pending_amount << endl;
         cout <<"> Account Number : " << shopkeeper.account_name << endl;
-        
+        cout <<"> Press 'a' to return to home page or press 'e' to exit :: ";
         char option1;
         cin >> option1;
         switch (option1){
@@ -43,10 +43,13 @@ int process(ulli option, Shopkeeper shopkeeper)
             system("clear");
             return home_page_shpkpr(shopkeeper);
         }
-        case 'b':
+        case 'e':
         {
             return -1;
         }
+        default:
+            cout<<"> pressed key not recognised";
+            return -1;
         }
         break;
     }

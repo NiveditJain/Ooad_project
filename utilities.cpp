@@ -5,6 +5,21 @@ using namespace std;
 typedef unsigned long long int ulli;
 
 namespace Utilities{
+    struct my_exception
+    {
+        // error message 
+        string message;
+
+        // assigning message to error
+        my_exception(string error): message(error){};
+        
+        // function to get what type of error it is
+        string what()
+        {
+            return message;
+        }
+    };
+
 bool check_email_iitj(char input[]){
     char *ptr;
         ptr= strstr(input,"@iitj.ac.in"); //searches input array for "@iitj.ac.in" string

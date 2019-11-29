@@ -127,6 +127,44 @@ class Moderator
         
     }
 
+    static Customer get_customer(string email)
+    {
+        Customer temp;
+        temp.name[0]='\0';
+        email="database/customer_data/"+email+".ooad";
+        fstream file(email.c_str());
+
+        if(!file)
+        {
+            Utilities::my_exception error("> No such user found in database\n");
+            throw error;
+        }
+
+        file.read((char *)&temp,sizeof(Customer));
+        file.close();
+        return temp;
+    }    
+
+    static void customer_write(Customer temp,string email)
+    {
+        string path="database/customer_data/"+email+".ooad";
+        ofstream file(path.c_str());
+        file.write((char*)&temp,sizeof(Customer));
+        file.close();        
+    }
+
+    static void set_credit_0(string email,unsigned long long int amount_to_decrease)
+    {
+        Customer temp=get_customer(email);
+
+        if(temp.credit_balance<amount_to_decrease)
+            temp.credit_balance=0;
+        else
+            temp.credit_balance=temp.credit_balance-amount_to_decrease;
+        
+        customer_write(temp,email);
+    }
+
     virtual void create_abstract()=0; //to make it an abstract class
 };
 

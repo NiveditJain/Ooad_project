@@ -3,12 +3,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 class Deliveryboy
 {   public:
     string name;
     unsigned long long int contact_number;
 };
-
 
 #endif

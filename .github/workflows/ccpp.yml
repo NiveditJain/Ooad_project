@@ -12,4 +12,4 @@ jobs:
     - name: start
       run: g++ main.cpp
     - name: make
-      run: ./a.out
+      run: ls ./a.out

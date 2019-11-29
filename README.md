@@ -44,8 +44,8 @@ There are three types of users of the system:**customer**(students/faculty membe
 
 **4. Moderator functions:**
 - **login:** authenticates password.
-- **get_customer_mails:**retrieving customer emails to send holiday mail.
-- **get_shopkeeper_mails:**retrieving shopkeeper emails to send holiday mail.
+- **get_customer_mails:** retrieving customer emails to send holiday mail.
+- **get_shopkeeper_mails:** retrieving shopkeeper emails to send holiday mail.
 - **mail_holiday:** triggers sending email for holiday.
 - **mail_vacation:** triggers sending email for vacation.
 - **assign_delivery_boy:** assigning delivery boy for delivery.

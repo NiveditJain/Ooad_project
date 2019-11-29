@@ -144,22 +144,9 @@ int shopkeeper_portal(string email)
     if(password.length()==0)
         return -1;
 
-    while(!shopkeeper.login(password))
+    if(!shopkeeper.login(password))
     {
-        cout<<"> invalid email password combination";
-        cout<<"\n> Do you want to re-enter password? (y/n)";
-        char input;
-        cin>>input;
-        
-        if(input=='y'||input=='Y')
-        {
-          cout<<"> Enter your password :: ";
-          password=Terminal::input_password();
-    
-        if(password.length()!=0)
-        continue;
-        }
-        else 
+        cout<<"> invalid email password combination aborting process";
         return -1;
     }
     cout << "\n> Welcome " << shopkeeper.name << " !\n";

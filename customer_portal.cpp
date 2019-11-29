@@ -148,7 +148,27 @@ Transaction process(ulli option, Customer customer,Transaction &t)
             else
                 exit(0);
 
-            // call mailer after MUSKAN
+            cout<<"> Delivery Slots:"<<endl;
+            cout<<"> 1) 11:00 to 12:00"<<endl;
+            cout<<"> 2) 13:00 to 15:00"<<endl;
+            cout<<"> 3) 15:30 to 17:00"<<endl;
+            cout<<"> 4) 17:30 to 19:00"<<endl;
+            cout<<"> 5) 19:30 to 20:30"<<endl;
+
+            int option_selected,option_selected2;
+             cout<<"> Please input the delivery slot suitable for you\n";
+             cin>>option_selected;
+
+            cout<<endl;
+            cout<<"> Delivery Locations:"<<endl;
+            cout<<"> 1)Common garden,Faculty Quarters\n";
+            cout<<"> 2)Admin/Library Block\n";
+            cout<<"> 3)LHC\n";
+            cout<<"> 4)Dining Hall Building\n";
+            cout<<"> 5)Common area between Green and Blue Student Hostels\n";
+            cout<<"> Please input the delivery location suitable for you\n";
+            cin>>option_selected2;
+            
             int deiver_boy_number=Moderator::assign_delivery_boy();
             string temp_name(customer.name);
             string temp_email(customer.email);

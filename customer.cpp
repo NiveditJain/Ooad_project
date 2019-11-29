@@ -42,9 +42,10 @@ void display_shops()
     { 
         string id=Utilities::ulli_to_string(i);
         string path="database/shop_data/"+id+".num";
-        fstream file("path",ios::in);
+        fstream file(path.c_str());
         ulli num=0;
         file>>num;
+        cout<<num<<"\n";
         if(num)
         {
         flag++;
@@ -52,8 +53,8 @@ void display_shops()
     }
     if(flag==0)
     {
-            cout<<"sorry! all shops are out of stock :(\n";
-            exit(0);
+        cout<<"sorry! all shops are out of stock :(\n";
+        exit(0);
     }
     else
     {

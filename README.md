@@ -79,8 +79,7 @@ Moderator is given a separate email id (of IITJ domain only) and a predefined pa
 We have implemented C++ functions for authentication of emaild id and password.
 ### After Login
 #### Customer Login
-A screen is displayed with different actions to choose from like shopping,viewing transcation history,view and edit profile ,logout etc. For shopping, names of various shops is displayed and on selecting a shop, products of that shops are displayed; a search option
-which works on basis of keyword matching is also present. The customer would have to enter quantity of items after searching the items. These items with their quantity are added to the cart.After shopping, the customer has to proceed to checkout and proceed for payment thereafter. On selecting the cart,order summary and total amount is visible with an option to checkout.
+A screen is displayed with different actions to choose from like shopping,viewing transcation history,view and edit profile ,logout etc. For shopping, names of various shops is displayed and on selecting a shop, products of that shops are displayed; customer would have to select items for shopping and then would have to enter quantity of items. These items with their quantity are added to the cart.After shopping, the customer has to proceed to checkout and proceed for payment thereafter. On selecting the cart,order summary and total amount is visible with an option to checkout.
 #### Shopkeeper Login
 A screen is displayed with different actions to choose from such as viewing and editing profile, updating and adding shop items, view transaction history,etc. 
 

@@ -1,5 +1,5 @@
  # CC Basket - Online Delivery System
-![system requirements](https://img.shields.io/badge/G%2B%2B%20Vesion-7.4.0-red)
+![system requirements](https://img.shields.io/badge/g%2B%2B%20Version-7.4.0-red)
 ![system requirements](https://img.shields.io/badge/Python-3.6.8-orange)
 ![system requirements](https://img.shields.io/badge/OS-Ubuntu%2018.04.1-yellow)
 ![OOAD Project](https://img.shields.io/badge/Project-OOAD-yellowgreen)

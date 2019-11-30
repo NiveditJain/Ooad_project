@@ -144,8 +144,40 @@ int shopkeeper_portal(string email)
 
     if(!shopkeeper.login(password))
     {
-        cout<<"> invalid email password combination aborting process";
-        return -1;
+        cout<<"> invalid email password combination\n";
+        cout<<"> Do you want to login with OTP? (y/n)";
+        char ch;
+        cin>>ch;
+
+        if(ch!='y')
+            return -1;
+
+        if(ch=='y')
+        {
+            cout<<"> Sending OTP on your mail and mobile\n";
+            string temp_name(shopkeeper.name);
+            string temp_number(shopkeeper.contact_number);
+            string otp=Network::OTP_password(temp_name,temp_number,email);
+
+            if(otp.length()==0)
+                return -1;
+
+            string entered_otp;
+            cout<<"> Enter the OTP :: ";
+
+            char waste;
+            scanf("%c",&waste);
+
+            getline(cin,entered_otp);
+
+            if(strcmp(entered_otp.c_str(),otp.c_str())!=0)
+            {
+                cout<<"> Invalid OTP";
+                return -1;
+            }
+
+        }
+
     }
     cout << "\n> Welcome " << shopkeeper.name << " !\n";
 

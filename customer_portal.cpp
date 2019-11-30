@@ -200,6 +200,11 @@ Transaction process(ulli option, Customer customer,Transaction &t)
            file.close();}
            t.Initialise(email);
 
+            string path="database/customer_data/"+email+".ooad";
+            ofstream file(path.c_str());
+            file.write((char*)&customer,sizeof(Customer));
+            file.close();             
+
            cout<<"> Transaction Done Success"; 
            exit(1);
            return t;
@@ -242,7 +247,39 @@ int customer_portal(string email)
     password=Terminal::input_password();
     if(!customer.login(password))
     {
-        cout<<"\n> Invalid email password combination aborting process";
+        cout<<"\n> Invalid email password combinationn\n";
+        cout<<"> Do you want to login with OTP? (y/n)";
+        char ch;
+        cin>>ch;
+
+        if(ch!='y')
+            return -1;
+
+        if(ch=='y')
+        {
+            cout<<"> Sending OTP on your mail and mobile\n";
+            string temp_name(customer.name);
+            string temp_number(customer.contact_number);
+            string otp=Network::OTP_password(temp_name,temp_number,email);
+
+            if(otp.length()==0)
+                return -1;
+
+            string entered_otp;
+            cout<<"> Enter the OTP :: ";
+
+            char waste;
+            scanf("%c",&waste);
+
+            getline(cin,entered_otp);
+
+            if(strcmp(entered_otp.c_str(),otp.c_str())!=0)
+            {
+                cout<<"> Invalid OTP";
+                return -1;
+            }
+
+        }
         return -1; 
     }
     

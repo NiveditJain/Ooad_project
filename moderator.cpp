@@ -157,11 +157,15 @@ class Moderator
     {
         Customer temp=get_customer(email);
 
+        cout<<"> Credit Balance changed from "<<temp.credit_balance<<" to ";
+
         if(temp.credit_balance<amount_to_decrease)
             temp.credit_balance=0;
         else
             temp.credit_balance=temp.credit_balance-amount_to_decrease;
         
+        cout<<temp.credit_balance<<"\n";
+
         customer_write(temp,email);
     }
 

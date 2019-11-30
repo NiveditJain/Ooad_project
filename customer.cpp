@@ -45,7 +45,6 @@ void display_shops()
         fstream file(path.c_str());
         ulli num=0;
         file>>num;
-        cout<<num<<"\n";
         if(num)
         {
         flag++;

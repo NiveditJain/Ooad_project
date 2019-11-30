@@ -16,7 +16,7 @@ void display_transaction_details(char* name){
     ifstream file(path.c_str());
     cout<<"email\t\tname\t\tquantity"<<endl;
     while(file.read((char*)&trans,sizeof(Shop_trans))){
-        cout<<trans.email<<"\t\t"<<trans.name<<"\t\t"<<trans.quantity<<endl;
+        cout<<trans.email<<"\t"<<trans.name<<"\t"<<trans.quantity<<endl;
     }
 }
 

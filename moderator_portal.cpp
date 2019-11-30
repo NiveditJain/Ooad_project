@@ -7,7 +7,6 @@ using namespace std;
 #include "customer.cpp"
 #include "utilities.cpp"
 void holiday_vacation();
-void MB();
 int moderator_portal()
 {
     string password;

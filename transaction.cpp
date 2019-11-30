@@ -41,17 +41,6 @@ class Transaction{
 };
 
 
-//calculating grand total
-/*ulli Transaction :: total_price(){ 
-   ulli totalprice=0;
-    for(ulli i=0;i<20;i++)
-    {
-        totalprice+=items[i].quantity*items[i].price;
-    }
-    return totalprice;
-} */
-
-
 
 void Transaction :: update(ulli x,ulli y)
 {

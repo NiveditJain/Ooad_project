@@ -238,8 +238,8 @@ int customer_portal(string email)
     Customer customer;
     cout<<"> Enter your password :: ";
     customer=get_customer(email);
-    string password;char retry='n';string tryagain="NO";
-    password=Terminal::get_password();
+    string password;
+    password=Terminal::input_password();
     if(!customer.login(password))
     {
         cout<<"\n> Invalid email password combination aborting process";
